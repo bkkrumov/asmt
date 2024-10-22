@@ -404,9 +404,9 @@ code {
 <p>At the beginning of each section, a clickable table of contents allows you to jump directly to specific topics. This structure is optimized for both desktop and mobile readability, making it easy to reference on any device.</p>
 <hr>
 <h3 id="2-technical-expertise"><strong>2. Technical Expertise</strong></h3>
-<p>This section focuses on the core technical skills and knowledge expected of a Senior/Senior/Lead JavaScript Developer. These include mastering JavaScript, TypeScript, core computer science fundamentals, and understanding various programming paradigms. Proficiency in these areas will help you solve real-world problems efficiently and provide solid architectural decisions.</p>
+<p>This section focuses on the core technical skills and knowledge expected of a Senior/Lead JavaScript Developer. These include mastering JavaScript, TypeScript, core computer science fundamentals, and understanding various programming paradigms. Proficiency in these areas will help you solve real-world problems efficiently and provide solid architectural decisions.</p>
 <h4 id="javascript--typescript"><strong>JavaScript &amp; TypeScript</strong></h4>
-<p>A Senior/Senior/Lead Developer should have an <strong>Expert</strong> level in either JavaScript or TypeScript and <strong>Advanced</strong> knowledge in related technologies. Mastery of these languages forms the foundation of successful project development and architecture.</p>
+<p>A Senior/Lead Developer should have an <strong>Expert</strong> level in either JavaScript or TypeScript and <strong>Advanced</strong> knowledge in related technologies. Mastery of these languages forms the foundation of successful project development and architecture.</p>
 <h5 id="javascript-es6-features"><strong>JavaScript ES6+ Features</strong></h5>
 <p>JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing many new features for writing cleaner, more efficient code. Key features include:</p>
 <ul>
@@ -605,6 +605,23 @@ numbers.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>)
 stack.push(<span class="hljs-number">1</span>);  <span class="hljs-comment">// [1]</span>
 stack.push(<span class="hljs-number">2</span>);  <span class="hljs-comment">// [1, 2]</span>
 stack.pop();    <span class="hljs-comment">// [1]</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Map</strong>: A collection of key-value pairs, where both keys and values can be of any data type. Maps maintain the insertion order and offer optimal performance for frequent additions and deletions.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+map.set(<span class="hljs-string">'name'</span>, <span class="hljs-string">'John'</span>);
+<span class="hljs-built_in">console</span>.log(map.get(<span class="hljs-string">'name'</span>));  <span class="hljs-comment">// 'John'</span>
+map.delete(<span class="hljs-string">'name'</span>);
+</div></code></pre>
+</li>
+<li>
+<p><strong>Set</strong>: A collection of unique values, where each value can only occur once. Sets ensure that there are no duplicates and preserve insertion order.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> <span class="hljs-keyword">set</span> = new Set();
+<span class="hljs-keyword">set</span>.add(1);      // {<span class="hljs-number">1</span>}
+<span class="hljs-keyword">set</span>.add(2);      // {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+<span class="hljs-keyword">set</span>.add(2);      // {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>} (No duplicates allowed)
+<span class="hljs-keyword">set</span>.delete(1);   // {<span class="hljs-number">2</span>}
 </div></code></pre>
 </li>
 </ul>
