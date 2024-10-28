@@ -455,9 +455,15 @@ Go to <b>Table of Contents</b>
 <li>
 <p><strong>Let/Const</strong>:</p>
 <ul>
-<li><strong>Let</strong> and <strong>Const</strong> are block-scoped variables. Variables declared with <code>let</code> can be reassigned, while variables declared with <code>const</code> are immutable after their initial assignment.</li>
-<li>This prevents the accidental overwriting of variables, which can occur with the <code>var</code> keyword.</li>
-<li><strong>Hoisting</strong>: Unlike <code>var</code>, variables declared with <code>let</code> and <code>const</code> are not initialized during the hoisting phase. Hoisting refers to the JavaScript mechanism where variable and function declarations are moved to the top of their scope during the compile phase. However, while <code>var</code> allows access to the variable before it is declared (with an <code>undefined</code> value), <code>let</code> and <code>const</code> throw a <code>ReferenceError</code> if accessed before initialization.</li>
+<li>
+<p><strong>Let</strong> and <strong>Const</strong> are block-scoped variables. Variables declared with <code>let</code> can be reassigned, while variables declared with <code>const</code> are immutable after their initial assignment.</p>
+</li>
+<li>
+<p>This prevents the accidental overwriting of variables, which can occur with the <code>var</code> keyword.</p>
+</li>
+<li>
+<p><strong>Hoisting</strong>: Unlike <code>var</code>, variables declared with <code>let</code> and <code>const</code> are not initialized during the hoisting phase. Hoisting refers to the JavaScript mechanism where variable and function declarations are moved to the top of their scope during the compile phase. However, while <code>var</code> allows access to the variable before it is declared (with an <code>undefined</code> value), <code>let</code> and <code>const</code> throw a <code>ReferenceError</code> if accessed before initialization.</p>
+</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-comment">// Example with let and hoisting</span>
 <span class="hljs-built_in">console</span>.log(x);  <span class="hljs-comment">// ReferenceError: Cannot access 'x' before initialization</span>
@@ -467,9 +473,15 @@ Go to <b>Table of Contents</b>
 <li>
 <p><strong>Arrow Functions</strong>:</p>
 <ul>
-<li>Arrow functions provide a shorter syntax for writing functions and are a feature introduced in ES6. They are syntactically compact, making code cleaner and easier to read, especially in the context of inline functions. Arrow functions also lexically bind the <code>this</code> keyword, unlike traditional functions where <code>this</code> is dynamically scoped.</li>
-<li>In traditional JavaScript functions, the value of <code>this</code> depends on how the function is called. In contrast, in an arrow function, <code>this</code> is inherited from the surrounding context. This is particularly useful when working with event handlers, promises, and other callback scenarios where maintaining the original context is crucial.</li>
-<li>However, arrow functions have some limitations. They cannot be used as constructors, and they do not have their own <code>arguments</code> object. These behaviors make them less flexible in scenarios where traditional functions are required.</li>
+<li>
+<p>Arrow functions provide a shorter syntax for writing functions and are a feature introduced in ES6. They are syntactically compact, making code cleaner and easier to read, especially in the context of inline functions. Arrow functions also lexically bind the <code>this</code> keyword, unlike traditional functions where <code>this</code> is dynamically scoped.</p>
+</li>
+<li>
+<p>In traditional JavaScript functions, the value of <code>this</code> depends on how the function is called. In contrast, in an arrow function, <code>this</code> is inherited from the surrounding context. This is particularly useful when working with event handlers, promises, and other callback scenarios where maintaining the original context is crucial.</p>
+</li>
+<li>
+<p>However, arrow functions have some limitations. They cannot be used as constructors, and they do not have their own <code>arguments</code> object. These behaviors make them less flexible in scenarios where traditional functions are required.</p>
+</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-comment">// Example of arrow function</span>
 <span class="hljs-keyword">const</span> multiply = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a * b;
@@ -489,8 +501,12 @@ Go to <b>Table of Contents</b>
 <li>
 <p><strong>Destructuring</strong>:</p>
 <ul>
-<li>Destructuring is a convenient way to unpack values from arrays or properties from objects into distinct variables. It helps simplify the extraction of values, making the code more readable and reducing redundancy. It is commonly used in function arguments, object manipulations, and state management.</li>
-<li>Array and object destructuring allows developers to access nested objects and specific indices from arrays with minimal syntax. It also supports default values for missing properties or array elements.</li>
+<li>
+<p>Destructuring is a convenient way to unpack values from arrays or properties from objects into distinct variables. It helps simplify the extraction of values, making the code more readable and reducing redundancy. It is commonly used in function arguments, object manipulations, and state management.</p>
+</li>
+<li>
+<p>Array and object destructuring allows developers to access nested objects and specific indices from arrays with minimal syntax. It also supports default values for missing properties or array elements.</p>
+</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-comment">// Array destructuring</span>
 <span class="hljs-keyword">const</span> [first, second] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
@@ -502,9 +518,18 @@ Go to <b>Table of Contents</b>
 <li>
 <p><strong>Promises and Async/Await</strong>:</p>
 <ul>
-<li>Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They provide a clean way to handle asynchronous operations and avoid callback hell.</li>
-<li><strong>Async/Await</strong> syntax, built on top of promises, allows you to write asynchronous code in a synchronous manner. The <code>async</code> keyword declares an asynchronous function, and the <code>await</code> keyword pauses the function execution until the promise resolves.</li>
-<li>This syntax improves readability and helps avoid deeply nested <code>.then()</code> chains when managing multiple asynchronous calls. However, you need to handle errors properly with <code>try/catch</code> blocks when using <code>async/await</code>.</li>
+<li>
+<p>Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They provide a clean way to handle asynchronous operations and avoid callback hell.</p>
+</li>
+<li>
+<p>Callback Hell occurs in JavaScript when multiple asynchronous operations are nested within each other, creating a deeply indented and hard-to-read structure. This &quot;pyramid of doom&quot; makes code difficult to maintain and debug. Modern solutions like Promises and async/await offer more readable ways to handle asynchronous tasks, reducing the need for deeply nested callbacks.</p>
+</li>
+<li>
+<p>Async/Await syntax, built on top of promises, allows you to write asynchronous code in a synchronous manner. The <code>async</code> keyword declares an asynchronous function, and the <code>await</code> keyword pauses the function execution until the promise resolves.</p>
+</li>
+<li>
+<p>This syntax improves readability and helps avoid deeply nested <code>.then()</code> chains when managing multiple asynchronous calls. However, you need to handle errors properly with <code>try/catch</code> blocks when using <code>async/await</code>.</p>
+</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> fetchData = <span class="hljs-keyword">async</span> () =&gt; {
   <span class="hljs-keyword">try</span> {
@@ -520,8 +545,12 @@ Go to <b>Table of Contents</b>
 <li>
 <p><strong>Template Literals</strong>:</p>
 <ul>
-<li>Template literals, introduced in ES6, provide a more flexible and readable way to create strings, especially when embedding variables or expressions. They use backticks (<code>`</code>) instead of single or double quotes, and support multi-line strings and interpolation of variables with <code>${}</code>.</li>
-<li>Template literals can also handle complex string concatenations and enable the creation of tagged templates, which can be used for advanced string processing.</li>
+<li>
+<p>Template literals, introduced in ES6, provide a more flexible and readable way to create strings, especially when embedding variables or expressions. They use backticks (<code>`</code>) instead of single or double quotes, and support multi-line strings and interpolation of variables with <code>${}</code>.</p>
+</li>
+<li>
+<p>Template literals can also handle complex string concatenations and enable the creation of tagged templates, which can be used for advanced string processing.</p>
+</li>
 </ul>
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> name = <span class="hljs-string">"World"</span>;
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>!`</span>);  <span class="hljs-comment">// Output: Hello, World!</span>
@@ -545,6 +574,47 @@ Go to <b>Table of Contents</b>
   isAdmin: <span class="hljs-literal">true</span>,
 };
 </div></code></pre>
+<ul>
+<li>
+<p>Types vs Interfaces:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>Type</strong></th>
+<th><strong>Interface</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definition</strong></td>
+<td>Defines custom types using <code>type</code> keyword</td>
+<td>Defines shapes for objects using <code>interface</code> keyword</td>
+</tr>
+<tr>
+<td><strong>Extensibility</strong></td>
+<td>Can use <code>&amp;</code> to combine types (intersection types)</td>
+<td>Can be extended by other interfaces using <code>extends</code></td>
+</tr>
+<tr>
+<td><strong>Object Types &amp; Primitives</strong></td>
+<td>Supports objects, unions, intersections, and primitives</td>
+<td>Primarily used for defining object shapes</td>
+</tr>
+<tr>
+<td><strong>Merging</strong></td>
+<td>Cannot be merged; re-declaring creates a new type</td>
+<td>Supports declaration merging, allowing for extended definitions</td>
+</tr>
+<tr>
+<td><strong>Compatibility</strong></td>
+<td>More flexible; can be used in complex type combinations</td>
+<td>Best suited for defining the structure of objects and classes</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 </li>
 <li>
 <p><strong>Generics</strong>: Generics allow for creating reusable and flexible components that can work with any data type while ensuring type safety.</p>
@@ -688,16 +758,6 @@ map.delete(<span class="hljs-string">'name'</span>);
 <li>
 <p><strong>Dependency Injection</strong>: Dependency injection is a design pattern used in OOP to reduce tight coupling between classes by injecting dependencies rather than creating them internally. This pattern makes code more modular, testable, and easier to maintain.</p>
 </li>
-<li>
-<p><strong>SOLID Principles</strong>:</p>
-<ul>
-<li><strong>Single Responsibility Principle</strong>: Each class should have only one responsibility or reason to change.</li>
-<li><strong>Open/Closed Principle</strong>: Software entities (classes, modules, functions) should be open for extension but closed for modification.</li>
-<li><strong>Liskov Substitution Principle</strong>: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.</li>
-<li><strong>Interface Segregation Principle</strong>: Clients should not be forced to depend on interfaces they do not use.</li>
-<li><strong>Dependency Inversion Principle</strong>: High-level modules should not depend on low-level modules; both should depend on abstractions.</li>
-</ul>
-</li>
 </ul>
 <h5 id="real-world-example-of-oop">Real-World Example of OOP</h5>
 <p>Imagine you are designing a car rental system. You might create a base class <code>Vehicle</code> with properties like <code>speed</code> and <code>capacity</code>, and methods like <code>start</code> and <code>stop</code>. Subclasses such as <code>Car</code>, <code>Truck</code>, and <code>Motorcycle</code> can inherit from <code>Vehicle</code> and implement additional functionalities specific to each vehicle type.</p>
@@ -715,6 +775,12 @@ map.delete(<span class="hljs-string">'name'</span>);
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
 <span class="hljs-keyword">const</span> newArr = [...arr, <span class="hljs-number">4</span>];  <span class="hljs-comment">// Original array is unchanged</span>
 </div></code></pre>
+</li>
+<li>
+<p><strong>Iterator Function</strong>: Functions in JavaScript provide a way to loop over a collection of data, such as an array, string, or map, using the for...of loop. An iterator function must define a next() method that returns an object with two properties, value and done, indicating the current value and the end of the collection.</p>
+</li>
+<li>
+<p><strong>Generator Function(func*)</strong>: Type of iterator that allows for more complex iteration logic and the ability to pause and resume the iteration at any point using the yield keyword. A generator function returns an iterator object, which can be used to iterate over the values generated by the function.</p>
 </li>
 <li>
 <p><strong>First-Class Functions</strong>: In FP, functions are first-class entities, meaning they can be assigned to variables, passed as arguments, and returned from other functions.</p>
@@ -738,9 +804,8 @@ map.delete(<span class="hljs-string">'name'</span>);
 <span class="hljs-built_in">console</span>.log(addTwo(<span class="hljs-number">3</span>));  <span class="hljs-comment">// Output: 5</span>
 </div></code></pre>
 </li>
-</ul>
-<h5 id="memoization"><strong>Memoization</strong></h5>
-<p>Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again. This is commonly used in recursive algorithms to reduce redundant computations.</p>
+<li>
+<p><strong>Memoization</strong>: Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again. This is commonly used in recursive algorithms to reduce redundant computations.</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> memoize = <span class="hljs-function">(<span class="hljs-params">fn</span>) =&gt;</span> {
   <span class="hljs-keyword">const</span> cache = {};
   <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
@@ -752,6 +817,8 @@ map.delete(<span class="hljs-string">'name'</span>);
   };
 };
 </div></code></pre>
+</li>
+</ul>
 <h5 id="real-world-example-of-fp">Real-World Example of FP</h5>
 <p>In a weather app, you might have a pure function that takes the user's location as input and returns the current temperature. By ensuring the function is pure, you avoid unintended side effects, such as altering global variables or affecting other parts of the program.</p>
 <hr>
@@ -783,8 +850,12 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="key-differences">Key Differences</h5>
 <ul>
-<li><strong>Security</strong>: HTTPS encrypts communication, ensuring that sensitive data cannot be easily intercepted or altered in transit, while HTTP transmits data in plaintext, making it vulnerable to attacks.</li>
-<li><strong>Performance</strong>: HTTPS adds a slight overhead due to the SSL handshake. However, modern protocols like HTTP/2 and HTTP/3, which are built on HTTPS, introduce optimizations that mitigate this performance hit.</li>
+<li>
+<p><strong>Security</strong>: HTTPS encrypts communication, ensuring that sensitive data cannot be easily intercepted or altered in transit, while HTTP transmits data in plaintext, making it vulnerable to attacks.</p>
+</li>
+<li>
+<p><strong>Performance</strong>: HTTPS adds a slight overhead due to the SSL handshake. However, modern protocols like HTTP/2 and HTTP/3, which are built on HTTPS, introduce optimizations that mitigate this performance hit.</p>
+</li>
 </ul>
 <h5 id="real-world-example">Real-World Example</h5>
 <p>In a web application dealing with user authentication or financial transactions, using HTTPS is mandatory to prevent attackers from intercepting sensitive data.</p>
@@ -803,9 +874,15 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="key-differences">Key Differences</h5>
 <ul>
-<li><strong>HTTP/1.1</strong>: Sends one request per connection, leading to potential bottlenecks.</li>
-<li><strong>HTTP/2</strong>: Supports multiplexing, reducing latency and improving performance.</li>
-<li><strong>HTTP/3</strong>: Uses QUIC and UDP, offering faster, more reliable communication, especially on poor networks.</li>
+<li>
+<p><strong>HTTP/1.1</strong>: Sends one request per connection, leading to potential bottlenecks.</p>
+</li>
+<li>
+<p><strong>HTTP/2</strong>: Supports multiplexing, reducing latency and improving performance.</p>
+</li>
+<li>
+<p><strong>HTTP/3</strong>: Uses QUIC and UDP, offering faster, more reliable communication, especially on poor networks.</p>
+</li>
 </ul>
 <h5 id="real-world-example">Real-World Example</h5>
 <p>For a large-scale web application that needs to load many resources efficiently, adopting <strong>HTTP/2</strong> or <strong>HTTP/3</strong> can significantly reduce page load times and improve user experience.</p>
@@ -821,8 +898,12 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="key-differences">Key Differences</h5>
 <ul>
-<li><strong>Polling</strong>: Suitable for simple applications but inefficient in real-time scenarios due to repeated requests.</li>
-<li><strong>WebSocket</strong>: Ideal for real-time applications like chat systems, gaming, or live data feeds because it maintains an open connection, allowing instant communication between the client and server.</li>
+<li>
+<p><strong>Polling</strong>: Suitable for simple applications but inefficient in real-time scenarios due to repeated requests.</p>
+</li>
+<li>
+<p><strong>WebSocket</strong>: Ideal for real-time applications like chat systems, gaming, or live data feeds because it maintains an open connection, allowing instant communication between the client and server.</p>
+</li>
 </ul>
 <h5 id="real-world-example">Real-World Example</h5>
 <p>In a live chat application, using <strong>WebSocket</strong> is more efficient than <strong>Polling</strong> because it reduces latency and server load by keeping the connection open for real-time data exchange.</p>
@@ -841,9 +922,15 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="key-differences">Key Differences</h5>
 <ul>
-<li><strong>REST</strong>: Best for standard CRUD operations and stateless communication.</li>
-<li><strong>RPC</strong>: Suitable for tightly coupled systems that need method invocation, often used for microservices.</li>
-<li><strong>GraphQL</strong>: Ideal for applications with complex data requirements, offering flexibility by allowing the client to request only the necessary data in one call.</li>
+<li>
+<p><strong>REST</strong>: Best for standard CRUD operations and stateless communication.</p>
+</li>
+<li>
+<p><strong>RPC</strong>: Suitable for tightly coupled systems that need method invocation, often used for microservices.</p>
+</li>
+<li>
+<p><strong>GraphQL</strong>: Ideal for applications with complex data requirements, offering flexibility by allowing the client to request only the necessary data in one call.</p>
+</li>
 </ul>
 <h5 id="real-world-example">Real-World Example</h5>
 <p>In a social media application, using <strong>GraphQL</strong> can minimize the number of API requests required to fetch user data, posts, comments, and reactions. Instead of making multiple REST API calls, a single GraphQL query can retrieve all the necessary data in one request, reducing server load and improving performance.</p>
@@ -856,127 +943,213 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 <p>Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. This can result in unauthorized data access, manipulation, or even deletion.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Use parameterized queries and prepared statements to prevent SQL injection.</li>
-<li>Never trust user input—always validate and sanitize data before using it in a query.</li>
-<li>Implement proper input validation to block malicious inputs.</li>
+<li>
+<p>Use parameterized queries and prepared statements to prevent SQL injection.</p>
+</li>
+<li>
+<p>Never trust user input—always validate and sanitize data before using it in a query.</p>
+</li>
+<li>
+<p>Implement proper input validation to block malicious inputs.</p>
+</li>
 </ul>
 <hr>
 <h4 id="2-broken-authentication"><strong>2. Broken Authentication</strong></h4>
 <p>Inadequate authentication mechanisms can allow attackers to impersonate users or gain unauthorized access to accounts.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Implement strong password policies (e.g., enforce complexity and expiration rules).</li>
-<li>Use multi-factor authentication (MFA) for additional security.</li>
-<li>Securely manage user sessions by using secure cookies, setting session timeouts, and invalidating sessions on logout.</li>
+<li>
+<p>Implement strong password policies (e.g., enforce complexity and expiration rules).</p>
+</li>
+<li>
+<p>Use multi-factor authentication (MFA) for additional security.</p>
+</li>
+<li>
+<p>Securely manage user sessions by using secure cookies, setting session timeouts, and invalidating sessions on logout.</p>
+</li>
 </ul>
 <hr>
 <h4 id="3-sensitive-data-exposure"><strong>3. Sensitive Data Exposure</strong></h4>
 <p>Sensitive data (e.g., personal information, credit card numbers, or passwords) can be exposed if not properly protected, leading to data breaches.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Always encrypt sensitive data both in transit and at rest using modern encryption algorithms like <strong>AES</strong> and <strong>RSA</strong>.</li>
-<li>Use HTTPS to ensure secure communication between clients and servers.</li>
-<li>Implement strong access controls to limit who can view sensitive data.</li>
+<li>
+<p>Always encrypt sensitive data both in transit and at rest using modern encryption algorithms like <strong>AES</strong> and <strong>RSA</strong>.</p>
+</li>
+<li>
+<p>Use HTTPS to ensure secure communication between clients and servers.</p>
+</li>
+<li>
+<p>Implement strong access controls to limit who can view sensitive data.</p>
+</li>
 </ul>
 <hr>
 <h4 id="4-cross-site-scripting-xss"><strong>4. Cross-Site Scripting (XSS)</strong></h4>
 <p>XSS attacks happen when an attacker injects malicious scripts into a web page viewed by other users, potentially leading to session hijacking, data theft, or redirection to malicious sites.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Use output encoding to escape untrusted data when rendering HTML.</li>
-<li>Implement a <strong>Content Security Policy (CSP)</strong> to prevent unauthorized scripts from running.</li>
-<li>Validate and sanitize user inputs to block script injections.</li>
+<li>
+<p>Use output encoding to escape untrusted data when rendering HTML.</p>
+</li>
+<li>
+<p>Implement a <strong>Content Security Policy (CSP)</strong> to prevent unauthorized scripts from running.</p>
+</li>
+<li>
+<p>Validate and sanitize user inputs to block script injections.</p>
+</li>
 </ul>
 <hr>
 <h4 id="5-security-misconfiguration"><strong>5. Security Misconfiguration</strong></h4>
 <p>Security misconfiguration occurs when security settings are left at their default values or misconfigured, creating vulnerabilities that attackers can exploit.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Regularly audit and update your security configurations.</li>
-<li>Disable unused services, features, and accounts.</li>
-<li>Enforce the principle of <strong>least privilege</strong> by restricting access to only what is necessary for users and applications.</li>
+<li>
+<p>Regularly audit and update your security configurations.</p>
+</li>
+<li>
+<p>Disable unused services, features, and accounts.</p>
+</li>
+<li>
+<p>Enforce the principle of <strong>least privilege</strong> by restricting access to only what is necessary for users and applications.</p>
+</li>
 </ul>
 <hr>
 <h4 id="6-insecure-deserialization"><strong>6. Insecure Deserialization</strong></h4>
 <p>Insecure deserialization occurs when attackers exploit deserialized data to execute arbitrary code or manipulate application logic, leading to data tampering or denial-of-service attacks.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Avoid deserialization of untrusted data.</li>
-<li>Use integrity checks such as digital signatures to verify the authenticity of serialized objects.</li>
-<li>Implement strict input validation and error handling.</li>
+<li>
+<p>Avoid deserialization of untrusted data.</p>
+</li>
+<li>
+<p>Use integrity checks such as digital signatures to verify the authenticity of serialized objects.</p>
+</li>
+<li>
+<p>Implement strict input validation and error handling.</p>
+</li>
 </ul>
 <hr>
 <h4 id="7-insufficient-logging-and-monitoring"><strong>7. Insufficient Logging and Monitoring</strong></h4>
 <p>Failure to log security-critical events or inadequate monitoring of application logs can delay the detection of attacks and make it harder to respond to security breaches.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Ensure that critical activities (e.g., logins, data access, changes) are logged.</li>
-<li>Regularly monitor and review logs for suspicious activity.</li>
-<li>Implement alerts for unusual behaviors, and use automated tools to detect potential threats.</li>
+<li>
+<p>Ensure that critical activities (e.g., logins, data access, changes) are logged.</p>
+</li>
+<li>
+<p>Regularly monitor and review logs for suspicious activity.</p>
+</li>
+<li>
+<p>Implement alerts for unusual behaviors, and use automated tools to detect potential threats.</p>
+</li>
 </ul>
 <hr>
 <h4 id="8-cross-site-request-forgery-csrf"><strong>8. Cross-Site Request Forgery (CSRF)</strong></h4>
 <p>CSRF occurs when an attacker tricks a user into performing actions they did not intend by exploiting their authenticated session with a website.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Use anti-CSRF tokens to validate that requests are coming from legitimate users.</li>
-<li>Implement SameSite cookie attributes to protect against cross-origin requests.</li>
-<li>Enforce strong user authentication mechanisms, especially for sensitive actions.</li>
+<li>
+<p>Use anti-CSRF tokens to validate that requests are coming from legitimate users.</p>
+</li>
+<li>
+<p>Implement SameSite cookie attributes to protect against cross-origin requests.</p>
+</li>
+<li>
+<p>Enforce strong user authentication mechanisms, especially for sensitive actions.</p>
+</li>
 </ul>
 <hr>
 <h4 id="9-using-components-with-known-vulnerabilities"><strong>9. Using Components with Known Vulnerabilities</strong></h4>
 <p>Using outdated or insecure third-party components, libraries, or frameworks can expose your application to known vulnerabilities.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Regularly update your third-party libraries and frameworks to the latest secure versions.</li>
-<li>Use tools like <strong>OWASP Dependency-Check</strong> to identify and manage vulnerable components.</li>
-<li>Only use components from trusted sources and repositories.</li>
+<li>
+<p>Regularly update your third-party libraries and frameworks to the latest secure versions.</p>
+</li>
+<li>
+<p>Use tools like <strong>OWASP Dependency-Check</strong> to identify and manage vulnerable components.</p>
+</li>
+<li>
+<p>Only use components from trusted sources and repositories.</p>
+</li>
 </ul>
 <hr>
 <h4 id="10-insufficient-attack-protection-broken-access-control"><strong>10. Insufficient Attack Protection (Broken Access Control)</strong></h4>
 <p>Broken access control occurs when restrictions on what authenticated users can access are improperly enforced, allowing users to gain access to unauthorized resources.</p>
 <p><strong>Prevention</strong>:</p>
 <ul>
-<li>Enforce strong access controls based on user roles and permissions.</li>
-<li>Use role-based access control (RBAC) to manage user privileges.</li>
-<li>Regularly audit and test access control policies to ensure they are correctly implemented.</li>
+<li>
+<p>Enforce strong access controls based on user roles and permissions.</p>
+</li>
+<li>
+<p>Use role-based access control (RBAC) to manage user privileges.</p>
+</li>
+<li>
+<p>Regularly audit and test access control policies to ensure they are correctly implemented.</p>
+</li>
 </ul>
 <hr>
 <h4 id="cross-site-scripting-xss"><strong>Cross-Site Scripting (XSS)</strong></h4>
 <p>Cross-Site Scripting (XSS) is one of the most common web vulnerabilities. XSS allows attackers to inject malicious scripts into web pages that are viewed by other users. These scripts can be used to steal sensitive information like session tokens, redirect users to malicious websites, or perform actions on behalf of the victim.</p>
 <p>There are three types of XSS attacks:</p>
 <ul>
-<li><strong>Stored XSS</strong>: Malicious script is stored on the server and served to users.</li>
-<li><strong>Reflected XSS</strong>: The malicious script is embedded in the URL and executed when the link is clicked.</li>
-<li><strong>DOM-based XSS</strong>: Occurs when the script is executed directly in the browser’s Document Object Model (DOM) without interacting with the server.</li>
+<li>
+<p><strong>Stored XSS</strong>: Malicious script is stored on the server and served to users.</p>
+</li>
+<li>
+<p><strong>Reflected XSS</strong>: The malicious script is embedded in the URL and executed when the link is clicked.</p>
+</li>
+<li>
+<p><strong>DOM-based XSS</strong>: Occurs when the script is executed directly in the browser’s Document Object Model (DOM) without interacting with the server.</p>
+</li>
 </ul>
 <h5 id="prevention">Prevention</h5>
 <ul>
-<li>Always sanitize and validate user input.</li>
-<li>Use output encoding to escape special characters in the HTML context.</li>
-<li>Implement a <strong>Content Security Policy (CSP)</strong> to restrict sources of executable scripts.</li>
+<li>
+<p>Always sanitize and validate user input.</p>
+</li>
+<li>
+<p>Use output encoding to escape special characters in the HTML context.</p>
+</li>
+<li>
+<p>Implement a <strong>Content Security Policy (CSP)</strong> to restrict sources of executable scripts.</p>
+</li>
 </ul>
 <hr>
 <h4 id="cross-site-request-forgery-csrf"><strong>Cross-Site Request Forgery (CSRF)</strong></h4>
 <p>CSRF attacks occur when a malicious website tricks users into performing actions on another site where they are authenticated. This could result in unauthorized actions like transferring funds or changing user account details.</p>
 <h5 id="prevention">Prevention</h5>
 <ul>
-<li>Use anti-CSRF tokens (e.g., synchronizer tokens) that are required to validate the authenticity of requests.</li>
-<li>Implement SameSite cookies, which prevent the browser from sending cookies along with cross-site requests.</li>
-<li>Validate the origin and referrer headers in incoming requests.</li>
+<li>
+<p>Use anti-CSRF tokens (e.g., synchronizer tokens) that are required to validate the authenticity of requests.</p>
+</li>
+<li>
+<p>Implement SameSite cookies, which prevent the browser from sending cookies along with cross-site requests.</p>
+</li>
+<li>
+<p>Validate the origin and referrer headers in incoming requests.</p>
+</li>
 </ul>
 <hr>
 <h4 id="cors-cross-origin-resource-sharing"><strong>CORS (Cross-Origin Resource Sharing)</strong></h4>
 <p>CORS is a security feature implemented by browsers to restrict web applications from making requests to domains different from the one that served the web page. It is crucial for preventing cross-origin attacks where malicious websites attempt to access restricted resources on another domain.</p>
 <h5 id="key-concepts">Key Concepts</h5>
 <ul>
-<li><strong>Preflight Requests</strong>: Browsers send a preflight request using the HTTP OPTIONS method to check if the server allows cross-origin requests.</li>
-<li><strong>Allowed Headers and Methods</strong>: The server can specify which headers and methods are allowed for cross-origin requests using the <code>Access-Control-Allow-Headers</code> and <code>Access-Control-Allow-Methods</code> headers.</li>
+<li>
+<p><strong>Preflight Requests</strong>: Browsers send a preflight request using the HTTP OPTIONS method to check if the server allows cross-origin requests.</p>
+</li>
+<li>
+<p><strong>Allowed Headers and Methods</strong>: The server can specify which headers and methods are allowed for cross-origin requests using the <code>Access-Control-Allow-Headers</code> and <code>Access-Control-Allow-Methods</code> headers.</p>
+</li>
 </ul>
 <h5 id="best-practices">Best Practices</h5>
 <ul>
-<li>Configure CORS policies to only allow trusted domains to make requests.</li>
-<li>Avoid using wildcard (<code>*</code>) in the <code>Access-Control-Allow-Origin</code> header.</li>
+<li>
+<p>Configure CORS policies to only allow trusted domains to make requests.</p>
+</li>
+<li>
+<p>Avoid using wildcard (<code>*</code>) in the <code>Access-Control-Allow-Origin</code> header.</p>
+</li>
 </ul>
 <hr>
 <h4 id="authentication-and-authorization"><strong>Authentication and Authorization</strong></h4>
@@ -1005,9 +1178,15 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="best-practices">Best Practices</h5>
 <ul>
-<li>Always encrypt JWTs in transit and store them securely (e.g., in <code>HttpOnly</code> cookies to prevent XSS attacks).</li>
-<li>Use strong hashing algorithms (e.g., <code>HS256</code> or <code>RS256</code>) for signing JWTs.</li>
-<li>Implement proper session management, including timeouts and revocation mechanisms.</li>
+<li>
+<p>Always encrypt JWTs in transit and store them securely (e.g., in <code>HttpOnly</code> cookies to prevent XSS attacks).</p>
+</li>
+<li>
+<p>Use strong hashing algorithms (e.g., <code>HS256</code> or <code>RS256</code>) for signing JWTs.</p>
+</li>
+<li>
+<p>Implement proper session management, including timeouts and revocation mechanisms.</p>
+</li>
 </ul>
 <hr>
 <h4 id="content-security-policy-csp"><strong>Content Security Policy (CSP)</strong></h4>
@@ -1039,10 +1218,18 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 <h4 id="common-attacks-and-prevention"><strong>Common Attacks and Prevention</strong></h4>
 <p>Apart from the above, developers should be aware of other common security attacks:</p>
 <ul>
-<li><strong>SQL Injection</strong>: Prevent this by using parameterized queries and avoiding dynamic query construction.</li>
-<li><strong>Man-in-the-Middle Attacks</strong>: Always use HTTPS to encrypt communications and consider using TLS/SSL for added protection.</li>
-<li><strong>DoS/DDoS Attacks</strong>: Use rate-limiting, CAPTCHAs, and services like Cloudflare to mitigate denial-of-service attacks.</li>
-<li><strong>Phishing Attacks</strong>: Educate users about phishing attempts and implement email filtering tools to prevent such attacks.</li>
+<li>
+<p><strong>SQL Injection</strong>: Prevent this by using parameterized queries and avoiding dynamic query construction.</p>
+</li>
+<li>
+<p><strong>Man-in-the-Middle Attacks</strong>: Always use HTTPS to encrypt communications and consider using TLS/SSL for added protection.</p>
+</li>
+<li>
+<p><strong>DoS/DDoS Attacks</strong>: Use rate-limiting, CAPTCHAs, and services like Cloudflare to mitigate denial-of-service attacks.</p>
+</li>
+<li>
+<p><strong>Phishing Attacks</strong>: Educate users about phishing attempts and implement email filtering tools to prevent such attacks.</p>
+</li>
 </ul>
 <hr>
 <h3 id="5-performance-optimization"><strong>5. Performance Optimization</strong></h3>
@@ -1092,18 +1279,6 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 <ul>
 <li>
 <p><strong>Code Splitting</strong>: Break down large JavaScript files into smaller chunks that can be loaded on demand. This is particularly useful in single-page applications (SPA) where not all parts of the application are needed on the initial load.</p>
-<p><strong>Example</strong>: In a React application, code-splitting can be achieved using dynamic imports.</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React, { Suspense } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">const</span> LazyComponent = React.lazy(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./LazyComponent'</span>));
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> (
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">div</span>&gt;</span>Loading...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>}&gt;
-      <span class="hljs-tag">&lt;<span class="hljs-name">LazyComponent</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>&gt;</span></span>
-  );
-}
-</div></code></pre>
 </li>
 <li>
 <p><strong>Lazy Loading</strong>: Delay loading non-critical resources until they are needed. This can apply to images, videos, and scripts. Lazy loading improves initial load times and minimizes bandwidth usage.</p>
@@ -1112,7 +1287,7 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </div></code></pre>
 </li>
 <li>
-<p><strong>CDN (Content Delivery Network)</strong>: Distribute static assets like images, scripts, and stylesheets across geographically distributed servers, allowing users to download these resources from a location closer to them, thus reducing latency.</p>
+<p><strong>CDN (Content Delivery Network)</strong>: Network of geographically distributed servers that deliver web content to users based on their location. CDNs store cached copies of static assets like images, scripts, and stylesheets on servers closer to users, reducing load times, improving website performance, and handling traffic spikes efficiently. This minimizes latency by serving content from a nearby server, enhancing user experience and reducing strain on the origin server.</p>
 </li>
 </ul>
 <hr>
@@ -1124,45 +1299,14 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 <ul>
 <li>
 <p><strong>Debouncing</strong> delays the execution of a function until a specified period has passed since the last call. This is useful for functions that are triggered by events that happen in rapid succession (e.g., keypresses).</p>
-<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay</span>) </span>{
-  <span class="hljs-keyword">let</span> timer;
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
-    clearTimeout(timer);
-    timer = setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> fn.apply(<span class="hljs-keyword">this</span>, args), delay);
-  };
-}
-</div></code></pre>
 </li>
 <li>
 <p><strong>Throttling</strong> ensures that a function is executed at most once in a specified time period, even if it is triggered multiple times.</p>
-<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throttle</span>(<span class="hljs-params">fn, limit</span>) </span>{
-  <span class="hljs-keyword">let</span> lastCall = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
-    <span class="hljs-keyword">const</span> now = <span class="hljs-built_in">Date</span>.now();
-    <span class="hljs-keyword">if</span> (now - lastCall &gt;= limit) {
-      lastCall = now;
-      fn.apply(<span class="hljs-keyword">this</span>, args);
-    }
-  };
-}
-</div></code></pre>
 </li>
 </ul>
 </li>
 <li>
 <p><strong>Memory Management</strong>: Efficient memory management is essential to avoid memory leaks. Always ensure that event listeners are removed when no longer needed, and avoid holding references to objects that should be garbage collected.</p>
-<p><strong>Real-World Example</strong>: In a React application, ensure that event listeners are cleaned up in <code>useEffect</code> hooks.</p>
-<pre class="hljs"><code><div>useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> handleScroll = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'User is scrolling'</span>);
-  };
-  <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, handleScroll);
-
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'scroll'</span>, handleScroll);  <span class="hljs-comment">// Cleanup</span>
-  };
-}, []);
-</div></code></pre>
 </li>
 </ul>
 <hr>
@@ -1179,14 +1323,24 @@ clicks.subscribe(<span class="hljs-function"><span class="hljs-params">event</sp
 </ul>
 <h5 id="tools-for-detection">Tools for Detection</h5>
 <ul>
-<li><strong>Chrome DevTools</strong>: Chrome’s &quot;Memory&quot; tab allows you to track memory usage over time and identify objects that are not being properly garbage-collected.</li>
-<li><strong>Heap Snapshots</strong>: Heap snapshots help visualize memory usage, allowing you to pinpoint leaks by comparing memory allocation at different stages.</li>
+<li>
+<p><strong>Chrome DevTools</strong>: Chrome’s &quot;Memory&quot; tab allows you to track memory usage over time and identify objects that are not being properly garbage-collected.</p>
+</li>
+<li>
+<p><strong>Heap Snapshots</strong>: Heap snapshots help visualize memory usage, allowing you to pinpoint leaks by comparing memory allocation at different stages.</p>
+</li>
 </ul>
 <h5 id="prevention">Prevention</h5>
 <ul>
-<li>Ensure that event listeners, intervals, and timers are cleared when no longer needed.</li>
-<li>Avoid creating unnecessary global variables.</li>
-<li>Use <code>WeakMap</code> and <code>WeakSet</code> for storing objects that do not need to be strongly referenced, allowing them to be garbage-collected when no longer in use.</li>
+<li>
+<p>Ensure that event listeners, intervals, and timers are cleared when no longer needed.</p>
+</li>
+<li>
+<p>Avoid creating unnecessary global variables.</p>
+</li>
+<li>
+<p>Use <code>WeakMap</code> and <code>WeakSet</code> for storing objects that do not need to be strongly referenced, allowing them to be garbage-collected when no longer in use.</p>
+</li>
 </ul>
 <hr>
 <h4 id="long-computations-and-web-workers"><strong>Long Computations and Web Workers</strong></h4>
@@ -1227,30 +1381,228 @@ worker.onmessage = <span class="hljs-function">(<span class="hljs-params">e</spa
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent { }
 </div></code></pre>
 <hr>
-<h4 id="critical-rendering-path-optimization"><strong>Critical Rendering Path Optimization</strong></h4>
-<p>The critical rendering path refers to the sequence of steps the browser takes to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing the critical rendering path improves page load times.</p>
-<h5 id="key-techniques">Key Techniques</h5>
+<h4 id="critical-rendering-path-in-web-performance"><strong>Critical Rendering Path in Web Performance</strong></h4>
+<p>The <strong>Critical Rendering Path</strong> (CRP) is the sequence of steps the browser takes to process and render a webpage. Understanding CRP helps developers optimize performance by minimizing loading times and prioritizing critical resources. This path involves parsing, building data structures, and constructing visual elements, which can be optimized for faster initial rendering.</p>
+<h5 id="the-rendering-process"><strong>The Rendering Process</strong></h5>
+<p>The rendering process begins when the browser requests and receives the initial HTML file from the server. Here’s a breakdown of each phase:</p>
+<ol>
+<li>
+<p><strong>HTML Parsing and DOM Creation</strong>:</p>
 <ul>
 <li>
-<p><strong>Minimize Critical Resources</strong>: Reduce the number of resources the browser must load before rendering the page (e.g., by removing unnecessary CSS or JavaScript).</p>
+<p>The browser downloads the HTML and parses it to create the <strong>DOM (Document Object Model)</strong>.</p>
 </li>
 <li>
-<p><strong>Defer Non-Critical JS</strong>: Use the <code>async</code> or <code>defer</code> attribute on script tags to prevent JavaScript from blocking the rendering process.</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"non-critical.js"</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<p>Parsing involves converting bytes from the stream to characters, tokens, nodes, and finally an object model:</p>
+<ul>
+<li><strong>Bytes → Characters → Tokens → Nodes → DOM Tree</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CSS Parsing and CSSOM Creation</strong>:</p>
+<ul>
+<li>
+<p>As the browser encounters CSS files, it requests and parses them to build the <strong>CSSOM (CSS Object Model)</strong>.</p>
+</li>
+<li>
+<p>This process follows a similar pattern:</p>
+<ul>
+<li><strong>Bytes → Characters → Tokens → Nodes → CSSOM Tree</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>JavaScript Compilation</strong>:</p>
+<ul>
+<li>JavaScript files are downloaded, parsed, and executed. They can be blocking or non-blocking, affecting the rendering sequence.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building the Accessibility Tree</strong>:</p>
+<ul>
+<li>The browser creates an accessibility tree for assistive technologies.</li>
+</ul>
+</li>
+<li>
+<p><strong>Combining DOM and CSSOM into the Render Tree</strong>:</p>
+<ul>
+<li>The <strong>Render Tree</strong> is created by combining the DOM and CSSOM, representing visible elements only.</li>
+</ul>
+</li>
+<li>
+<p><strong>Layout (Reflow)</strong>:</p>
+<ul>
+<li>The browser calculates the position and size of each element on the page based on the Render Tree.</li>
+</ul>
+</li>
+<li>
+<p><strong>Painting and Compositing</strong>:</p>
+<ul>
+<li>
+<p><strong>Paint</strong>: The browser converts elements into pixels for display.</p>
+</li>
+<li>
+<p><strong>Compositing</strong>: Layers are combined, and GPU layers overlap to render the final visual output.</p>
+</li>
+</ul>
+<p><strong>Process Summary</strong>:</p>
+<pre class="hljs"><code><div>DOM → CSSOM (parallel) → JavaScript → Render Tree → Layout → Paint → Composition
 </div></code></pre>
 </li>
+</ol>
+<hr>
+<h5 id="critical-resources-and-blocking-elements"><strong>Critical Resources and Blocking Elements</strong></h5>
+<p>Critical resources are those necessary for rendering and can delay the initial page load if not handled efficiently:</p>
+<ul>
 <li>
-<p><strong>Reduce CSS Blocking</strong>: Place critical CSS inline in the HTML to ensure that the browser can render the page as quickly as possible.</p>
+<p><strong>HTML, CSS, JavaScript, and sometimes fonts</strong> are critical resources.</p>
+</li>
+<li>
+<p><strong>Critical Resources Number</strong>: The count of resources that block rendering.</p>
+</li>
+<li>
+<p><strong>Critical Bytes Number</strong>: The size of blocking resources in bytes.</p>
+</li>
+<li>
+<p><strong>Critical Path Length</strong>: The number of roundtrips needed to retrieve these resources.</p>
+</li>
+</ul>
+<hr>
+<h5 id="optimizing-the-critical-rendering-path"><strong>Optimizing the Critical Rendering Path</strong></h5>
+<p>There are several ways to improve initial rendering performance by optimizing the critical rendering path:</p>
+<ol>
+<li>
+<p><strong>Minimizing Critical Resources</strong>:</p>
+<ul>
+<li>
+<p>Inline critical CSS and JavaScript where feasible.</p>
+</li>
+<li>
+<p>Reduce the number of critical resources by combining or deferring non-essential ones.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Reducing Critical Bytes</strong>:</p>
+<ul>
+<li>
+<p>Split and defer non-critical resources.</p>
+</li>
+<li>
+<p>Use compression (e.g., Gzip) and minification to reduce file size.</p>
+</li>
+<li>
+<p>Remove unused or unnecessary code.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Shortening the Critical Path Length</strong>:</p>
+<ul>
+<li>
+<p>Minimize external resources and avoid third-party domains.</p>
+</li>
+<li>
+<p>Use <strong>HTTP/2</strong> to multiplex multiple requests over a single connection.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h5 id="resource-specific-optimization-techniques"><strong>Resource-Specific Optimization Techniques</strong></h5>
+<p><strong>HTML</strong>:</p>
+<ul>
+<li>Minify and compress HTML files to reduce size.</li>
+</ul>
+<p><strong>CSS</strong>:</p>
+<ul>
+<li>
+<p>Minify, compress, and split CSS files based on media queries.</p>
+</li>
+<li>
+<p>Place critical CSS as high in the HTML document as possible, and defer non-critical CSS.</p>
+</li>
+</ul>
+<p><strong>JavaScript</strong>:</p>
+<ul>
+<li>
+<p>Minify and compress JavaScript files.</p>
+</li>
+<li>
+<p>Use <code>async</code> or <code>defer</code> attributes to control the execution of non-critical scripts.</p>
+<ul>
+<li>
+<p><strong>async</strong>: Loads the script asynchronously, executing it as soon as it’s ready.</p>
+</li>
+<li>
+<p><strong>defer</strong>: Executes the script after the HTML is fully parsed.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Fonts</strong>:</p>
+<ul>
+<li>
+<p>Use <code>@font-face { display: fallback; }</code> to control loading behavior.</p>
+</li>
+<li>
+<p>Include only necessary fonts and minimize extra symbols (e.g., special characters).</p>
+</li>
+<li>
+<p>Serve fonts from the same domain for faster loading.</p>
+</li>
+</ul>
+<hr>
+<h5 id="preloading-and-preconnecting-resources"><strong>Preloading and Preconnecting Resources</strong></h5>
+<p>Preloading and preconnecting resources can improve rendering performance by reducing the time required to fetch and connect critical resources.</p>
+<ul>
+<li>
+<p><strong>Preload</strong>: Immediately loads resources required for initial rendering (e.g., <code>link rel=&quot;preload&quot;</code>).</p>
+</li>
+<li>
+<p><strong>Prefetch</strong>: Loads resources that may be needed later.</p>
+</li>
+<li>
+<p><strong>Preconnect</strong>: Establishes early connections to required domains to reduce roundtrip time.</p>
+</li>
+<li>
+<p><strong>dns-prefetch</strong>: Pre-resolves DNS for a domain.</p>
+</li>
+<li>
+<p><strong>Prerender</strong>: Loads and renders a page in advance for immediate display upon navigation.</p>
+</li>
+</ul>
+<p><strong>Example Methods</strong>:</p>
+<ul>
+<li>
+<p>Using <code>&lt;link rel=&quot;preload&quot; href=&quot;style.css&quot; as=&quot;style&quot;&gt;</code> in HTML.</p>
+</li>
+<li>
+<p>HTTP header: <code>Link: &lt;/css/style.css&gt;; rel=&quot;preload&quot;; as=&quot;style&quot;</code></p>
+</li>
+<li>
+<p>Webpack: <code>import(/* webpackPreload: true */ 'CriticalChunk')</code></p>
 </li>
 </ul>
 <hr>
 <h4 id="rail-model"><strong>RAIL Model</strong></h4>
 <p>The <strong>RAIL</strong> model is a user-centric performance model developed by Google. It breaks down performance into four key areas, each with specific goals for optimizing the user experience:</p>
 <ul>
-<li><strong>Response</strong>: When a user interacts with your app (clicks, taps, etc.), it should respond within <strong>100 milliseconds</strong> to feel instantaneous.</li>
-<li><strong>Animation</strong>: Ensure animations run smoothly at <strong>60 frames per second (FPS)</strong>, meaning each frame should take no more than <strong>16 milliseconds</strong> to render.</li>
-<li><strong>Idle</strong>: Maximize idle time to free up the main thread for critical tasks. Perform non-urgent work during idle time, with tasks taking no longer than <strong>50 milliseconds</strong>.</li>
-<li><strong>Load</strong>: The content should be interactive within <strong>1 second</strong> for mobile users on a 3G network.</li>
+<li>
+<p><strong>Response</strong>: When a user interacts with your app (clicks, taps, etc.), it should respond within <strong>100 milliseconds</strong> to feel instantaneous.</p>
+</li>
+<li>
+<p><strong>Animation</strong>: Ensure animations run smoothly at <strong>60 frames per second (FPS)</strong>, meaning each frame should take no more than <strong>16 milliseconds</strong> to render.</p>
+</li>
+<li>
+<p><strong>Idle</strong>: Maximize idle time to free up the main thread for critical tasks. Perform non-urgent work during idle time, with tasks taking no longer than <strong>50 milliseconds</strong>.</p>
+</li>
+<li>
+<p><strong>Load</strong>: The content should be interactive within <strong>1 second</strong> for mobile users on a 3G network.</p>
+</li>
 </ul>
 <p>Optimizing based on the <strong>RAIL</strong> model ensures that your application remains responsive and performs well under various conditions.</p>
 <hr>
@@ -1277,8 +1629,12 @@ ctx.fillRect(<span class="hljs-number">10</span>, <span class="hljs-number">10</
 </ul>
 <h5 id="key-differences">Key Differences</h5>
 <ul>
-<li><strong>SVG</strong> is great for static images, scalability, and interactivity.</li>
-<li><strong>Canvas</strong> is optimized for real-time, dynamic rendering but does not maintain a DOM structure.</li>
+<li>
+<p><strong>SVG</strong> is great for static images, scalability, and interactivity.</p>
+</li>
+<li>
+<p><strong>Canvas</strong> is optimized for real-time, dynamic rendering but does not maintain a DOM structure.</p>
+</li>
 </ul>
 <hr>
 <h4 id="service-workers-and-web-workers"><strong>Service Workers and Web Workers</strong></h4>
@@ -1371,8 +1727,12 @@ fetchData();
 </div></code></pre>
 <h5 id="features">Features</h5>
 <ul>
-<li><strong>Streaming</strong>: You can stream large files, allowing you to process data incrementally without loading the entire file into memory at once.</li>
-<li><strong>CORS</strong>: Fetch supports Cross-Origin Resource Sharing (CORS), allowing you to access resources from other domains under certain conditions.</li>
+<li>
+<p><strong>Streaming</strong>: You can stream large files, allowing you to process data incrementally without loading the entire file into memory at once.</p>
+</li>
+<li>
+<p><strong>CORS</strong>: Fetch supports Cross-Origin Resource Sharing (CORS), allowing you to access resources from other domains under certain conditions.</p>
+</li>
 </ul>
 <hr>
 <h4 id="storage-api"><strong>Storage API</strong></h4>
@@ -1397,8 +1757,12 @@ sessionStorage.clear();  <span class="hljs-comment">// All session storage is cl
 </ul>
 <h5 id="use-cases">Use Cases</h5>
 <ul>
-<li><strong>Local Storage</strong>: Useful for persisting user preferences, authentication tokens, or application settings.</li>
-<li><strong>Session Storage</strong>: Commonly used for temporary data storage, such as form inputs that need to be preserved only for the duration of a session.</li>
+<li>
+<p><strong>Local Storage</strong>: Useful for persisting user preferences, authentication tokens, or application settings.</p>
+</li>
+<li>
+<p><strong>Session Storage</strong>: Commonly used for temporary data storage, such as form inputs that need to be preserved only for the duration of a session.</p>
+</li>
 </ul>
 <hr>
 <h4 id="history-api"><strong>History API</strong></h4>
@@ -1430,16 +1794,24 @@ sessionStorage.clear();  <span class="hljs-comment">// All session storage is cl
 <p><strong>BOM (Browser Object Model)</strong>: The BOM provides methods and properties for interacting with the browser window itself. It includes objects like <code>window</code>, <code>navigator</code>, <code>screen</code>, <code>location</code>, and <code>history</code>.</p>
 <p><strong>Examples:</strong></p>
 <ul>
-<li><code>window.alert('Hello!')</code>: Displays a simple alert dialog.</li>
-<li><code>navigator.userAgent</code>: Retrieves information about the browser and operating system.</li>
+<li>
+<p><code>window.alert('Hello!')</code>: Displays a simple alert dialog.</p>
+</li>
+<li>
+<p><code>navigator.userAgent</code>: Retrieves information about the browser and operating system.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>DOM (Document Object Model)</strong>: The DOM represents the structure of the web page as a tree of nodes. The DOM API provides methods for querying, manipulating, and interacting with HTML elements dynamically.</p>
 <p><strong>Examples</strong>:</p>
 <ul>
-<li><code>document.getElementById('myElement')</code>: Finds an element by its ID.</li>
-<li><code>document.createElement('div')</code>: Creates a new <code>div</code> element.</li>
+<li>
+<p><code>document.getElementById('myElement')</code>: Finds an element by its ID.</p>
+</li>
+<li>
+<p><code>document.createElement('div')</code>: Creates a new <code>div</code> element.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -1457,9 +1829,15 @@ sessionStorage.clear();  <span class="hljs-comment">// All session storage is cl
 <p>Web Components are a suite of technologies that allow you to create reusable custom elements with their own encapsulated HTML, CSS, and JavaScript, all while maintaining interoperability with other web frameworks and libraries.</p>
 <h5 id="key-features">Key Features</h5>
 <ul>
-<li><strong>Custom Elements</strong>: Define new HTML tags and their behavior.</li>
-<li><strong>Shadow DOM</strong>: Encapsulates the component’s internal DOM, preventing styles from leaking out or being affected by external CSS.</li>
-<li><strong>HTML Templates</strong>: Define chunks of markup that are not rendered until explicitly instantiated.</li>
+<li>
+<p><strong>Custom Elements</strong>: Define new HTML tags and their behavior.</p>
+</li>
+<li>
+<p><strong>Shadow DOM</strong>: Encapsulates the component’s internal DOM, preventing styles from leaking out or being affected by external CSS.</p>
+</li>
+<li>
+<p><strong>HTML Templates</strong>: Define chunks of markup that are not rendered until explicitly instantiated.</p>
+</li>
 </ul>
 <p><strong>Example</strong>:</p>
 <pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
@@ -1482,9 +1860,15 @@ customElements.define(<span class="hljs-string">'my-custom-element'</span>, MyCu
 <p><strong>Webpack</strong>: A highly customizable JavaScript bundler that compiles multiple JavaScript files into a single or smaller set of output files. Webpack uses a module-based system where each file is treated as a module, which helps reduce the number of HTTP requests and optimizes the application's performance.</p>
 <p><strong>Key Features</strong>:</p>
 <ul>
-<li><strong>Code Splitting</strong>: Automatically split code into smaller chunks that can be loaded on demand.</li>
-<li><strong>Loaders</strong>: Process files before they are added to the bundle (e.g., transpile ES6 to ES5).</li>
-<li><strong>Plugins</strong>: Add additional features like hot module replacement, optimization, and minification.</li>
+<li>
+<p><strong>Code Splitting</strong>: Automatically split code into smaller chunks that can be loaded on demand.</p>
+</li>
+<li>
+<p><strong>Loaders</strong>: Process files before they are added to the bundle (e.g., transpile ES6 to ES5).</p>
+</li>
+<li>
+<p><strong>Plugins</strong>: Add additional features like hot module replacement, optimization, and minification.</p>
+</li>
 </ul>
 <p><strong>Example of a Webpack Configuration</strong>:</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
@@ -1510,8 +1894,12 @@ customElements.define(<span class="hljs-string">'my-custom-element'</span>, MyCu
 <p><strong>Rollup</strong>: A module bundler optimized for bundling JavaScript libraries. It focuses on ES modules and provides tree-shaking, which removes unused code, resulting in smaller bundle sizes.</p>
 <p><strong>Key Features</strong>:</p>
 <ul>
-<li><strong>Tree-shaking</strong>: Automatically removes unused exports from a module.</li>
-<li><strong>ES Modules Support</strong>: Native support for ES6 modules, making Rollup ideal for modern JavaScript applications.</li>
+<li>
+<p><strong>Tree-shaking</strong>: Automatically removes unused exports from a module.</p>
+</li>
+<li>
+<p><strong>ES Modules Support</strong>: Native support for ES6 modules, making Rollup ideal for modern JavaScript applications.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -1537,18 +1925,30 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p><strong>NPM (Node Package Manager)</strong>: NPM is the default package manager for Node.js. It allows developers to download and manage libraries, frameworks, and tools via a registry of packages.</p>
 <p><strong>Key Commands</strong>:</p>
 <ul>
-<li><code>npm install &lt;package&gt;</code>: Install a package and add it to your project.</li>
-<li><code>npm install</code>: Installs all dependencies listed in <code>package.json</code>.</li>
-<li><code>npm run &lt;script&gt;</code>: Run a script defined in the <code>scripts</code> section of your <code>package.json</code> file.</li>
+<li>
+<p><code>npm install &lt;package&gt;</code>: Install a package and add it to your project.</p>
+</li>
+<li>
+<p><code>npm install</code>: Installs all dependencies listed in <code>package.json</code>.</p>
+</li>
+<li>
+<p><code>npm run &lt;script&gt;</code>: Run a script defined in the <code>scripts</code> section of your <code>package.json</code> file.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Yarn</strong>: An alternative to NPM, Yarn focuses on speed, security, and consistency. It provides features like offline caching and deterministic builds, ensuring that the same package versions are installed across all environments.</p>
 <p><strong>Key Commands</strong>:</p>
 <ul>
-<li><code>yarn add &lt;package&gt;</code>: Installs a package and adds it to your <code>package.json</code>.</li>
-<li><code>yarn install</code>: Installs all dependencies listed in <code>package.json</code>.</li>
-<li><code>yarn run &lt;script&gt;</code>: Run a script defined in the <code>scripts</code> section of <code>package.json</code>.</li>
+<li>
+<p><code>yarn add &lt;package&gt;</code>: Installs a package and adds it to your <code>package.json</code>.</p>
+</li>
+<li>
+<p><code>yarn install</code>: Installs all dependencies listed in <code>package.json</code>.</p>
+</li>
+<li>
+<p><code>yarn run &lt;script&gt;</code>: Run a script defined in the <code>scripts</code> section of <code>package.json</code>.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1561,23 +1961,31 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <ul>
 <li>
 <p><strong>Elements Panel</strong>: Inspect and modify HTML and CSS on the fly, directly in the browser. You can also view computed styles, modify the DOM structure, and experiment with different CSS properties.</p>
-<p><strong>Use Case</strong>: Quickly debug layout issues by inspecting CSS properties in the &quot;Elements&quot; panel and trying out new values without modifying the source code.</p>
+<ul>
+<li><strong>Use Case</strong>: Quickly debug layout issues by inspecting CSS properties in the &quot;Elements&quot; panel and trying out new values without modifying the source code.</li>
+</ul>
 </li>
 <li>
 <p><strong>Sources Panel</strong>: Debug JavaScript code by setting breakpoints, stepping through code, and viewing call stacks. You can also view source maps, making it easier to debug minified code.</p>
-<p><strong>Use Case</strong>: Add breakpoints in your JavaScript code to pause execution at a specific line and inspect variables, watch expressions, or call stack frames.</p>
+<ul>
+<li><strong>Use Case</strong>: Add breakpoints in your JavaScript code to pause execution at a specific line and inspect variables, watch expressions, or call stack frames.</li>
+</ul>
 </li>
 <li>
 <p><strong>Network Panel</strong>: View all network requests made by the page, including their status, timing, and payload. This panel is crucial for understanding the loading behavior of your application and diagnosing performance bottlenecks like slow requests or excessive payload sizes.</p>
-<p><strong>Use Case</strong>: Monitor your application’s performance by inspecting request-response times for API calls and static assets. Use the &quot;Waterfall&quot; view to visualize which resources are delaying page load.</p>
+<ul>
+<li><strong>Use Case</strong>: Monitor your application’s performance by inspecting request-response times for API calls and static assets. Use the &quot;Waterfall&quot; view to visualize which resources are delaying page load.</li>
+</ul>
 </li>
 <li>
 <p><strong>Performance Panel</strong>: Record performance profiles to analyze page load times, script execution times, and rendering performance. The performance panel helps you identify long tasks and JavaScript execution issues that might cause jank or delays in rendering.</p>
-<p><strong>Use Case</strong>: Use the performance profile to analyze frame rates and CPU usage during animations or user interactions. Identify slow-running code and optimize it to improve user experience.</p>
+<ul>
+<li><strong>Use Case</strong>: Use the performance profile to analyze frame rates and CPU usage during animations or user interactions. Identify slow-running code and optimize it to improve user experience.</li>
+</ul>
 </li>
 </ul>
 <hr>
-<h4 id="nice-to-have-automated-tools"><strong>Nice to Have: Automated Tools</strong></h4>
+<h4 id="automated-tools"><strong>Automated Tools</strong></h4>
 <ul>
 <li>
 <p><strong>Lighthouse</strong>: An open-source, automated tool for improving the quality of web pages. It audits performance, accessibility, best practices, SEO, and Progressive Web App (PWA) features. Lighthouse can be run from Chrome DevTools or as a standalone tool.</p>
@@ -1610,10 +2018,18 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p><strong>Box Model</strong>: The CSS box model describes the structure of an element, including its content, padding, border, and margin. Understanding how the box model works is fundamental for building layouts and positioning elements on the page.</p>
 <p><strong>Box Model Breakdown</strong>:</p>
 <ul>
-<li><strong>Content</strong>: The actual content of the element (text, images, etc.).</li>
-<li><strong>Padding</strong>: The space between the content and the border.</li>
-<li><strong>Border</strong>: The line surrounding the padding.</li>
-<li><strong>Margin</strong>: The space outside the border that separates the element from adjacent elements.</li>
+<li>
+<p><strong>Content</strong>: The actual content of the element (text, images, etc.).</p>
+</li>
+<li>
+<p><strong>Padding</strong>: The space between the content and the border.</p>
+</li>
+<li>
+<p><strong>Border</strong>: The line surrounding the padding.</p>
+</li>
+<li>
+<p><strong>Margin</strong>: The space outside the border that separates the element from adjacent elements.</p>
+</li>
 </ul>
 <p><strong>Example</strong>:</p>
 <pre class="hljs"><code><div><span class="hljs-selector-class">.box</span> {
@@ -1665,6 +2081,27 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 </li>
 </ul>
 <hr>
+<h4 id="css-position-property"><strong>CSS <code>position</code> Property</strong></h4>
+<p>The <strong><code>position</code></strong> property in CSS determines how an element is positioned in the document flow and relative to other elements. It provides control over an element’s layout, allowing developers to define specific placements on the page.</p>
+<h4 id="available-position-values"><strong>Available Position Values</strong></h4>
+<ul>
+<li>
+<p><strong><code>static</code></strong> (Default): The default positioning where elements are positioned according to the normal document flow. <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> properties have no effect.</p>
+</li>
+<li>
+<p><strong><code>relative</code></strong>: Positions an element relative to its original place in the document flow. Using <code>top</code>, <code>right</code>, <code>bottom</code>, or <code>left</code> values moves the element from its normal position while still taking up space in the layout.</p>
+</li>
+<li>
+<p><strong><code>absolute</code></strong>: Removes the element from the document flow and positions it relative to the nearest positioned ancestor (an element with <code>relative</code>, <code>absolute</code>, or <code>fixed</code> positioning). If no such ancestor exists, it is positioned relative to the <code>&lt;html&gt;</code> element.</p>
+</li>
+<li>
+<p><strong><code>fixed</code></strong>: Positions an element relative to the viewport, making it stay in the same place even when scrolling. The element is removed from the document flow and remains fixed in position based on <code>top</code>, <code>right</code>, <code>bottom</code>, or <code>left</code> values.</p>
+</li>
+<li>
+<p><strong><code>sticky</code></strong>: Combines <code>relative</code> and <code>fixed</code> positioning. An element is initially positioned according to the normal flow, but it &quot;sticks&quot; to a specified position when scrolling within its containing element. Useful for headers or sidebars that stay visible while scrolling.</p>
+</li>
+</ul>
+<hr>
 <h4 id="css-preprocessors-sass-less-stylus"><strong>CSS Preprocessors (SASS, LESS, Stylus)</strong></h4>
 <p>Preprocessors like SASS and LESS add programming-like capabilities to CSS, such as variables, functions, and nesting, making CSS more maintainable and scalable.</p>
 <ul>
@@ -1709,9 +2146,15 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </div></code></pre>
 <ul>
-<li><strong>Block</strong>: Represents a standalone component (e.g., <code>button</code>).</li>
-<li><strong>Element</strong>: A part of the block that has no standalone meaning (e.g., <code>button__text</code>).</li>
-<li><strong>Modifier</strong>: A flag that changes the appearance or behavior of the block (e.g., <code>button--primary</code>).</li>
+<li>
+<p><strong>Block</strong>: Represents a standalone component (e.g., <code>button</code>).</p>
+</li>
+<li>
+<p><strong>Element</strong>: A part of the block that has no standalone meaning (e.g., <code>button__text</code>).</p>
+</li>
+<li>
+<p><strong>Modifier</strong>: A flag that changes the appearance or behavior of the block (e.g., <code>button--primary</code>).</p>
+</li>
 </ul>
 </li>
 <li>
@@ -1726,8 +2169,12 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p>Responsive design ensures that your web application adapts to different screen sizes and devices. CSS media queries are the primary tool for achieving responsiveness, allowing you to apply styles conditionally based on the screen size or device characteristics.</p>
 <h5 id="key-concepts">Key Concepts</h5>
 <ul>
-<li><strong>Mobile-First Design</strong>: Start by designing for smaller screens and gradually enhance the design for larger screens.</li>
-<li><strong>Responsive Layouts</strong>: Use flexible grids (e.g., Flexbox, Grid) that adjust to different screen sizes.</li>
+<li>
+<p><strong>Mobile-First Design</strong>: Start by designing for smaller screens and gradually enhance the design for larger screens.</p>
+</li>
+<li>
+<p><strong>Responsive Layouts</strong>: Use flexible grids (e.g., Flexbox, Grid) that adjust to different screen sizes.</p>
+</li>
 </ul>
 <h5 id="example-of-a-media-query">Example of a Media Query</h5>
 <pre class="hljs"><code><div><span class="hljs-comment">/* Apply these styles on screens larger than 768px */</span>
@@ -1740,8 +2187,12 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 </div></code></pre>
 <h5 id="techniques">Techniques</h5>
 <ul>
-<li><strong>CSS Grid and Flexbox</strong>: Use these layout systems to create flexible layouts that adapt to different screen sizes.</li>
-<li><strong>Fluid Typography and Images</strong>: Use relative units like <code>em</code>, <code>rem</code>, or percentages to ensure that typography and images scale appropriately.</li>
+<li>
+<p><strong>CSS Grid and Flexbox</strong>: Use these layout systems to create flexible layouts that adapt to different screen sizes.</p>
+</li>
+<li>
+<p><strong>Fluid Typography and Images</strong>: Use relative units like <code>em</code>, <code>rem</code>, or percentages to ensure that typography and images scale appropriately.</p>
+</li>
 </ul>
 <hr>
 <h4 id="intermediate-understanding-of-responsive-vs-adaptive-design-mobile-first-vs-desktop-first"><strong>Intermediate Understanding of Responsive vs Adaptive Design, Mobile First vs Desktop First</strong></h4>
@@ -1810,26 +2261,42 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p><strong>Single-Page Applications (SPA)</strong>: In a SPA, the application loads a single HTML page, and the content is dynamically updated as the user interacts with the app. Popular frameworks like React, Angular, and Vue.js are commonly used for SPAs. SPAs provide a smoother user experience because they don’t require full-page reloads.</p>
 <p><strong>Advantages</strong>:</p>
 <ul>
-<li>Faster user experience as content is dynamically updated without reloading the entire page.</li>
-<li>Easier to implement complex UI interactions and real-time updates.</li>
+<li>
+<p>Faster user experience as content is dynamically updated without reloading the entire page.</p>
+</li>
+<li>
+<p>Easier to implement complex UI interactions and real-time updates.</p>
+</li>
 </ul>
 <p><strong>Disadvantages</strong>:</p>
 <ul>
-<li>SEO challenges because traditional search engines rely on crawling fully rendered HTML pages.</li>
-<li>Initial load time can be longer due to loading the entire JavaScript bundle at once.</li>
+<li>
+<p>SEO challenges because traditional search engines rely on crawling fully rendered HTML pages.</p>
+</li>
+<li>
+<p>Initial load time can be longer due to loading the entire JavaScript bundle at once.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Multi-Page Applications (MPA)</strong>: In an MPA, each interaction or request results in loading a new HTML page. This is the traditional way of building web applications, with separate pages for different content.</p>
 <p><strong>Advantages</strong>:</p>
 <ul>
-<li>Better for SEO out-of-the-box since each page is served as a separate HTML document.</li>
-<li>Simpler initial setup compared to SPAs.</li>
+<li>
+<p>Better for SEO out-of-the-box since each page is served as a separate HTML document.</p>
+</li>
+<li>
+<p>Simpler initial setup compared to SPAs.</p>
+</li>
 </ul>
 <p><strong>Disadvantages</strong>:</p>
 <ul>
-<li>Full-page reloads after every user action can lead to a slower user experience.</li>
-<li>More difficult to implement complex user interfaces and real-time interactions.</li>
+<li>
+<p>Full-page reloads after every user action can lead to a slower user experience.</p>
+</li>
+<li>
+<p>More difficult to implement complex user interfaces and real-time interactions.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1842,26 +2309,42 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p><strong>Server-Side Rendering (SSR)</strong>: SSR is a technique where the content of the page is rendered on the server before it is sent to the client. This improves initial load times and SEO for SPAs. Frameworks like <strong>Next.js</strong> for React and <strong>Angular Universal</strong> provide SSR capabilities.</p>
 <p><strong>Advantages</strong>:</p>
 <ul>
-<li>Faster initial page load, especially for users on slower connections.</li>
-<li>Better SEO since search engines can crawl the fully rendered HTML.</li>
+<li>
+<p>Faster initial page load, especially for users on slower connections.</p>
+</li>
+<li>
+<p>Better SEO since search engines can crawl the fully rendered HTML.</p>
+</li>
 </ul>
 <p><strong>Disadvantages</strong>:</p>
 <ul>
-<li>Increased server load as pages need to be rendered on every request.</li>
-<li>More complex infrastructure compared to client-side rendering.</li>
+<li>
+<p>Increased server load as pages need to be rendered on every request.</p>
+</li>
+<li>
+<p>More complex infrastructure compared to client-side rendering.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Static Site Generation (SSG)</strong>: SSG generates static HTML files at build time rather than on each request. These files can be served to users without the need for a server, which improves performance and scalability. Tools like <strong>Next.js</strong> (for React) and <strong>Gatsby</strong> are commonly used for static site generation.</p>
 <p><strong>Advantages</strong>:</p>
 <ul>
-<li>Extremely fast load times since the content is pre-generated and served as static files.</li>
-<li>Better scalability because the content can be served via CDN without server overhead.</li>
+<li>
+<p>Extremely fast load times since the content is pre-generated and served as static files.</p>
+</li>
+<li>
+<p>Better scalability because the content can be served via CDN without server overhead.</p>
+</li>
 </ul>
 <p><strong>Disadvantages</strong>:</p>
 <ul>
-<li>Static content may not be suitable for highly dynamic or real-time applications.</li>
-<li>Requires re-deployment to update content.</li>
+<li>
+<p>Static content may not be suitable for highly dynamic or real-time applications.</p>
+</li>
+<li>
+<p>Requires re-deployment to update content.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1898,6 +2381,60 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 </ul>
 <h5 id="real-world-example">Real-World Example</h5>
 <p>Ensuring that forms, navigation menus, and other interactive elements are fully accessible via the keyboard and screen readers will help create a more inclusive web experience. Tools like <strong>Axe</strong> and <strong>Lighthouse</strong> can help audit accessibility and provide recommendations for improvement.</p>
+<hr>
+<h4 id="css-priority-in-selecting"><strong>CSS Priority in Selecting</strong></h4>
+<p>CSS applies styles based on <strong>specificity</strong>, a scoring system that determines which styles take precedence when multiple rules target the same element. Specificity is calculated based on the types of selectors used, with each selector contributing a score. The higher the specificity score, the higher the priority of that style.</p>
+<h5 id="specificity-hierarchy-from-highest-to-lowest"><strong>Specificity Hierarchy</strong> (from highest to lowest):</h5>
+<ul>
+<li>
+<p><strong>Inline Styles</strong>: Styles applied directly to an HTML element (e.g., <code>&lt;div style=&quot;color: blue;&quot;&gt;</code>) have the highest specificity.</p>
+</li>
+<li>
+<p><strong>ID Selectors</strong> (<code>#id</code>) have high specificity and override class, attribute, and element selectors.</p>
+</li>
+<li>
+<p><strong>Class, Attribute, and Pseudo-class Selectors</strong> (<code>.class</code>, <code>[type=&quot;text&quot;]</code>, <code>:hover</code>) have moderate specificity.</p>
+</li>
+<li>
+<p><strong>Element and Pseudo-element Selectors</strong> (<code>p</code>, <code>h1</code>, <code>::before</code>) have the lowest specificity.</p>
+</li>
+</ul>
+<h5 id="specificity-calculation"><strong>Specificity Calculation</strong></h5>
+<p>Specificity is calculated as a 4-part value: <strong>inline styles</strong>, <strong>IDs</strong>, <strong>classes/attributes/pseudo-classes</strong>, and <strong>elements/pseudo-elements</strong>. It is written as a score (e.g., <code>0,1,0,0</code>). Here’s how each selector contributes to specificity:</p>
+<ul>
+<li>
+<p><strong>Inline Styles</strong>: <code>1,0,0,0</code> (highest priority)</p>
+</li>
+<li>
+<p><strong>ID Selector</strong> (<code>#header</code>): <code>0,1,0,0</code></p>
+</li>
+<li>
+<p><strong>Class/Attribute/Pseudo-class Selector</strong> (<code>.nav</code>, <code>[type=&quot;text&quot;]</code>, <code>:hover</code>): <code>0,0,1,0</code></p>
+</li>
+<li>
+<p><strong>Element/Pseudo-element Selector</strong> (<code>h1</code>, <code>::before</code>): <code>0,0,0,1</code></p>
+</li>
+</ul>
+<h5 id="example-calculation"><strong>Example Calculation</strong></h5>
+<p>For a rule like <code>#header .nav p:hover</code>, the specificity score is calculated as:</p>
+<ul>
+<li>
+<p><code>#header</code> = <code>0,1,0,0</code></p>
+</li>
+<li>
+<p><code>.nav</code> = <code>0,0,1,0</code></p>
+</li>
+<li>
+<p><code>p</code> = <code>0,0,0,1</code></p>
+</li>
+<li>
+<p><code>:hover</code> = <code>0,0,1,0</code></p>
+</li>
+</ul>
+<p><strong>Total Specificity</strong>: <code>0,1,2,1</code></p>
+<p>This rule has higher specificity than a rule with only <code>.nav p</code> (<code>0,0,1,1</code>), so it will override it.</p>
+<h5 id="using-important"><strong>Using <code>!important</code></strong></h5>
+<p>The <code>!important</code> declaration overrides all specificity calculations, giving the rule the highest priority, but it should be used sparingly as it makes debugging more difficult.</p>
 <hr>
 <h3 id="9-frameworks-and-tools"><strong>9. Frameworks and Tools</strong></h3>
 <h3 id="91-angular"><strong>9.1. Angular</strong></h3>
@@ -1972,17 +2509,29 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <li>
 <p><strong>Components</strong>:</p>
 <ul>
-<li>Always have a template (HTML) associated with them.</li>
-<li>Control a portion of the UI.</li>
-<li>Primarily used to build the user interface.</li>
+<li>
+<p>Always have a template (HTML) associated with them.</p>
+</li>
+<li>
+<p>Control a portion of the UI.</p>
+</li>
+<li>
+<p>Primarily used to build the user interface.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Directives</strong>:</p>
 <ul>
-<li>Do not have their own templates.</li>
-<li>Modify the behavior or appearance of elements in the DOM.</li>
-<li>Can be used for both structural manipulation (like adding/removing elements) or attribute-level modifications.</li>
+<li>
+<p>Do not have their own templates.</p>
+</li>
+<li>
+<p>Modify the behavior or appearance of elements in the DOM.</p>
+</li>
+<li>
+<p>Can be used for both structural manipulation (like adding/removing elements) or attribute-level modifications.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1991,20 +2540,38 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <p>The <strong>Angular CLI</strong> is a command-line interface that simplifies the development process by providing commands to create, build, serve, and test Angular applications.</p>
 <p><strong>Example Commands</strong>:</p>
 <ul>
-<li><code>ng new my-app</code>: Creates a new Angular application.</li>
-<li><code>ng serve</code>: Builds the application and starts a development server.</li>
-<li><code>ng generate component my-component</code>: Generates a new component.</li>
+<li>
+<p><code>ng new my-app</code>: Creates a new Angular application.</p>
+</li>
+<li>
+<p><code>ng serve</code>: Builds the application and starts a development server.</p>
+</li>
+<li>
+<p><code>ng generate component my-component</code>: Generates a new component.</p>
+</li>
 </ul>
 <hr>
 <h4 id="lifecycle-hooks-in-angular"><strong>Lifecycle Hooks in Angular</strong></h4>
 <p>Angular components go through several stages during their lifecycle. Angular provides lifecycle hooks that allow developers to tap into these stages and run custom logic:</p>
 <ul>
-<li><strong>ngOnInit</strong>: Called once after the component is initialized.</li>
-<li><strong>ngOnChanges</strong>: Called when input properties change.</li>
-<li><strong>ngDoCheck</strong>: Called during every change detection cycle.</li>
-<li><strong>ngAfterContentInit</strong>: Called after content is projected into the component.</li>
-<li><strong>ngAfterViewInit</strong>: Called after the component's view and child views are initialized.</li>
-<li><strong>ngOnDestroy</strong>: Called just before the component is destroyed. Used for cleanup tasks such as unsubscribing from Observables.</li>
+<li>
+<p><strong>ngOnInit</strong>: Called once after the component is initialized.</p>
+</li>
+<li>
+<p><strong>ngOnChanges</strong>: Called when input properties change.</p>
+</li>
+<li>
+<p><strong>ngDoCheck</strong>: Called during every change detection cycle.</p>
+</li>
+<li>
+<p><strong>ngAfterContentInit</strong>: Called after content is projected into the component.</p>
+</li>
+<li>
+<p><strong>ngAfterViewInit</strong>: Called after the component's view and child views are initialized.</p>
+</li>
+<li>
+<p><strong>ngOnDestroy</strong>: Called just before the component is destroyed. Used for cleanup tasks such as unsubscribing from Observables.</p>
+</li>
 </ul>
 <hr>
 <h4 id="difference-between-constructor-and-ngoninit"><strong>Difference Between Constructor and ngOnInit</strong></h4>
@@ -2057,35 +2624,118 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <hr>
 <h4 id="how-do-observables-differ-from-promises"><strong>How Do Observables Differ from Promises?</strong></h4>
 <ul>
-<li><strong>Observables</strong> can emit multiple values over time, whereas <strong>Promises</strong> resolve once with a single value.</li>
-<li>Observables are <strong>lazy</strong>, meaning they only start executing when subscribed to, while Promises are <strong>eager</strong> and start executing immediately.</li>
-<li>Observables support operators like <code>map</code>, <code>filter</code>, and <code>mergeMap</code> to manipulate data streams, while Promises do not.</li>
-</ul>
-<hr>
-<h4 id="what-is-rxjs"><strong>What is RxJS?</strong></h4>
-<p><strong>RxJS (Reactive Extensions for JavaScript)</strong> is a library that brings reactive programming to Angular applications. RxJS allows you to compose asynchronous data streams using Observables and powerful operators like <code>map</code>, <code>mergeMap</code>, <code>switchMap</code>, and <code>catchError</code>.</p>
-<hr>
-<h4 id="difference-between-map-mergemap-switchmap-and-concatmap"><strong>Difference Between map, mergeMap, switchMap, and concatMap</strong></h4>
-<ul>
-<li><strong>map</strong>: Transforms each value emitted by the source Observable.</li>
-<li><strong>mergeMap</strong>: Maps each value to an Observable and merges the resulting Observables into a single stream.</li>
-<li><strong>switchMap</strong>: Similar to <code>mergeMap</code>, but cancels the previous inner Observable when a new value is emitted.</li>
-<li><strong>concatMap</strong>: Maps each value to an Observable and concatenates the resulting Observables sequentially.</li>
-</ul>
-<hr>
-<h4 id="state-management-in-angular-subjects-ngrx"><strong>State Management in Angular (Subjects, NgRx)</strong></h4>
-<p>Managing application state is critical in large-scale Angular apps. Angular provides several tools for state management:</p>
-<ul>
 <li>
-<p><strong>Subjects (RxJS)</strong>: Subjects are a type of Observable that can multicast to multiple subscribers. They can emit values directly and are commonly used for state sharing.</p>
+<p><strong>Observables</strong> can emit multiple values over time, whereas <strong>Promises</strong> resolve once with a single value.</p>
 </li>
 <li>
-<p><strong>NgRx</strong>: A Redux-inspired state management library for Angular that provides a predictable state management pattern through actions, reducers, and effects.</p>
-<p><strong>Example of NgRx:</strong></p>
-<pre class="hljs"><code><div><span class="hljs-keyword">const</span> increment = createAction(<span class="hljs-string">'[Counter] Increment'</span>);
+<p>Observables are <strong>lazy</strong>, meaning they only start executing when subscribed to, while Promises are <strong>eager</strong> and start executing immediately.</p>
+</li>
+<li>
+<p>Observables support operators like <code>map</code>, <code>filter</code>, and <code>mergeMap</code> to manipulate data streams, while Promises do not.</p>
+</li>
+</ul>
+<hr>
+<h4 id="state-management-in-angular"><strong>State Management in Angular</strong></h4>
+<p>State management is crucial for building robust, scalable Angular applications, particularly as they grow in complexity. Managing state efficiently allows data consistency across components and ensures smooth user interactions. Angular applications typically handle state using <strong>RxJS</strong> for reactive programming and <strong>NgRx</strong> for centralized, predictable state management.</p>
+<p>In Angular, <strong>state</strong> refers to the data or status of various parts of the application, such as user information, app settings, and UI states. As applications become larger, managing this state effectively across multiple components and services becomes challenging. Without state management, data inconsistencies and hard-to-maintain code can lead to issues with performance and reliability.</p>
+<hr>
+<h5 id="reactive-state-management-with-rxjs"><strong>Reactive State Management with RxJS</strong></h5>
+<p><strong>RxJS</strong> (Reactive Extensions for JavaScript) is a library for reactive programming in Angular, using <strong>Observables</strong> to manage asynchronous events and data streams. RxJS enables Angular developers to work with asynchronous data sources in a clear, declarative way.</p>
+<p><strong>Key Concepts of RxJS in Angular</strong>:</p>
+<ul>
+<li>
+<p><strong>Observables</strong>: Observables represent data streams that components can subscribe to and react to changes over time.</p>
+</li>
+<li>
+<p><strong>Operators</strong>: Operators like <code>map</code>, <code>mergeMap</code>, <code>switchMap</code>, and <code>concatMap</code> transform and control data flows.</p>
+<ul>
+<li>
+<p><strong>map</strong>: Transforms each value emitted by the source Observable.</p>
+</li>
+<li>
+<p><strong>mergeMap</strong>: Maps each value to an Observable and merges the resulting Observables into a single stream.</p>
+</li>
+<li>
+<p><strong>switchMap</strong>: Similar to <code>mergeMap</code>, but cancels the previous inner Observable when a new value is emitted.</p>
+</li>
+<li>
+<p><strong>concatMap</strong>: Maps each value to an Observable and concatenates the resulting Observables sequentially.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Subjects and BehaviorSubjects</strong>: Subjects are a type of Observable that allow multicasting to multiple Observers, while <code>BehaviorSubject</code> holds the latest value, making it useful for sharing state across components.</p>
+</li>
+</ul>
+<p><strong>Benefits of RxJS in State Management</strong>:</p>
+<ul>
+<li>
+<p><strong>Asynchronous Data Handling</strong>: Observables make it easy to handle asynchronous data from APIs, user events, or WebSockets.</p>
+</li>
+<li>
+<p><strong>Declarative Style</strong>: RxJS operators allow developers to write declarative and concise code for data transformations.</p>
+</li>
+<li>
+<p><strong>Component Communication</strong>: Subjects can be used to broadcast state changes across multiple components.</p>
+</li>
+</ul>
+<p><strong>Example of Using RxJS for State</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { Injectable } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> { BehaviorSubject } <span class="hljs-keyword">from</span> <span class="hljs-string">'rxjs'</span>;
 
-<span class="hljs-keyword">const</span> counterReducer = createReducer(<span class="hljs-number">0</span>, on(increment, <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state + <span class="hljs-number">1</span>));
+<span class="hljs-meta">@Injectable</span>({
+  providedIn: <span class="hljs-string">'root'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> StateService {
+  <span class="hljs-keyword">private</span> userState = <span class="hljs-keyword">new</span> BehaviorSubject&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">'Guest'</span>);
+  currentUser = <span class="hljs-keyword">this</span>.userState.asObservable();
+
+  updateUser(name: <span class="hljs-built_in">string</span>) {
+    <span class="hljs-keyword">this</span>.userState.next(name);
+  }
+}
 </div></code></pre>
+<p>In this example, <code>BehaviorSubject</code> is used to maintain the current user's state, making it accessible and updateable across different parts of the application.</p>
+<hr>
+<h5 id="centralized-state-management-with-ngrx"><strong>Centralized State Management with NgRx</strong></h5>
+<p><strong>NgRx</strong> is a reactive state management library based on Redux principles. It provides a structured way to manage state by storing it in a single, centralized store, making it predictable and testable. NgRx is particularly useful for larger applications where managing state across numerous components becomes complex.</p>
+<p><strong>Core Concepts in NgRx</strong>:</p>
+<ul>
+<li>
+<p><strong>Store</strong>: The single source of truth that holds the entire application state.</p>
+</li>
+<li>
+<p><strong>Actions</strong>: Plain objects that represent events and changes in the application state. They are dispatched to initiate state changes.</p>
+</li>
+<li>
+<p><strong>Reducers</strong>: Pure functions that take the current state and an action as inputs and return a new state.</p>
+</li>
+<li>
+<p><strong>Selectors</strong>: Functions that query and return specific slices of the state, allowing components to subscribe to relevant data.</p>
+</li>
+<li>
+<p><strong>Effects</strong>: Services that handle side effects (e.g., API calls) triggered by actions, using RxJS operators to manage asynchronous operations.</p>
+</li>
+</ul>
+<p><strong>Benefits of NgRx</strong>:</p>
+<ul>
+<li>
+<p><strong>Predictable State Changes</strong>: Reducers ensure state changes are predictable and follow strict guidelines, making debugging easier.</p>
+</li>
+<li>
+<p><strong>Centralized State</strong>: The Store acts as the single source of truth, ensuring consistency across the application.</p>
+</li>
+<li>
+<p><strong>Time-Travel Debugging</strong>: Since state changes are predictable, NgRx can support time-travel debugging, allowing developers to rewind and replay state changes.</p>
+</li>
+</ul>
+<h5 id="choosing-between-rxjs-and-ngrx"><strong>Choosing Between RxJS and NgRx</strong></h5>
+<ul>
+<li>
+<p><strong>RxJS</strong> is well-suited for smaller applications or specific component-level state management. It provides flexible, reactive programming tools for handling asynchronous data but lacks the centralized control of a Redux-like pattern.</p>
+</li>
+<li>
+<p><strong>NgRx</strong> is ideal for larger, more complex applications where maintaining a centralized, predictable state is essential. It provides a structured way to manage application-wide state and enables debugging and testing through predictable state transitions.</p>
 </li>
 </ul>
 <hr>
@@ -2115,10 +2765,18 @@ ngOnDestroy() {
 <p><strong>Ahead-of-Time (AOT)</strong> compilation compiles Angular applications during the build process, before they are served to the browser. AOT converts Angular's HTML and TypeScript code into efficient JavaScript code at build time, rather than when the application is running in the browser. This approach results in faster application startup times and smaller bundle sizes compared to <strong>Just-in-Time (JIT)</strong> compilation.</p>
 <h4 id="advantages-of-aot"><strong>Advantages of AOT</strong></h4>
 <ul>
-<li><strong>Faster Rendering and Load Times</strong>: Since the code is pre-compiled during the build, the browser doesn't need to compile it at runtime, resulting in faster page load times.</li>
-<li><strong>Smaller Bundle Size</strong>: AOT eliminates unnecessary code and reduces the size of the bundle served to the browser.</li>
-<li><strong>Early Error Detection</strong>: Errors are caught during the build process, allowing for more robust code and fewer runtime errors.</li>
-<li><strong>Improved Security</strong>: AOT compiles templates into JavaScript, which reduces the risk of injection attacks by limiting the ability to modify templates at runtime.</li>
+<li>
+<p><strong>Faster Rendering and Load Times</strong>: Since the code is pre-compiled during the build, the browser doesn't need to compile it at runtime, resulting in faster page load times.</p>
+</li>
+<li>
+<p><strong>Smaller Bundle Size</strong>: AOT eliminates unnecessary code and reduces the size of the bundle served to the browser.</p>
+</li>
+<li>
+<p><strong>Early Error Detection</strong>: Errors are caught during the build process, allowing for more robust code and fewer runtime errors.</p>
+</li>
+<li>
+<p><strong>Improved Security</strong>: AOT compiles templates into JavaScript, which reduces the risk of injection attacks by limiting the ability to modify templates at runtime.</p>
+</li>
 </ul>
 <p>AOT is particularly beneficial for production environments where performance and security are critical.</p>
 <hr>
@@ -2126,19 +2784,33 @@ ngOnDestroy() {
 <p><strong>Just-in-Time (JIT)</strong> compilation compiles Angular applications in the browser at runtime. Unlike <strong>Ahead-of-Time (AOT)</strong>, which compiles during the build process, JIT compiles components and templates when the application is loaded by the user. JIT is often used in development mode because it allows for faster iteration and debugging without requiring a full rebuild.</p>
 <h4 id="advantages-of-jit"><strong>Advantages of JIT</strong></h4>
 <ul>
-<li><strong>Faster Development Cycle</strong>: JIT allows developers to make changes without rebuilding the entire application, making it ideal for development environments.</li>
-<li><strong>Dynamic Compilation</strong>: Since the application is compiled in the browser, JIT enables dynamic content generation and template compilation.</li>
-<li><strong>Simpler Build Process</strong>: There’s no need for additional build steps or configuration to compile the application ahead of time.</li>
+<li>
+<p><strong>Faster Development Cycle</strong>: JIT allows developers to make changes without rebuilding the entire application, making it ideal for development environments.</p>
+</li>
+<li>
+<p><strong>Dynamic Compilation</strong>: Since the application is compiled in the browser, JIT enables dynamic content generation and template compilation.</p>
+</li>
+<li>
+<p><strong>Simpler Build Process</strong>: There’s no need for additional build steps or configuration to compile the application ahead of time.</p>
+</li>
 </ul>
 <p>However, JIT is typically slower than AOT in production environments, where AOT’s pre-compilation can offer better performance and smaller bundles.</p>
 <hr>
 <h4 id="what-is-angular-ivy"><strong>What is Angular Ivy?</strong></h4>
 <p><strong>Angular Ivy</strong> is the new rendering engine in Angular, introduced in version 9. It provides:</p>
 <ul>
-<li><strong>Faster compilation and rendering</strong>.</li>
-<li><strong>Improved tree-shaking</strong>, leading to smaller bundle sizes.</li>
-<li><strong>Better debugging</strong> capabilities.</li>
-<li>Enhanced support for lazy loading and efficient rendering of components.</li>
+<li>
+<p><strong>Faster compilation and rendering</strong>.</p>
+</li>
+<li>
+<p><strong>Improved tree-shaking</strong>, leading to smaller bundle sizes.</p>
+</li>
+<li>
+<p><strong>Better debugging</strong> capabilities.</p>
+</li>
+<li>
+<p>Enhanced support for lazy loading and efficient rendering of components.</p>
+</li>
 </ul>
 <hr>
 <h4 id="what-is-angular-universal"><strong>What is Angular Universal?</strong></h4>
@@ -2151,15 +2823,13 @@ ngOnDestroy() {
 <p><strong>AOT Compilation</strong>: Use AOT to reduce bundle size and speed up initial loading times.</p>
 </li>
 <li>
-<p><strong>Lazy Loading</strong>: Load feature modules only when needed, reducing the initial bundle size.</p>
+<p><strong>Lazy Loading</strong>: Feature modules are loaded only when needed, reducing initial load time. It uses the Angular Router with loadChildren to load modules on-demand, optimizing resources and enhancing user experience by loading sections only when accessed.</p>
 </li>
 <li>
 <p><strong>OnPush Change Detection</strong>: Reduce unnecessary change detection cycles by using <code>ChangeDetectionStrategy.OnPush</code>.</p>
 </li>
 <li>
 <p><strong>TrackBy in ngFor</strong>: Use <code>trackBy</code> in loops to optimize rendering.</p>
-<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let item of items; trackBy: trackByFn"</span>&gt;</span>{{ item.name }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</div></code></pre>
 </li>
 <li>
 <p><strong>Web Workers</strong>: Offload heavy computations to Web Workers to avoid blocking the main UI thread.</p>
@@ -2169,16 +2839,58 @@ ngOnDestroy() {
 <h4 id="change-detection-in-angular"><strong>Change Detection in Angular</strong></h4>
 <p>Angular’s <strong>Change Detection</strong> mechanism ensures that the view is updated when the model changes. It works by checking each component for changes and updating the DOM accordingly.</p>
 <ul>
-<li><strong>Default Strategy</strong>: Angular checks every component in the tree for changes.</li>
-<li><strong>OnPush Strategy</strong>: Angular only checks components marked with <code>OnPush</code> when their input properties change.</li>
+<li>
+<p><strong>Default Strategy</strong>: Angular checks every component in the tree for changes.</p>
+</li>
+<li>
+<p><strong>OnPush Strategy</strong>: Angular only checks components marked with <code>OnPush</code> when their input properties change.</p>
+</li>
+</ul>
+<h4 id="angular-zone"><strong>Angular Zone</strong></h4>
+<p><strong>Angular Zone</strong>, managed by <strong>Zone.js</strong>, is central to Angular’s change detection, tracking asynchronous tasks like HTTP requests, timers, and user interactions. By monitoring these events, Angular ensures the view stays in sync with the application state, automatically triggering change detection when tasks complete.</p>
+<h5 id="how-it-works"><strong>How It Works</strong></h5>
+<p>Angular creates an execution context, or <strong>zone</strong>, that wraps asynchronous tasks and triggers a <strong>change detection cycle</strong> upon their completion. This cycle updates the view based on any changes in state.</p>
+<h5 id="key-features-of-angular-zone"><strong>Key Features of Angular Zone</strong></h5>
+<ul>
+<li>
+<p><strong>NgZone</strong>: Angular’s default zone, which handles change detection automatically for all asynchronous events.</p>
+</li>
+<li>
+<p><strong>run()</strong>: Executes code within the Angular Zone, ensuring any asynchronous operations inside it trigger change detection.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">this</span>.ngZone.run(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-comment">/* Async operations here */</span> });
+</div></code></pre>
+</li>
+<li>
+<p><strong>runOutsideAngular()</strong>: Executes code outside Angular Zone, preventing automatic change detection—ideal for high-frequency tasks like animations or scrolling where frequent updates are unnecessary.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">this</span>.ngZone.runOutsideAngular(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-comment">/* Performance-sensitive operations */</span> });
+</div></code></pre>
+</li>
+</ul>
+<h5 id="benefits"><strong>Benefits</strong></h5>
+<ul>
+<li>
+<p><strong>Automatic Change Detection</strong>: Keeps views updated by tracking asynchronous events.</p>
+</li>
+<li>
+<p><strong>Performance Control</strong>: <code>runOutsideAngular()</code> allows developers to manage when change detection occurs, useful in performance-sensitive cases.</p>
+</li>
+<li>
+<p><strong>Simplified Async Management</strong>: Angular Zone handles asynchronous changes seamlessly, reducing the need for manual updates.</p>
+</li>
 </ul>
 <hr>
 <h4 id="view-encapsulation"><strong>View Encapsulation</strong></h4>
 <p>Angular offers three types of <strong>View Encapsulation</strong>:</p>
 <ul>
-<li><strong>Emulated</strong>: Default behavior where styles are scoped to components using a unique attribute.</li>
-<li><strong>None</strong>: No encapsulation, styles are applied globally.</li>
-<li><strong>Shadow DOM</strong>: Uses the browser’s native Shadow DOM for full encapsulation of styles.</li>
+<li>
+<p><strong>Emulated</strong>: Default behavior where styles are scoped to components using a unique attribute.</p>
+</li>
+<li>
+<p><strong>None</strong>: No encapsulation, styles are applied globally.</p>
+</li>
+<li>
+<p><strong>Shadow DOM</strong>: Uses the browser’s native Shadow DOM for full encapsulation of styles.</p>
+</li>
 </ul>
 <hr>
 <h4 id="how-does-angular-handle-code-updates-and-reloading"><strong>How Does Angular Handle Code Updates and Reloading?</strong></h4>
@@ -2186,17 +2898,29 @@ ngOnDestroy() {
 <hr>
 <h4 id="how-to-handle-memory-leaks-in-angular"><strong>How to Handle Memory Leaks in Angular?</strong></h4>
 <ul>
-<li><strong>Unsubscribe from Observables</strong>: Always unsubscribe from Observables to prevent memory leaks.</li>
-<li><strong>Clean Up Event Listeners</strong>: Remove event listeners in the <code>ngOnDestroy()</code> hook.</li>
-<li><strong>Use Chrome DevTools</strong>: Use memory profiling tools to take heap snapshots and identify memory leaks.</li>
+<li>
+<p><strong>Unsubscribe from Observables</strong>: Always unsubscribe from Observables to prevent memory leaks.</p>
+</li>
+<li>
+<p><strong>Clean Up Event Listeners</strong>: Remove event listeners in the <code>ngOnDestroy()</code> hook.</p>
+</li>
+<li>
+<p><strong>Use Chrome DevTools</strong>: Use memory profiling tools to take heap snapshots and identify memory leaks.</p>
+</li>
 </ul>
 <hr>
 <h4 id="angular-16-new-features"><strong>Angular 16+ New Features</strong></h4>
 <p>Angular 16 introduces several key features:</p>
 <ul>
-<li><strong>Standalone Components</strong>: Components no longer need to be declared in NgModules, simplifying component development.</li>
-<li><strong>Signals</strong>: Reactive primitives introduced to improve reactivity and simplify state management.</li>
-<li><strong>Improved Server-Side Rendering (SSR)</strong>: Enhanced support for hydration and SSR for faster rendering.</li>
+<li>
+<p><strong>Standalone Components</strong>: Components no longer need to be declared in NgModules, simplifying component development.</p>
+</li>
+<li>
+<p><strong>Signals</strong>: Reactive primitives introduced to improve reactivity and simplify state management.</p>
+</li>
+<li>
+<p><strong>Improved Server-Side Rendering (SSR)</strong>: Enhanced support for hydration and SSR for faster rendering.</p>
+</li>
 </ul>
 <hr>
 <h4 id="do-signals-replace-ngrx-for-state-management"><strong>Do Signals Replace NgRx for State Management?</strong></h4>
@@ -2205,9 +2929,15 @@ ngOnDestroy() {
 <h4 id="benefits-of-standalone-angular-components"><strong>Benefits of Standalone Angular Components</strong></h4>
 <p><strong>Standalone Components</strong> in Angular eliminate the need to declare components in NgModules, resulting in:</p>
 <ul>
-<li><strong>Less Boilerplate</strong>: Reduces the complexity of module declarations.</li>
-<li><strong>Faster Development</strong>: Standalone components are quicker to build and integrate.</li>
-<li><strong>Improved Reusability</strong>: Standalone components can be more easily reused across different modules or applications.</li>
+<li>
+<p><strong>Less Boilerplate</strong>: Reduces the complexity of module declarations.</p>
+</li>
+<li>
+<p><strong>Faster Development</strong>: Standalone components are quicker to build and integrate.</p>
+</li>
+<li>
+<p><strong>Improved Reusability</strong>: Standalone components can be more easily reused across different modules or applications.</p>
+</li>
 </ul>
 <hr>
 <h3 id="92-react"><strong>9.2. React</strong></h3>
@@ -2215,9 +2945,15 @@ ngOnDestroy() {
 <p>React is a declarative, component-based library developed by Facebook for building user interfaces. It allows developers to build complex UIs from small, reusable pieces of code called <strong>components</strong>. React is built around the <strong>Virtual DOM</strong>, which enables efficient rendering and updates to the actual DOM.</p>
 <p>Key Features of React:</p>
 <ul>
-<li><strong>Declarative</strong>: React makes it easy to design simple views for each state in your application, updating and rendering efficiently when the data changes.</li>
-<li><strong>Component-Based</strong>: React applications are composed of encapsulated components that manage their own state, which can be composed to build complex UIs.</li>
-<li><strong>Learn Once, Write Anywhere</strong>: You can develop new features in React without rewriting existing code, as React can also be used for mobile development (with React Native).</li>
+<li>
+<p><strong>Declarative</strong>: React makes it easy to design simple views for each state in your application, updating and rendering efficiently when the data changes.</p>
+</li>
+<li>
+<p><strong>Component-Based</strong>: React applications are composed of encapsulated components that manage their own state, which can be composed to build complex UIs.</p>
+</li>
+<li>
+<p><strong>Learn Once, Write Anywhere</strong>: You can develop new features in React without rewriting existing code, as React can also be used for mobile development (with React Native).</p>
+</li>
 </ul>
 <hr>
 <h4 id="jsx-in-depth"><strong>JSX in Depth</strong></h4>
@@ -2310,8 +3046,12 @@ ngOnDestroy() {
 <li>
 <p><strong>Controlled vs Uncontrolled Components</strong>:</p>
 <ul>
-<li><strong>Controlled components</strong> are those where form data is handled by a React component’s state.</li>
-<li><strong>Uncontrolled components</strong> use the DOM to manage form data.</li>
+<li>
+<p><strong>Controlled components</strong> are those where form data is handled by a React component’s state.</p>
+</li>
+<li>
+<p><strong>Uncontrolled components</strong> use the DOM to manage form data.</p>
+</li>
 </ul>
 <p>Example of a controlled component:</p>
 <pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ControlledForm</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
@@ -2384,11 +3124,18 @@ ngOnDestroy() {
 <h4 id="state-management-in-react"><strong>State Management in React</strong></h4>
 <p>Managing state in large React applications can become complex. While React’s local state is sufficient for smaller applications, libraries like <strong>Redux</strong>, <strong>MobX</strong>, and the <strong>Context API</strong> are used for managing global state.</p>
 <ul>
-<li><strong>Redux</strong>: Redux is a predictable state container that allows centralized state management in large applications.
+<li>
+<p><strong>Redux</strong>: Redux is a predictable state container that allows centralized state management in large applications.</p>
 <ul>
-<li><strong>Actions</strong>: Objects that describe what happened.</li>
-<li><strong>Reducers</strong>: Functions that specify how the application's state changes in response to an action.</li>
-<li><strong>Store</strong>: Holds the application state and allows dispatching actions.</li>
+<li>
+<p><strong>Actions</strong>: Objects that describe what happened.</p>
+</li>
+<li>
+<p><strong>Reducers</strong>: Functions that specify how the application's state changes in response to an action.</p>
+</li>
+<li>
+<p><strong>Store</strong>: Holds the application state and allows dispatching actions.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -2419,8 +3166,12 @@ ngOnDestroy() {
 <li>
 <p><strong>Memoization</strong>:</p>
 <ul>
-<li>Use <code>React.memo()</code> to prevent re-rendering of functional components unless their props change.</li>
-<li><code>useMemo()</code> and <code>useCallback()</code> can be used to memoize values and functions.</li>
+<li>
+<p>Use <code>React.memo()</code> to prevent re-rendering of functional components unless their props change.</p>
+</li>
+<li>
+<p><code>useMemo()</code> and <code>useCallback()</code> can be used to memoize values and functions.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -2435,8 +3186,8 @@ ngOnDestroy() {
 <li>
 <p><strong>Lazy Loading</strong>:</p>
 <ul>
-<li>Use <code>React.lazy()</code> and <code>Suspense</code> to load components dynamically, improving initial load time for large applications.</li>
-</ul>
+<li>
+<p>Use <code>React.lazy()</code> and <code>Suspense</code> to load components dynamically, improving initial load time for large applications.</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">const</span> LazyComponent = React.lazy(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./LazyComponent'</span>));
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
@@ -2448,24 +3199,30 @@ ngOnDestroy() {
 }
 </div></code></pre>
 </li>
-</ul>
-<ol>
 <li>
 <p><strong>Use Production Build</strong>: Always use the production build of React (<code>react-dom.production.min.js</code>) for optimized performance.</p>
 </li>
 <li>
 <p><strong>React Profiler</strong>: Use the <strong>React Profiler</strong> to measure performance and identify components causing unnecessary renders.</p>
 </li>
-</ol>
+</ul>
+</li>
+</ul>
 <hr>
 <h4 id="react-and-server-side-rendering-ssr"><strong>React and Server-Side Rendering (SSR)</strong></h4>
 <p>Server-side rendering (SSR) in React is used to pre-render the initial HTML of the application on the server. This technique improves performance, particularly for first-page load, and enhances SEO.</p>
 <p><strong>Next.js</strong> is the most widely used framework for SSR in React applications.</p>
 <p>Advantages of SSR:</p>
 <ul>
-<li>Faster initial page load.</li>
-<li>Better SEO due to pre-rendered HTML content.</li>
-<li>Improved perceived performance.</li>
+<li>
+<p>Faster initial page load.</p>
+</li>
+<li>
+<p>Better SEO due to pre-rendered HTML content.</p>
+</li>
+<li>
+<p>Improved perceived performance.</p>
+</li>
 </ul>
 <p>Example of Next.js setup:</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
@@ -2496,8 +3253,12 @@ ngOnDestroy() {
 <p><strong>Concurrent Mode</strong> allows React to render multiple tasks simultaneously, making apps more responsive and reducing the risk of blocking the main thread. It introduces new features like <strong>Suspense</strong> for data fetching and <strong>Concurrent Rendering</strong> for prioritizing urgent updates.</p>
 <p>Key Concepts:</p>
 <ul>
-<li><strong>Time-Slicing</strong>: React can split rendering work into chunks and work on different tasks in parallel.</li>
-<li><strong>Suspense for Data Fetching</strong>: Suspense pauses rendering until a resource is available.</li>
+<li>
+<p><strong>Time-Slicing</strong>: React can split rendering work into chunks and work on different tasks in parallel.</p>
+</li>
+<li>
+<p><strong>Suspense for Data Fetching</strong>: Suspense pauses rendering until a resource is available.</p>
+</li>
 </ul>
 <hr>
 <h4 id="react-testing"><strong>React Testing</strong></h4>
@@ -2522,43 +3283,82 @@ ngOnDestroy() {
 <p><strong>Design Thinking</strong> is a problem-solving approach that focuses on understanding the user's needs, generating innovative solutions, and validating those solutions through feedback and iteration. As a Senior/Lead Developer, you will often participate in high-level decision-making processes and help guide the project’s direction based on both technical and non-technical requirements.</p>
 <h5 id="key-concepts-in-design-thinking">Key Concepts in Design Thinking</h5>
 <ul>
-<li><strong>Empathy</strong>: Understanding the users’ needs, preferences, and pain points.</li>
-<li><strong>Define</strong>: Clearly define the problem that needs to be solved.</li>
-<li><strong>Ideate</strong>: Brainstorm possible solutions, involving the team to generate creative ideas.</li>
-<li><strong>Prototype</strong>: Create a working model or proof-of-concept for the best ideas.</li>
-<li><strong>Test</strong>: Validate the proposed solution by testing the prototype with real users or stakeholders.</li>
+<li>
+<p><strong>Empathy</strong>: Understanding the users’ needs, preferences, and pain points.</p>
+</li>
+<li>
+<p><strong>Define</strong>: Clearly define the problem that needs to be solved.</p>
+</li>
+<li>
+<p><strong>Ideate</strong>: Brainstorm possible solutions, involving the team to generate creative ideas.</p>
+</li>
+<li>
+<p><strong>Prototype</strong>: Create a working model or proof-of-concept for the best ideas.</p>
+</li>
+<li>
+<p><strong>Test</strong>: Validate the proposed solution by testing the prototype with real users or stakeholders.</p>
+</li>
 </ul>
 <p>As a Senior/Lead Developer, you may not always be directly involved in every step, but having a strong grasp of these concepts is crucial when contributing to project decisions.</p>
 <h5 id="application-of-design-thinking-in-software-development">Application of Design Thinking in Software Development</h5>
 <ul>
-<li><strong>Feature Prioritization</strong>: Using empathy to understand which features will bring the most value to users.</li>
-<li><strong>Iterative Development</strong>: Developing in cycles of prototyping, testing, and refining based on user feedback.</li>
-<li><strong>Problem-Solving Approach</strong>: Apply design thinking techniques to solve technical challenges, ensuring that the end solution aligns with both the business needs and user expectations.</li>
+<li>
+<p><strong>Feature Prioritization</strong>: Using empathy to understand which features will bring the most value to users.</p>
+</li>
+<li>
+<p><strong>Iterative Development</strong>: Developing in cycles of prototyping, testing, and refining based on user feedback.</p>
+</li>
+<li>
+<p><strong>Problem-Solving Approach</strong>: Apply design thinking techniques to solve technical challenges, ensuring that the end solution aligns with both the business needs and user expectations.</p>
+</li>
 </ul>
 <hr>
 <h4 id="key-project-decisions-and-architectural-decisions"><strong>Key Project Decisions and Architectural Decisions</strong></h4>
 <p>As a Senior/Lead Developer, you will often be responsible for making and documenting key architectural decisions that impact the project's overall success.</p>
 <h5 id="types-of-decisions">Types of Decisions</h5>
 <ul>
-<li><strong>Choosing Technology Stack</strong>: Deciding which technologies, frameworks, libraries, and tools will be used on the project.</li>
-<li><strong>Design Patterns and Best Practices</strong>: Identifying and implementing appropriate design patterns (e.g., MVC, Observer, Singleton, etc.) and best practices like SOLID, DRY, and KISS principles.</li>
-<li><strong>Non-Functional Requirements (NFRs)</strong>: Evaluating performance, security, scalability, and other non-functional requirements to guide the architecture.</li>
+<li>
+<p><strong>Choosing Technology Stack</strong>: Deciding which technologies, frameworks, libraries, and tools will be used on the project.</p>
+</li>
+<li>
+<p><strong>Design Patterns and Best Practices</strong>: Identifying and implementing appropriate design patterns (e.g., MVC, Observer, Singleton, etc.) and best practices like SOLID, DRY, and KISS principles.</p>
+</li>
+<li>
+<p><strong>Non-Functional Requirements (NFRs)</strong>: Evaluating performance, security, scalability, and other non-functional requirements to guide the architecture.</p>
+</li>
 </ul>
 <h5 id="examples-of-architectural-decisions">Examples of Architectural Decisions</h5>
 <ul>
-<li><strong>Technology Choice</strong>: Choosing Angular over React for a project based on the team’s familiarity with Angular and the project’s need for strong built-in tools like routing and forms.</li>
-<li><strong>Microservices Architecture</strong>: Adopting a microservices architecture to allow different parts of the application to scale independently, improving maintainability and resilience.</li>
-<li><strong>Modular Approach</strong>: Dividing the application into reusable modules to improve maintainability and allow teams to work independently on different parts of the application.</li>
+<li>
+<p><strong>Technology Choice</strong>: Choosing Angular over React for a project based on the team’s familiarity with Angular and the project’s need for strong built-in tools like routing and forms.</p>
+</li>
+<li>
+<p><strong>Microservices Architecture</strong>: Adopting a microservices architecture to allow different parts of the application to scale independently, improving maintainability and resilience.</p>
+</li>
+<li>
+<p><strong>Modular Approach</strong>: Dividing the application into reusable modules to improve maintainability and allow teams to work independently on different parts of the application.</p>
+</li>
 </ul>
 <h5 id="documentation-of-architectural-decisions">Documentation of Architectural Decisions</h5>
 <ul>
-<li><strong>ADR (Architectural Decision Records)</strong>: A structured approach to documenting the rationale behind key decisions. ADRs typically include the decision itself, the context, alternatives considered, and the outcome.</li>
-<li><strong>Example ADR Structure</strong>:
+<li>
+<p><strong>ADR (Architectural Decision Records)</strong>: A structured approach to documenting the rationale behind key decisions. ADRs typically include the decision itself, the context, alternatives considered, and the outcome.</p>
+</li>
+<li>
+<p><strong>Example ADR Structure</strong>:</p>
 <ul>
-<li><strong>Title</strong>: Short, descriptive summary of the decision.</li>
-<li><strong>Context</strong>: Explanation of the problem or opportunity that prompted the decision.</li>
-<li><strong>Decision</strong>: The final choice made, along with any supporting reasons.</li>
-<li><strong>Consequences</strong>: Potential impacts (positive and negative) of the decision.</li>
+<li>
+<p><strong>Title</strong>: Short, descriptive summary of the decision.</p>
+</li>
+<li>
+<p><strong>Context</strong>: Explanation of the problem or opportunity that prompted the decision.</p>
+</li>
+<li>
+<p><strong>Decision</strong>: The final choice made, along with any supporting reasons.</p>
+</li>
+<li>
+<p><strong>Consequences</strong>: Potential impacts (positive and negative) of the decision.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -2567,30 +3367,54 @@ ngOnDestroy() {
 <p>A significant part of a Senior/Lead Developer’s role is working with both functional and non-functional requirements. Understanding the project’s requirements and translating them into technical deliverables is key to the project’s success.</p>
 <h5 id="key-aspects">Key Aspects</h5>
 <ul>
-<li><strong>Decomposition of Requirements</strong>: Breaking down complex project requirements into manageable tasks or user stories.</li>
-<li><strong>Collaboration with Stakeholders</strong>: Working closely with project managers, product owners, and business analysts to ensure the requirements are well understood.</li>
-<li><strong>Non-Functional Requirements</strong>: Ensuring the project meets critical NFRs such as performance, scalability, security, and usability.</li>
+<li>
+<p><strong>Decomposition of Requirements</strong>: Breaking down complex project requirements into manageable tasks or user stories.</p>
+</li>
+<li>
+<p><strong>Collaboration with Stakeholders</strong>: Working closely with project managers, product owners, and business analysts to ensure the requirements are well understood.</p>
+</li>
+<li>
+<p><strong>Non-Functional Requirements</strong>: Ensuring the project meets critical NFRs such as performance, scalability, security, and usability.</p>
+</li>
 </ul>
 <h5 id="example-of-requirement-decomposition">Example of Requirement Decomposition</h5>
 <ul>
-<li>Implementing the login system.</li>
-<li>Storing user data securely.</li>
-<li>Applying session management.</li>
-<li>Managing user roles and permissions.</li>
+<li>
+<p>Implementing the login system.</p>
+</li>
+<li>
+<p>Storing user data securely.</p>
+</li>
+<li>
+<p>Applying session management.</p>
+</li>
+<li>
+<p>Managing user roles and permissions.</p>
+</li>
 </ul>
 <hr>
 <h4 id="documentation-guidelines-style-guides"><strong>Documentation, Guidelines, Style Guides</strong></h4>
 <p>Clear and concise documentation is a hallmark of effective technical leadership. A Senior/Lead Developer is often responsible for creating or maintaining coding guidelines, technical documentation, and style guides to ensure consistency and clarity within the development team.</p>
 <h5 id="key-responsibilities">Key Responsibilities</h5>
 <ul>
-<li><strong>Coding Style Guidelines</strong>: Establishing rules for how code should be written, formatted, and documented. For instance, enforcing consistent naming conventions, indentation, and the use of comments.</li>
-<li><strong>Technical Documentation</strong>: Writing comprehensive documentation for complex systems, including API documentation, architectural overviews, and setup instructions.</li>
-<li><strong>Style Guides</strong>: Creating or enforcing design systems and UI guidelines to ensure a consistent look and feel across the project.</li>
+<li>
+<p><strong>Coding Style Guidelines</strong>: Establishing rules for how code should be written, formatted, and documented. For instance, enforcing consistent naming conventions, indentation, and the use of comments.</p>
+</li>
+<li>
+<p><strong>Technical Documentation</strong>: Writing comprehensive documentation for complex systems, including API documentation, architectural overviews, and setup instructions.</p>
+</li>
+<li>
+<p><strong>Style Guides</strong>: Creating or enforcing design systems and UI guidelines to ensure a consistent look and feel across the project.</p>
+</li>
 </ul>
 <h5 id="example-documentation-responsibilities">Example Documentation Responsibilities</h5>
 <ul>
-<li><strong>Code Documentation</strong>: Documenting important sections of the codebase to help team members understand complex algorithms, business logic, or integration points.</li>
-<li><strong>Architecture Diagrams</strong>: Visualizing the application architecture using diagrams that show data flow, component interaction, and deployment environments.</li>
+<li>
+<p><strong>Code Documentation</strong>: Documenting important sections of the codebase to help team members understand complex algorithms, business logic, or integration points.</p>
+</li>
+<li>
+<p><strong>Architecture Diagrams</strong>: Visualizing the application architecture using diagrams that show data flow, component interaction, and deployment environments.</p>
+</li>
 </ul>
 <hr>
 <h4 id="patterns-and-best-practices"><strong>Patterns and Best Practices</strong></h4>
@@ -2600,11 +3424,21 @@ ngOnDestroy() {
 <li>
 <p><strong>SOLID Principles</strong>: A set of design principles intended to make software designs more understandable, flexible, and maintainable.</p>
 <ul>
-<li><strong>Single Responsibility Principle (SRP)</strong>: A class should have one, and only one, reason to change.</li>
-<li><strong>Open/Closed Principle (OCP)</strong>: Software entities should be open for extension but closed for modification.</li>
-<li><strong>Liskov Substitution Principle (LSP)</strong>: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.</li>
-<li><strong>Interface Segregation Principle (ISP)</strong>: No client should be forced to depend on methods it does not use.</li>
-<li><strong>Dependency Inversion Principle (DIP)</strong>: High-level modules should not depend on low-level modules. Both should depend on abstractions.</li>
+<li>
+<p><strong>Single Responsibility Principle (SRP)</strong>: A class should have one, and only one, reason to change.</p>
+</li>
+<li>
+<p><strong>Open/Closed Principle (OCP)</strong>: Software entities should be open for extension but closed for modification.</p>
+</li>
+<li>
+<p><strong>Liskov Substitution Principle (LSP)</strong>: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.</p>
+</li>
+<li>
+<p><strong>Interface Segregation Principle (ISP)</strong>: No client should be forced to depend on methods it does not use.</p>
+</li>
+<li>
+<p><strong>Dependency Inversion Principle (DIP)</strong>: High-level modules should not depend on low-level modules. Both should depend on abstractions.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -2792,40 +3626,70 @@ ngOnDestroy() {
 <li>
 <p><strong>Guaranteeing Quality</strong>: Ensure that the code meets all quality gates before it’s merged into the main branch or deployed to production. This includes verifying that:</p>
 <ul>
-<li>Code passes automated tests (unit, integration, E2E).</li>
-<li>Code adheres to style guidelines and best practices (e.g., linters and formatters).</li>
-<li>Code coverage meets the agreed thresholds.</li>
+<li>
+<p>Code passes automated tests (unit, integration, E2E).</p>
+</li>
+<li>
+<p>Code adheres to style guidelines and best practices (e.g., linters and formatters).</p>
+</li>
+<li>
+<p>Code coverage meets the agreed thresholds.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Refactoring</strong>: Refactoring is the process of improving the internal structure of code without changing its external behavior. A good Senior/Lead Developer knows how to plan, isolate, and control refactoring efforts while ensuring that code remains functional.</p>
 <ul>
-<li><strong>When to Refactor</strong>: Refactoring should be done regularly, especially when you encounter technical debt or suboptimal design patterns that hinder maintainability.</li>
-<li><strong>Strategies</strong>: Use incremental refactoring to reduce risk, and focus on improving code readability, reducing complexity, and optimizing performance.</li>
+<li>
+<p><strong>When to Refactor</strong>: Refactoring should be done regularly, especially when you encounter technical debt or suboptimal design patterns that hinder maintainability.</p>
+</li>
+<li>
+<p><strong>Strategies</strong>: Use incremental refactoring to reduce risk, and focus on improving code readability, reducing complexity, and optimizing performance.</p>
+</li>
 </ul>
 </li>
 </ul>
 <h5 id="example-refactoring-process">Example Refactoring Process</h5>
 <ul>
-<li><strong>Identify the target area</strong> (e.g., a function that’s too complex or a repeated pattern).</li>
-<li><strong>Write tests</strong> to ensure the existing functionality is covered.</li>
-<li><strong>Refactor the code</strong> by simplifying logic, splitting large functions, or improving naming conventions.</li>
-<li><strong>Run the tests</strong> to confirm that no behavior has changed.</li>
+<li>
+<p><strong>Identify the target area</strong> (e.g., a function that’s too complex or a repeated pattern).</p>
+</li>
+<li>
+<p><strong>Write tests</strong> to ensure the existing functionality is covered.</p>
+</li>
+<li>
+<p><strong>Refactor the code</strong> by simplifying logic, splitting large functions, or improving naming conventions.</p>
+</li>
+<li>
+<p><strong>Run the tests</strong> to confirm that no behavior has changed.</p>
+</li>
 </ul>
 <hr>
 <h4 id="selecting-technical-debt-resolution-strategies"><strong>Selecting Technical Debt Resolution Strategies</strong></h4>
 <p><strong>Technical debt</strong> accumulates when shortcuts are taken in the code, often to meet deadlines or release faster. While it can help speed up short-term development, over time, technical debt makes the code harder to maintain and extend.</p>
 <p>As a Senior/Lead Developer, you should:</p>
 <ul>
-<li><strong>Identify areas of technical debt</strong>: This could be code duplication, outdated dependencies, or unoptimized algorithms.</li>
-<li><strong>Prioritize debt resolution</strong>: Work with stakeholders to decide when and how to address technical debt. This might involve fixing the debt during sprint cycles, or as part of larger refactoring efforts.</li>
-<li><strong>Introduce strategies to the team</strong>: Communicate the importance of resolving debt early and encourage team members to clean up code incrementally.</li>
+<li>
+<p><strong>Identify areas of technical debt</strong>: This could be code duplication, outdated dependencies, or unoptimized algorithms.</p>
+</li>
+<li>
+<p><strong>Prioritize debt resolution</strong>: Work with stakeholders to decide when and how to address technical debt. This might involve fixing the debt during sprint cycles, or as part of larger refactoring efforts.</p>
+</li>
+<li>
+<p><strong>Introduce strategies to the team</strong>: Communicate the importance of resolving debt early and encourage team members to clean up code incrementally.</p>
+</li>
 </ul>
 <h5 id="common-technical-debt-resolution-strategies">Common Technical Debt Resolution Strategies</h5>
 <ul>
-<li><strong>Refactor codebase incrementally</strong> rather than in large overhauls to reduce risk.</li>
-<li><strong>Plan technical debt paydown</strong> as part of each sprint or at specific intervals in the project lifecycle.</li>
-<li><strong>Track technical debt</strong> using tools like SonarQube, which can identify code smells, duplicate code, and other issues.</li>
+<li>
+<p><strong>Refactor codebase incrementally</strong> rather than in large overhauls to reduce risk.</p>
+</li>
+<li>
+<p><strong>Plan technical debt paydown</strong> as part of each sprint or at specific intervals in the project lifecycle.</p>
+</li>
+<li>
+<p><strong>Track technical debt</strong> using tools like SonarQube, which can identify code smells, duplicate code, and other issues.</p>
+</li>
 </ul>
 <hr>
 <h4 id="best-practices-epam-engx"><strong>Best Practices (EPAM ENGX)</strong></h4>
@@ -2835,15 +3699,23 @@ ngOnDestroy() {
 <li>
 <p><strong>Git Hooks and Automation</strong>:</p>
 <ul>
-<li>Implement <strong>Git Hooks</strong> to automate processes such as linting, running unit tests, and verifying code before it’s pushed to the repository.</li>
-<li>Use tools like <strong>Husky</strong> to enforce Git Hooks across the development team.</li>
+<li>
+<p>Implement <strong>Git Hooks</strong> to automate processes such as linting, running unit tests, and verifying code before it’s pushed to the repository.</p>
+</li>
+<li>
+<p>Use tools like <strong>Husky</strong> to enforce Git Hooks across the development team.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Linters and Formatters</strong>:</p>
 <ul>
-<li>Tools like <strong>ESLint</strong> and <strong>Prettier</strong> should be used to ensure the code follows the established style guidelines.</li>
-<li>Linters help catch errors early by enforcing rules like no-unused-vars, no-implicit-any, and consistent return types in TypeScript.</li>
+<li>
+<p>Tools like <strong>ESLint</strong> and <strong>Prettier</strong> should be used to ensure the code follows the established style guidelines.</p>
+</li>
+<li>
+<p>Linters help catch errors early by enforcing rules like no-unused-vars, no-implicit-any, and consistent return types in TypeScript.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -2864,10 +3736,18 @@ ngOnDestroy() {
 <p>A strong code review process is key to improving code quality and sharing knowledge across the team. As a Senior/Lead Developer, it’s your responsibility to ensure that a thorough code review process is in place.</p>
 <h5 id="code-review-best-practices">Code Review Best Practices</h5>
 <ul>
-<li><strong>Establish Code Review Standards</strong>: Define what needs to be reviewed (e.g., logic, security, performance) and what the team should focus on during code reviews.</li>
-<li><strong>Encourage Constructive Feedback</strong>: Reviews should not just focus on identifying mistakes but also on suggesting improvements and sharing knowledge.</li>
-<li><strong>Peer Reviews</strong>: Everyone on the team should participate in reviews, but the Senior/Lead Developer may step in for critical features or architecture changes.</li>
-<li><strong>Automated Tools</strong>: Use tools like <strong>GitHub Actions</strong> or <strong>CI/CD pipelines</strong> to automate the running of tests and quality checks as part of the review process.</li>
+<li>
+<p><strong>Establish Code Review Standards</strong>: Define what needs to be reviewed (e.g., logic, security, performance) and what the team should focus on during code reviews.</p>
+</li>
+<li>
+<p><strong>Encourage Constructive Feedback</strong>: Reviews should not just focus on identifying mistakes but also on suggesting improvements and sharing knowledge.</p>
+</li>
+<li>
+<p><strong>Peer Reviews</strong>: Everyone on the team should participate in reviews, but the Senior/Lead Developer may step in for critical features or architecture changes.</p>
+</li>
+<li>
+<p><strong>Automated Tools</strong>: Use tools like <strong>GitHub Actions</strong> or <strong>CI/CD pipelines</strong> to automate the running of tests and quality checks as part of the review process.</p>
+</li>
 </ul>
 <hr>
 <h4 id="automated-testing-tdd-test-pyramid"><strong>Automated Testing (TDD, Test Pyramid)</strong></h4>
@@ -2877,9 +3757,15 @@ ngOnDestroy() {
 <h5 id="the-test-pyramid">The Test Pyramid</h5>
 <p>The <strong>Test Pyramid</strong> helps ensure that your testing strategy is efficient by structuring different layers of tests:</p>
 <ul>
-<li><strong>Unit Tests</strong>: The base of the pyramid, which tests individual pieces of functionality in isolation.</li>
-<li><strong>Integration Tests</strong>: Tests interactions between different modules or services to ensure they work together.</li>
-<li><strong>End-to-End (E2E) Tests</strong>: The top of the pyramid, testing the full functionality of the application from the user's perspective.</li>
+<li>
+<p><strong>Unit Tests</strong>: The base of the pyramid, which tests individual pieces of functionality in isolation.</p>
+</li>
+<li>
+<p><strong>Integration Tests</strong>: Tests interactions between different modules or services to ensure they work together.</p>
+</li>
+<li>
+<p><strong>End-to-End (E2E) Tests</strong>: The top of the pyramid, testing the full functionality of the application from the user's perspective.</p>
+</li>
 </ul>
 <h5 id="example-of-unit-testing">Example of Unit Testing</h5>
 <pre class="hljs"><code><div>describe(<span class="hljs-string">'Addition Function'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
@@ -2890,8 +3776,12 @@ ngOnDestroy() {
 </div></code></pre>
 <h5 id="writing-good-unit-tests">Writing Good Unit Tests</h5>
 <ul>
-<li>Follow the <strong>FIRST</strong> principles: <strong>Fast</strong>, <strong>Isolated</strong>, <strong>Repeatable</strong>, <strong>Self-validating</strong>, and <strong>Timely</strong>.</li>
-<li>Tests should be written to cover both expected functionality and edge cases.</li>
+<li>
+<p>Follow the <strong>FIRST</strong> principles: <strong>Fast</strong>, <strong>Isolated</strong>, <strong>Repeatable</strong>, <strong>Self-validating</strong>, and <strong>Timely</strong>.</p>
+</li>
+<li>
+<p>Tests should be written to cover both expected functionality and edge cases.</p>
+</li>
 </ul>
 <hr>
 <h3 id="12-cicd-and-version-control-systems-vcs"><strong>12. CI/CD and Version Control Systems (VCS)</strong></h3>
@@ -2912,10 +3802,18 @@ ngOnDestroy() {
 <h4 id="best-practices-in-cicd"><strong>Best Practices in CI/CD</strong></h4>
 <p>Implementing CI/CD successfully involves following best practices to streamline workflows and ensure high-quality software delivery.</p>
 <ul>
-<li><strong>Automate Testing and Build Processes</strong>: Automating the testing and build process ensures early detection of issues and faster delivery of features.</li>
-<li><strong>Use Feature Flags</strong>: Feature flags allow you to release features incrementally and toggle them on or off as needed without deploying new code.</li>
-<li><strong>Monitor and Roll Back</strong>: Always monitor deployments in production and have a rollback plan in case of failures.</li>
-<li><strong>Ensure a Staging Environment</strong>: Testing in a staging environment before production deployment helps ensure stability and bug-free releases.</li>
+<li>
+<p><strong>Automate Testing and Build Processes</strong>: Automating the testing and build process ensures early detection of issues and faster delivery of features.</p>
+</li>
+<li>
+<p><strong>Use Feature Flags</strong>: Feature flags allow you to release features incrementally and toggle them on or off as needed without deploying new code.</p>
+</li>
+<li>
+<p><strong>Monitor and Roll Back</strong>: Always monitor deployments in production and have a rollback plan in case of failures.</p>
+</li>
+<li>
+<p><strong>Ensure a Staging Environment</strong>: Testing in a staging environment before production deployment helps ensure stability and bug-free releases.</p>
+</li>
 </ul>
 <hr>
 <h4 id="version-control-systems-vcs"><strong>Version Control Systems (VCS)</strong></h4>
@@ -2945,17 +3843,53 @@ ngOnDestroy() {
 </li>
 </ul>
 <hr>
-<h4 id="deployment-strategies"><strong>Deployment Strategies</strong></h4>
-<p>Choosing the right deployment strategy is crucial for minimizing downtime and reducing the risk of introducing bugs to production.</p>
+<h4 id="zero-downtime-deploymentdeployment-strategies"><strong>Zero-downtime deployment(Deployment Strategies)</strong></h4>
+<p><strong>Zero-downtime deployment</strong> ensures that users experience no service interruption while new code or updates are deployed. This approach is essential for high-availability applications, as it maintains a seamless user experience even during frequent updates. Below are some popular zero-downtime deployment techniques:</p>
+<h5 id="blue-green-deployment-most-popular">Blue-Green Deployment (Most Popular)**</h5>
+<p>In <strong>Blue-Green Deployment</strong>, two identical environments, known as &quot;blue&quot; (current production) and &quot;green&quot; (new version), are maintained. The new version of the application is deployed to the green environment, where it undergoes final testing. Once verified, traffic is redirected from the blue environment to the green environment, making the new version live with zero downtime.</p>
+<p><strong>Benefits</strong>:</p>
 <ul>
 <li>
-<p><strong>Blue-Green Deployment</strong>: Two identical environments (blue and green) are maintained. The current production environment (blue) continues running while the new version is deployed to the green environment. Once tested, traffic is switched to the green environment.</p>
+<p><strong>Instant Rollback</strong>: If issues are detected, switching back to the blue environment is quick and seamless.</p>
 </li>
 <li>
-<p><strong>Canary Deployment</strong>: A new version is gradually released to a subset of users before being rolled out to the entire user base. This minimizes the risk of bugs affecting all users.</p>
+<p><strong>Reduced Risk</strong>: New versions can be tested in the green environment without affecting current users.</p>
+</li>
+</ul>
+<hr>
+<h5 id="canary-deployment"><strong>Canary Deployment</strong></h5>
+<p>In <strong>Canary Deployment</strong>, the new version of the application is gradually rolled out to a small subset of users. If the deployment is stable, more users are directed to the new version in stages until all users are using the latest release. This technique allows for monitoring and catching potential issues early without affecting the entire user base.</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>
+<p><strong>Controlled Rollout</strong>: By gradually exposing the new version, developers can test stability and performance in real-world conditions.</p>
 </li>
 <li>
-<p><strong>Rolling Deployment</strong>: Updates are gradually rolled out across different servers or regions to avoid downtime and ensure smooth transitions.</p>
+<p><strong>Reduced Impact</strong>: Potential issues affect only a small portion of users at a time.</p>
+</li>
+</ul>
+<hr>
+<h5 id="rolling-deployment"><strong>Rolling Deployment</strong></h5>
+<p><strong>Rolling Deployment</strong> updates the application one server or instance at a time. Each server is taken offline, updated, and brought back online before the next one is updated. This technique is particularly suitable for distributed environments, as it minimizes disruption to users and avoids complete downtime.</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>
+<p><strong>No Separate Environments Required</strong>: Works directly on production instances, avoiding the need for duplicated infrastructure.</p>
+</li>
+<li>
+<p><strong>Minimal User Impact</strong>: Rolling updates reduce the number of affected users per instance update.</p>
+</li>
+</ul>
+<hr>
+<h5 id="feature-toggles-feature-flags"><strong>Feature Toggles (Feature Flags)</strong></h5>
+<p><strong>Feature Toggles</strong> enable developers to deploy code with features hidden behind flags. This allows new features to be gradually enabled without additional deployments. Feature toggles are particularly useful for testing in production environments and allowing incremental feature rollouts.</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>
+<p><strong>Controlled Release</strong>: Developers can selectively enable features for specific users or groups.</p>
+</li>
+<li>
+<p><strong>Instant Reversion</strong>: Disabling a flag turns off a feature without redeployment.</p>
 </li>
 </ul>
 <hr>
@@ -3019,28 +3953,49 @@ ngOnDestroy() {
 <li>
 <p><strong>Roles</strong>:</p>
 <ul>
-<li><strong>Product Owner</strong>: Responsible for defining the product backlog and prioritizing work.</li>
-<li><strong>Scrum Master</strong>: Facilitates the Scrum process, ensuring that the team follows Scrum practices.</li>
-<li><strong>Development Team</strong>: A cross-functional team responsible for delivering the product increments.</li>
+<li>
+<p><strong>Product Owner</strong>: Responsible for defining the product backlog and prioritizing work.</p>
+</li>
+<li>
+<p><strong>Scrum Master</strong>: Facilitates the Scrum process, ensuring that the team follows Scrum practices.</p>
+</li>
+<li>
+<p><strong>Development Team</strong>: A cross-functional team responsible for delivering the product increments.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Ceremonies</strong>:</p>
 <ul>
-<li><strong>Sprint Planning</strong>: A meeting to decide what work will be done in the upcoming sprint.</li>
-<li><strong>Daily Stand-up</strong>: A short meeting (15 minutes) where the team discusses progress, roadblocks, and plans for the day.</li>
-<li><strong>Sprint Review</strong>: A demonstration of the completed work to stakeholders at the end of each sprint.</li>
-<li><strong>Retrospective</strong>: A session to reflect on what went well, what didn’t, and how to improve in the next sprint.</li>
+<li>
+<p><strong>Sprint Planning</strong>: A meeting to decide what work will be done in the upcoming sprint.</p>
+</li>
+<li>
+<p><strong>Daily Stand-up</strong>: A short meeting (15 minutes) where the team discusses progress, roadblocks, and plans for the day.</p>
+</li>
+<li>
+<p><strong>Sprint Review</strong>: A demonstration of the completed work to stakeholders at the end of each sprint.</p>
+</li>
+<li>
+<p><strong>Retrospective</strong>: A session to reflect on what went well, what didn’t, and how to improve in the next sprint.</p>
+</li>
 </ul>
 </li>
 </ul>
 <h5 id="kanban"><strong>Kanban</strong></h5>
 <ul>
-<li><strong>Key Concepts</strong>:
+<li>
+<p><strong>Key Concepts</strong>:</p>
 <ul>
-<li><strong>Visualize Work</strong>: Use a Kanban board to show tasks in different stages (e.g., To Do, In Progress, Done).</li>
-<li><strong>Limit Work in Progress (WIP)</strong>: Set limits on how many tasks can be in progress at the same time to improve focus and flow.</li>
-<li><strong>Manage Flow</strong>: Focus on moving tasks through the process efficiently without overloading the team.</li>
+<li>
+<p><strong>Visualize Work</strong>: Use a Kanban board to show tasks in different stages (e.g., To Do, In Progress, Done).</p>
+</li>
+<li>
+<p><strong>Limit Work in Progress (WIP)</strong>: Set limits on how many tasks can be in progress at the same time to improve focus and flow.</p>
+</li>
+<li>
+<p><strong>Manage Flow</strong>: Focus on moving tasks through the process efficiently without overloading the team.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -3049,15 +4004,27 @@ ngOnDestroy() {
 <p>As a Senior/Lead Developer, it’s your responsibility to ensure that your team follows best practices, both for development and the software delivery process.</p>
 <h5 id="extreme-programming-xp"><strong>Extreme Programming (XP)</strong></h5>
 <ul>
-<li><strong>Pair Programming</strong>: Two developers work together at one workstation. One writes code, while the other reviews each line as it’s written. This promotes knowledge sharing and reduces errors.</li>
-<li><strong>Continuous Refactoring</strong>: Constantly improving the codebase to remove technical debt and improve maintainability.</li>
-<li><strong>Simple Design</strong>: Design only for the current requirements without overcomplicating the code. Focus on simplicity to make the code easier to change in the future.</li>
+<li>
+<p><strong>Pair Programming</strong>: Two developers work together at one workstation. One writes code, while the other reviews each line as it’s written. This promotes knowledge sharing and reduces errors.</p>
+</li>
+<li>
+<p><strong>Continuous Refactoring</strong>: Constantly improving the codebase to remove technical debt and improve maintainability.</p>
+</li>
+<li>
+<p><strong>Simple Design</strong>: Design only for the current requirements without overcomplicating the code. Focus on simplicity to make the code easier to change in the future.</p>
+</li>
 </ul>
 <h5 id="code-quality-and-engineering-best-practices"><strong>Code Quality and Engineering Best Practices</strong></h5>
 <ul>
-<li><strong>Coding Standards</strong>: Ensure that the team follows consistent coding standards, such as consistent naming conventions, file structure, and formatting rules.</li>
-<li><strong>Automated Testing</strong>: Encourage writing unit tests, integration tests, and end-to-end tests as part of the development cycle. Use tools such as <strong>Jest</strong>, <strong>Karma</strong>, or <strong>Cypress</strong> to automate testing.</li>
-<li><strong>Continuous Integration (CI)</strong>: Set up a CI pipeline that automatically runs tests and checks code quality whenever changes are pushed to the repository.</li>
+<li>
+<p><strong>Coding Standards</strong>: Ensure that the team follows consistent coding standards, such as consistent naming conventions, file structure, and formatting rules.</p>
+</li>
+<li>
+<p><strong>Automated Testing</strong>: Encourage writing unit tests, integration tests, and end-to-end tests as part of the development cycle. Use tools such as <strong>Jest</strong>, <strong>Karma</strong>, or <strong>Cypress</strong> to automate testing.</p>
+</li>
+<li>
+<p><strong>Continuous Integration (CI)</strong>: Set up a CI pipeline that automatically runs tests and checks code quality whenever changes are pushed to the repository.</p>
+</li>
 </ul>
 <hr>
 <h4 id="estimation-techniques-and-work-planning"><strong>Estimation Techniques and Work Planning</strong></h4>
@@ -3104,14 +4071,24 @@ ngOnDestroy() {
 <p>Risk management is crucial for successful project delivery. As a Senior/Lead Developer, you must be able to identify potential risks and create mitigation strategies to minimize their impact.</p>
 <h5 id="key-concepts">Key Concepts</h5>
 <ul>
-<li><strong>Probability and Impact</strong>: Assess the likelihood of risks occurring and their potential impact on the project.</li>
-<li><strong>Risk Mitigation Strategies</strong>: Create a plan for how to minimize or eliminate risks before they occur. This might involve creating contingency plans, adding buffer time, or investing in additional resources.</li>
+<li>
+<p><strong>Probability and Impact</strong>: Assess the likelihood of risks occurring and their potential impact on the project.</p>
+</li>
+<li>
+<p><strong>Risk Mitigation Strategies</strong>: Create a plan for how to minimize or eliminate risks before they occur. This might involve creating contingency plans, adding buffer time, or investing in additional resources.</p>
+</li>
 </ul>
 <h5 id="example-risks">Example Risks</h5>
 <ul>
-<li><strong>Technical Debt</strong>: If technical debt is not addressed, it can slow down future development and increase the cost of adding new features.</li>
-<li><strong>Scope Creep</strong>: If additional features are requested during development, it can lead to project delays unless managed carefully.</li>
-<li><strong>Team Capacity</strong>: If key team members are unavailable, this can reduce the team’s ability to deliver on time.</li>
+<li>
+<p><strong>Technical Debt</strong>: If technical debt is not addressed, it can slow down future development and increase the cost of adding new features.</p>
+</li>
+<li>
+<p><strong>Scope Creep</strong>: If additional features are requested during development, it can lead to project delays unless managed carefully.</p>
+</li>
+<li>
+<p><strong>Team Capacity</strong>: If key team members are unavailable, this can reduce the team’s ability to deliver on time.</p>
+</li>
 </ul>
 <hr>
 <h3 id="14-roles-played-on-projects-leadership-and-soft-skills"><strong>14. Roles Played on Projects, Leadership, and Soft Skills</strong></h3>
@@ -3123,15 +4100,23 @@ ngOnDestroy() {
 <li>
 <p><strong>Supervising Development</strong>:</p>
 <ul>
-<li>As a Senior/Lead Developer, you may lead a development group responsible for delivering a significant part of the application.</li>
-<li>You’ll oversee the entire project layer and ensure that it meets the agreed scope, timelines, and quality standards.</li>
+<li>
+<p>As a Senior/Lead Developer, you may lead a development group responsible for delivering a significant part of the application.</p>
+</li>
+<li>
+<p>You’ll oversee the entire project layer and ensure that it meets the agreed scope, timelines, and quality standards.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Project Delivery</strong>:</p>
 <ul>
-<li>Responsible for ensuring that project goals are met within the agreed time, scope, and budget.</li>
-<li>In some cases, you may be responsible for the delivery of entire modules, features, or even complete solutions.</li>
+<li>
+<p>Responsible for ensuring that project goals are met within the agreed time, scope, and budget.</p>
+</li>
+<li>
+<p>In some cases, you may be responsible for the delivery of entire modules, features, or even complete solutions.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -3165,15 +4150,23 @@ ngOnDestroy() {
 <li>
 <p><strong>Meeting Management</strong>:</p>
 <ul>
-<li>Organizing and running meetings is a key responsibility. You’ll be responsible for setting agendas, maintaining focus during discussions, and ensuring that all action items are followed up after the meeting.</li>
-<li>Types of meetings might include daily standups, sprint planning, retrospectives, and architecture reviews.</li>
+<li>
+<p>Organizing and running meetings is a key responsibility. You’ll be responsible for setting agendas, maintaining focus during discussions, and ensuring that all action items are followed up after the meeting.</p>
+</li>
+<li>
+<p>Types of meetings might include daily standups, sprint planning, retrospectives, and architecture reviews.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Team Management</strong>:</p>
 <ul>
-<li>As the leader of the team, you need to ensure that each team member has clear tasks, meets performance standards, and has a positive work environment.</li>
-<li>This also involves providing regular feedback, offering mentorship, and addressing any conflicts or challenges within the team.</li>
+<li>
+<p>As the leader of the team, you need to ensure that each team member has clear tasks, meets performance standards, and has a positive work environment.</p>
+</li>
+<li>
+<p>This also involves providing regular feedback, offering mentorship, and addressing any conflicts or challenges within the team.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -3186,8 +4179,12 @@ ngOnDestroy() {
 <p>Being a Senior/Lead Developer involves balancing several important management tasks. Proper planning, delegation of responsibilities, motivating the team, and managing conflicts are essential to ensure smooth project delivery.</p>
 <h5 id="planning-and-delegation">Planning and Delegation</h5>
 <ul>
-<li><strong>Planning</strong>: You must be able to create detailed project plans, define milestones, and allocate resources effectively to ensure that the team meets its objectives.</li>
-<li><strong>Delegation</strong>: Proper delegation involves assigning tasks to team members based on their strengths and workload capacity. It also means trusting team members to execute their tasks independently while holding them accountable for results.</li>
+<li>
+<p><strong>Planning</strong>: You must be able to create detailed project plans, define milestones, and allocate resources effectively to ensure that the team meets its objectives.</p>
+</li>
+<li>
+<p><strong>Delegation</strong>: Proper delegation involves assigning tasks to team members based on their strengths and workload capacity. It also means trusting team members to execute their tasks independently while holding them accountable for results.</p>
+</li>
 </ul>
 <h5 id="motivation">Motivation</h5>
 <ul>
@@ -3234,45 +4231,78 @@ ngOnDestroy() {
 <p>Effective negotiation skills are critical for managing both technical and organizational decisions. Whether you're negotiating with stakeholders on deliverables or with team members on task allocation, being able to find a balanced resolution is key.</p>
 <h5 id="negotiation-strategies">Negotiation Strategies</h5>
 <ul>
-<li><strong>Focus on Win-Win</strong>: Aim to find solutions that benefit all parties involved.</li>
-<li><strong>Use Data</strong>: Present data and facts to support your argument when negotiating timelines or technical decisions.</li>
-<li><strong>Active Listening</strong>: Understand the other party’s needs and constraints before proposing a solution.</li>
-<li><strong>Be Flexible</strong>: Be open to alternative solutions, but know your limits. If something is non-negotiable (like a security risk), communicate why.</li>
+<li>
+<p><strong>Focus on Win-Win</strong>: Aim to find solutions that benefit all parties involved.</p>
+</li>
+<li>
+<p><strong>Use Data</strong>: Present data and facts to support your argument when negotiating timelines or technical decisions.</p>
+</li>
+<li>
+<p><strong>Active Listening</strong>: Understand the other party’s needs and constraints before proposing a solution.</p>
+</li>
+<li>
+<p><strong>Be Flexible</strong>: Be open to alternative solutions, but know your limits. If something is non-negotiable (like a security risk), communicate why.</p>
+</li>
 </ul>
 <hr>
 <h4 id="presentation-skills"><strong>Presentation Skills</strong></h4>
 <p>As a Senior/Lead Developer, you’ll often be required to present solutions to both technical and non-technical stakeholders. Effective presentation skills are crucial for conveying your ideas, plans, and technical solutions clearly and persuasively.</p>
 <h5 id="tips-for-effective-presentations">Tips for Effective Presentations</h5>
 <ul>
-<li><strong>Tailor to the Audience</strong>: Adjust your technical depth based on whether you are presenting to a technical team or business stakeholders.</li>
-<li><strong>Use Visual Aids</strong>: Diagrams, charts, and demos can help make complex concepts more understandable.</li>
-<li><strong>Structured Communication</strong>: Start with the problem or objective, then present possible solutions, and conclude with recommendations and next steps.</li>
+<li>
+<p><strong>Tailor to the Audience</strong>: Adjust your technical depth based on whether you are presenting to a technical team or business stakeholders.</p>
+</li>
+<li>
+<p><strong>Use Visual Aids</strong>: Diagrams, charts, and demos can help make complex concepts more understandable.</p>
+</li>
+<li>
+<p><strong>Structured Communication</strong>: Start with the problem or objective, then present possible solutions, and conclude with recommendations and next steps.</p>
+</li>
 </ul>
 <hr>
 <h4 id="difficult-cases-and-conflict-escalation"><strong>Difficult Cases and Conflict Escalation</strong></h4>
 <p>Not all problems can be resolved internally. As a Senior/Lead Developer, you should recognize when a situation needs to be escalated to management or higher authorities within the organization.</p>
 <h5 id="when-to-escalate">When to Escalate</h5>
 <ul>
-<li><strong>Client Escalations</strong>: If a client is dissatisfied with the project’s progress or deliverables, escalate the issue to ensure that senior management can help resolve it.</li>
-<li><strong>Team Conflicts</strong>: If a conflict between team members becomes unmanageable and affects productivity, involve management or HR for mediation.</li>
+<li>
+<p><strong>Client Escalations</strong>: If a client is dissatisfied with the project’s progress or deliverables, escalate the issue to ensure that senior management can help resolve it.</p>
+</li>
+<li>
+<p><strong>Team Conflicts</strong>: If a conflict between team members becomes unmanageable and affects productivity, involve management or HR for mediation.</p>
+</li>
 </ul>
 <h5 id="escalation-techniques">Escalation Techniques</h5>
 <ul>
-<li>Present the issue clearly, focusing on facts rather than emotions.</li>
-<li>Offer potential solutions or ask for guidance from higher management.</li>
-<li>Document all escalations and the steps taken to resolve the issue.</li>
+<li>
+<p>Present the issue clearly, focusing on facts rather than emotions.</p>
+</li>
+<li>
+<p>Offer potential solutions or ask for guidance from higher management.</p>
+</li>
+<li>
+<p>Document all escalations and the steps taken to resolve the issue.</p>
+</li>
 </ul>
 <hr>
 <h4 id="self-management-and-time-management"><strong>Self-Management and Time Management</strong></h4>
 <p>As a Senior/Lead Developer, self-management is crucial for maintaining productivity and meeting deadlines. You must effectively prioritize tasks, manage your time, and delegate work to ensure that both you and your team deliver on time.</p>
 <h5 id="time-management-tips">Time Management Tips</h5>
 <ul>
-<li><strong>Prioritize Tasks</strong>: Focus on high-impact tasks and avoid distractions.- <strong>Set Time Blocks</strong>: Allocate specific blocks of time to work on tasks without interruptions.- <strong>Delegate Where Possible</strong>: Delegate tasks that don’t require your direct involvement to your team members.- <strong>Track Your Progress</strong>: Use task management tools like Jira or Trello to track your work and ensure you’re meeting deadlines.</li>
+<li>
+<p><strong>Prioritize Tasks</strong>: Focus on high-impact tasks and avoid distractions.</p>
+</li>
+<li>
+<p><strong>Set Time Blocks</strong>: Allocate specific blocks of time to work on tasks without interruptions.</p>
+</li>
+<li>
+<p><strong>Delegate Where Possible</strong>: Delegate tasks that don’t require your direct involvement to your team members.</p>
+</li>
+<li>
+<p><strong>Track Your Progress</strong>: Use task management tools like Jira or Trello to track your work and ensure you’re meeting deadlines.</p>
+</li>
 </ul>
 <h5 id="example-of-self-management">Example of Self-Management</h5>
-<ul>
-<li>As a Senior/Lead Developer, you might need to balance writing code, managing the team, and attending client meetings. By setting aside dedicated time for each responsibility, you ensure that nothing falls behind.</li>
-</ul>
+<p>As a Senior/Lead Developer, you might need to balance writing code, managing the team, and attending client meetings. By setting aside dedicated time for each responsibility, you ensure that nothing falls behind.</p>
 <hr>
 <h3 id="15-non-project-organizational-influence"><strong>15. Non-project Organizational Influence</strong></h3>
 <p>As a Senior/Lead Developer, your influence extends beyond individual projects. You may also take on responsibilities related to <strong>resource management</strong>, <strong>mentoring</strong>, and contributing to the overall growth of the organization. This section covers how you can positively impact the organization beyond project work.</p>
@@ -3286,15 +4316,23 @@ ngOnDestroy() {
 <li>
 <p><strong>Career Development</strong>:</p>
 <ul>
-<li>Help team members set professional goals and provide opportunities for skill development through training, workshops, and challenging projects.</li>
-<li>Provide regular feedback and performance evaluations to help team members improve.</li>
+<li>
+<p>Help team members set professional goals and provide opportunities for skill development through training, workshops, and challenging projects.</p>
+</li>
+<li>
+<p>Provide regular feedback and performance evaluations to help team members improve.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Solving Non-project Needs</strong>:</p>
 <ul>
-<li>Address any concerns team members have regarding organizational processes, access to resources, or other non-project-specific tasks.</li>
-<li>Facilitate communication between employees and the broader organization to resolve non-technical issues.</li>
+<li>
+<p>Address any concerns team members have regarding organizational processes, access to resources, or other non-project-specific tasks.</p>
+</li>
+<li>
+<p>Facilitate communication between employees and the broader organization to resolve non-technical issues.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -3307,19 +4345,33 @@ ngOnDestroy() {
 <p>As a Senior/Lead Developer, you play a crucial role in promoting and upholding the values and principles of EPAM Systems. Encouraging your team to follow these values fosters a positive work culture and enhances the organization's overall productivity.</p>
 <h5 id="core-epam-values">Core EPAM Values</h5>
 <ul>
-<li><strong>Excellence</strong>: Encourage continuous improvement and high-quality work. As a leader, you should model a commitment to learning and professional growth.</li>
-<li><strong>Innovation</strong>: Encourage the team to think creatively, explore new technologies, and seek innovative solutions to problems.</li>
-<li><strong>Collaboration</strong>: Foster a collaborative environment where team members feel comfortable sharing ideas and working together.</li>
-<li><strong>Accountability</strong>: Senior/Lead by example in taking responsibility for the success or failure of deliverables, and encourage the same sense of accountability within the team.</li>
+<li>
+<p><strong>Excellence</strong>: Encourage continuous improvement and high-quality work. As a leader, you should model a commitment to learning and professional growth.</p>
+</li>
+<li>
+<p><strong>Innovation</strong>: Encourage the team to think creatively, explore new technologies, and seek innovative solutions to problems.</p>
+</li>
+<li>
+<p><strong>Collaboration</strong>: Foster a collaborative environment where team members feel comfortable sharing ideas and working together.</p>
+</li>
+<li>
+<p><strong>Accountability</strong>: Senior/Lead by example in taking responsibility for the success or failure of deliverables, and encourage the same sense of accountability within the team.</p>
+</li>
 </ul>
 <hr>
 <h4 id="recognizing-and-praising-achievements"><strong>Recognizing and Praising Achievements</strong></h4>
 <p>Recognizing and celebrating team achievements is essential for maintaining high morale. Regularly acknowledging individual and team successes fosters a culture of appreciation and motivates people to continue performing well.</p>
 <h5 id="how-to-recognize-achievements">How to Recognize Achievements</h5>
 <ul>
-<li><strong>Public Recognition</strong>: Call attention to team accomplishments in meetings, newsletters, or internal forums.</li>
-<li><strong>Private Recognition</strong>: Offer private feedback and thank team members for their efforts. A personal note or conversation can go a long way.</li>
-<li><strong>Team Celebrations</strong>: Celebrate major project milestones or individual accomplishments with team events, lunches, or virtual celebrations for remote teams.</li>
+<li>
+<p><strong>Public Recognition</strong>: Call attention to team accomplishments in meetings, newsletters, or internal forums.</p>
+</li>
+<li>
+<p><strong>Private Recognition</strong>: Offer private feedback and thank team members for their efforts. A personal note or conversation can go a long way.</p>
+</li>
+<li>
+<p><strong>Team Celebrations</strong>: Celebrate major project milestones or individual accomplishments with team events, lunches, or virtual celebrations for remote teams.</p>
+</li>
 </ul>
 <h5 id="example-of-recognition">Example of Recognition</h5>
 <ul>
@@ -3352,19 +4404,33 @@ ngOnDestroy() {
 <p>Mentoring is a key part of organizational influence. Whether you’re mentoring new hires or providing ongoing coaching to more experienced developers, being a mentor helps improve team performance and creates a positive impact on the organization.</p>
 <h5 id="effective-mentoring">Effective Mentoring</h5>
 <ul>
-<li><strong>Build Trust</strong>: Establish open communication and make yourself available for advice and guidance. A successful mentor-mentee relationship is based on mutual trust.</li>
-<li><strong>Set Clear Goals</strong>: Help mentees set specific, measurable goals for their development.</li>
-<li><strong>Provide Constructive Feedback</strong>: Offer feedback that is both positive and constructive, focusing on how the mentee can improve.</li>
-<li><strong>Encourage Self-Sufficiency</strong>: While mentoring is about offering guidance, it’s also important to encourage mentees to solve problems independently, fostering their growth.</li>
+<li>
+<p><strong>Build Trust</strong>: Establish open communication and make yourself available for advice and guidance. A successful mentor-mentee relationship is based on mutual trust.</p>
+</li>
+<li>
+<p><strong>Set Clear Goals</strong>: Help mentees set specific, measurable goals for their development.</p>
+</li>
+<li>
+<p><strong>Provide Constructive Feedback</strong>: Offer feedback that is both positive and constructive, focusing on how the mentee can improve.</p>
+</li>
+<li>
+<p><strong>Encourage Self-Sufficiency</strong>: While mentoring is about offering guidance, it’s also important to encourage mentees to solve problems independently, fostering their growth.</p>
+</li>
 </ul>
 <hr>
 <h4 id="contribution-to-competency-centers"><strong>Contribution to Competency Centers</strong></h4>
 <p>Involvement in <strong>Competency Centers</strong> allows you to contribute to the organization’s knowledge base and stay up-to-date on emerging trends and technologies. Competency Centers focus on areas like architecture, cloud solutions, or development frameworks, and they allow professionals to share knowledge across projects.</p>
 <h5 id="ways-to-contribute">Ways to Contribute</h5>
 <ul>
-<li><strong>Pre-sales and RFP Participation</strong>: Provide technical expertise during the pre-sales process to help win new business or respond to requests for proposals (RFPs).</li>
-<li><strong>Technology Consultations</strong>: Offer your expertise in consultations with other teams or projects that require guidance in areas like system architecture or specific technologies (e.g., Angular, AWS, etc.).</li>
-<li><strong>Educational Programs</strong>: Help develop and deliver educational programs that enhance the skills of EPAM employees, from training materials to hands-on workshops.</li>
+<li>
+<p><strong>Pre-sales and RFP Participation</strong>: Provide technical expertise during the pre-sales process to help win new business or respond to requests for proposals (RFPs).</p>
+</li>
+<li>
+<p><strong>Technology Consultations</strong>: Offer your expertise in consultations with other teams or projects that require guidance in areas like system architecture or specific technologies (e.g., Angular, AWS, etc.).</p>
+</li>
+<li>
+<p><strong>Educational Programs</strong>: Help develop and deliver educational programs that enhance the skills of EPAM employees, from training materials to hands-on workshops.</p>
+</li>
 </ul>
 <h5 id="example-of-contribution">Example of Contribution</h5>
 <ul>
@@ -3413,8 +4479,12 @@ ngOnDestroy() {
 <p>As part of the <strong>ASMT</strong> (Assessment) process at EPAM, you may be involved as an expert reviewer, helping evaluate the skills of other developers. This involves reviewing their performance in a structured assessment and providing feedback to management on whether they meet the requirements for higher-level positions.</p>
 <h5 id="responsibilities">Responsibilities</h5>
 <ul>
-<li><strong>Technical Expert</strong>: Participate as an expert in assessing the technical capabilities of candidates during the ASMT process.</li>
-<li><strong>Contributing to ASMT Guidelines</strong>: Help define or refine the assessment criteria to ensure that they align with the organization’s technical expectations and industry standards.</li>
+<li>
+<p><strong>Technical Expert</strong>: Participate as an expert in assessing the technical capabilities of candidates during the ASMT process.</p>
+</li>
+<li>
+<p><strong>Contributing to ASMT Guidelines</strong>: Help define or refine the assessment criteria to ensure that they align with the organization’s technical expectations and industry standards.</p>
+</li>
 </ul>
 <hr>
 <h3 id="16-english-proficiency"><strong>16. English Proficiency</strong></h3>
@@ -3422,25 +4492,41 @@ ngOnDestroy() {
 <h4 id="b2-upper-intermediate-level-overview"><strong>B2 (Upper-Intermediate) Level Overview</strong></h4>
 <p>A B2 level in English indicates that you can:</p>
 <ul>
-<li>Communicate clearly and effectively in both spoken and written forms.</li>
-<li>Understand technical documentation, specifications, and client requirements in English.</li>
-<li>Participate in discussions with clients and stakeholders, offering insights and solutions to problems.</li>
-<li>Give technical presentations or explain complex concepts to both technical and non-technical audiences.</li>
+<li>
+<p>Communicate clearly and effectively in both spoken and written forms.</p>
+</li>
+<li>
+<p>Understand technical documentation, specifications, and client requirements in English.</p>
+</li>
+<li>
+<p>Participate in discussions with clients and stakeholders, offering insights and solutions to problems.</p>
+</li>
+<li>
+<p>Give technical presentations or explain complex concepts to both technical and non-technical audiences.</p>
+</li>
 </ul>
 <h5 id="key-skills-at-b2-level">Key Skills at B2 Level</h5>
 <ul>
 <li>
 <p><strong>Speaking</strong>:</p>
 <ul>
-<li>You are able to express ideas clearly and can participate in conversations on a variety of topics, including technical discussions.</li>
-<li>You can interact with clients confidently and explain your ideas in meetings or presentations.</li>
+<li>
+<p>You are able to express ideas clearly and can participate in conversations on a variety of topics, including technical discussions.</p>
+</li>
+<li>
+<p>You can interact with clients confidently and explain your ideas in meetings or presentations.</p>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>Listening</strong>:</p>
 <ul>
-<li>You can understand the main ideas in complex technical discussions or meetings, even when the language is not completely familiar.</li>
-<li>You can follow conversations between native speakers and grasp important details in client calls or team discussions.</li>
+<li>
+<p>You can understand the main ideas in complex technical discussions or meetings, even when the language is not completely familiar.</p>
+</li>
+<li>
+<p>You can follow conversations between native speakers and grasp important details in client calls or team discussions.</p>
+</li>
 </ul>
 </li>
 <li>
@@ -3483,10 +4569,18 @@ ngOnDestroy() {
 <p>As a Senior/Lead Developer, continuous improvement is key, and language skills are no exception. Even if you meet the B2 standard, further language development can enhance your communication abilities, particularly in high-pressure or client-facing scenarios.</p>
 <h5 id="tips-for-improving-english">Tips for Improving English</h5>
 <ul>
-<li><strong>Join English Workshops</strong>: Many organizations offer language learning workshops focused on business and technical English. Participating in these sessions can improve your vocabulary and fluency.</li>
-<li><strong>Practice Regularly</strong>: Make an effort to speak in English during meetings, even with non-native speakers. The more you practice, the more comfortable you’ll become.</li>
-<li><strong>Use Technical Resources</strong>: Read technical blogs, articles, and documentation in English to improve your understanding of technical vocabulary and writing styles.</li>
-<li><strong>Language Partner</strong>: Consider pairing with a colleague to practice spoken English, focusing on technical terminology and conversational fluency.</li>
+<li>
+<p><strong>Join English Workshops</strong>: Many organizations offer language learning workshops focused on business and technical English. Participating in these sessions can improve your vocabulary and fluency.</p>
+</li>
+<li>
+<p><strong>Practice Regularly</strong>: Make an effort to speak in English during meetings, even with non-native speakers. The more you practice, the more comfortable you’ll become.</p>
+</li>
+<li>
+<p><strong>Use Technical Resources</strong>: Read technical blogs, articles, and documentation in English to improve your understanding of technical vocabulary and writing styles.</p>
+</li>
+<li>
+<p><strong>Language Partner</strong>: Consider pairing with a colleague to practice spoken English, focusing on technical terminology and conversational fluency.</p>
+</li>
 </ul>
 <hr>
 <h3 id="17-further-reading-and-deep-dive"><strong>17. Further Reading and Deep Dive</strong></h3>
@@ -3573,8 +4667,8 @@ ngOnDestroy() {
 <li><a href="https://martinfowler.com/articles/micro-frontends.html">Micro-Frontends</a></li>
 <li><a href="https://kb.epam.com/display/EPMCJSCC/PWA">PWA (Progressive Web Apps)</a></li>
 <li><a href="https://kb.epam.com/display/EPMCJSCC/Monorepos">Monorepos Explained</a></li>
-<li><a href="https://kb.epam.com/pages/viewpage.action?pageId=1593824553">SPA vs MPA: Pros and Cons</a></li>
-<li><a href="https://kb.epam.com/pages/viewpage.action?pageId=1593824782">SSR vs CSR: Pros and Cons</a></li>
+<li><a href="https://kb.epam.com/display/EPMCJSCC/MPA+vs+SPA">SPA vs MPA</a></li>
+<li><a href="https://kb.epam.com/display/EPMCJSCC/SSR+vs+CSR">SSR vs CSR</a></li>
 <li><a href="https://www.codeinwp.com/blog/angular-vs-vue-vs-react/">Technology Comparison: Angular vs React vs Vue</a></li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-upgrade-from-angularjs-to-angular-with-ngupgrade">Upgrading from AngularJS to Angular</a></li>
 </ul>
@@ -3604,6 +4698,7 @@ Comparison</a></li>
 <hr>
 <h4 id="patterns"><strong>Patterns</strong></h4>
 <ul>
+<li><a href="https://refactoring.guru/design-patterns">Design Patterns(recomended)</a></li>
 <li><a href="https://github.com/fbeline/design-patterns-JS/tree/master/src">JavaScript Design Patterns Collection</a></li>
 <li><a href="https://www.patterns.dev/#patterns">Learning JavaScript Design Patterns</a></li>
 <li><a href="https://github.com/shichuan/javascript-patterns">JavaScript Patterns</a></li>
@@ -3636,7 +4731,6 @@ Comparison</a></li>
 <hr>
 <h4 id="sdlc-methodologies"><strong>SDLC Methodologies</strong></h4>
 <ul>
-<li><a href="https://www.dcsl.com/what-you-need-to-know-about-software-development-methodologies/">Understanding Software Development Methodologies</a></li>
 <li><a href="https://www.clouddefense.ai/blog/system-development-life-cycle">System Development Life Cycle (SDLC) Guide</a></li>
 <li><a href="https://scrumguides.org/">Scrum Framework</a></li>
 <li><a href="https://www.softwaretestinghelp.com/software-development-life-cycle-sdlc/">SDLC Phases and Models</a></li>

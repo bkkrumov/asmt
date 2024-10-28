@@ -68,7 +68,6 @@ At the beginning of each section, a clickable table of contents allows you to ju
 
 This section focuses on the core technical skills and knowledge expected of a Senior/Lead JavaScript Developer. These include mastering JavaScript, TypeScript, core computer science fundamentals, and understanding various programming paradigms. Proficiency in these areas will help you solve real-world problems efficiently and provide solid architectural decisions.
 
-
 #### **JavaScript & TypeScript**
 
 A Senior/Lead Developer should have an **Expert** level in either JavaScript or TypeScript and **Advanced** knowledge in related technologies. Mastery of these languages forms the foundation of successful project development and architecture.
@@ -78,8 +77,11 @@ A Senior/Lead Developer should have an **Expert** level in either JavaScript or 
 JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing many new features for writing cleaner, more efficient code. Key features include:
 
 - **Let/Const**:
+
   - **Let** and **Const** are block-scoped variables. Variables declared with `let` can be reassigned, while variables declared with `const` are immutable after their initial assignment.
+  
   - This prevents the accidental overwriting of variables, which can occur with the `var` keyword.
+  
   - **Hoisting**: Unlike `var`, variables declared with `let` and `const` are not initialized during the hoisting phase. Hoisting refers to the JavaScript mechanism where variable and function declarations are moved to the top of their scope during the compile phase. However, while `var` allows access to the variable before it is declared (with an `undefined` value), `let` and `const` throw a `ReferenceError` if accessed before initialization.
 
   ```javascript
@@ -89,8 +91,11 @@ JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing man
   ```
 
 - **Arrow Functions**:
+
   - Arrow functions provide a shorter syntax for writing functions and are a feature introduced in ES6. They are syntactically compact, making code cleaner and easier to read, especially in the context of inline functions. Arrow functions also lexically bind the `this` keyword, unlike traditional functions where `this` is dynamically scoped.
+  
   - In traditional JavaScript functions, the value of `this` depends on how the function is called. In contrast, in an arrow function, `this` is inherited from the surrounding context. This is particularly useful when working with event handlers, promises, and other callback scenarios where maintaining the original context is crucial.
+  
   - However, arrow functions have some limitations. They cannot be used as constructors, and they do not have their own `arguments` object. These behaviors make them less flexible in scenarios where traditional functions are required.
   
   ```javascript
@@ -111,6 +116,7 @@ JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing man
 
 - **Destructuring**:
   - Destructuring is a convenient way to unpack values from arrays or properties from objects into distinct variables. It helps simplify the extraction of values, making the code more readable and reducing redundancy. It is commonly used in function arguments, object manipulations, and state management.
+
   - Array and object destructuring allows developers to access nested objects and specific indices from arrays with minimal syntax. It also supports default values for missing properties or array elements.
 
   ```javascript
@@ -122,8 +128,13 @@ JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing man
   ```
 
 - **Promises and Async/Await**:
+
   - Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They provide a clean way to handle asynchronous operations and avoid callback hell.
-  - **Async/Await** syntax, built on top of promises, allows you to write asynchronous code in a synchronous manner. The `async` keyword declares an asynchronous function, and the `await` keyword pauses the function execution until the promise resolves.
+
+  - Callback Hell occurs in JavaScript when multiple asynchronous operations are nested within each other, creating a deeply indented and hard-to-read structure. This "pyramid of doom" makes code difficult to maintain and debug. Modern solutions like Promises and async/await offer more readable ways to handle asynchronous tasks, reducing the need for deeply nested callbacks.
+
+  - Async/Await syntax, built on top of promises, allows you to write asynchronous code in a synchronous manner. The `async` keyword declares an asynchronous function, and the `await` keyword pauses the function execution until the promise resolves.
+
   - This syntax improves readability and helps avoid deeply nested `.then()` chains when managing multiple asynchronous calls. However, you need to handle errors properly with `try/catch` blocks when using `async/await`.
 
   ```javascript
@@ -139,7 +150,9 @@ JavaScript has evolved with ECMAScript 6 (ES6) and later versions, providing man
   ```
 
 - **Template Literals**:
+
   - Template literals, introduced in ES6, provide a more flexible and readable way to create strings, especially when embedding variables or expressions. They use backticks (`` ` ``) instead of single or double quotes, and support multi-line strings and interpolation of variables with `${}`.
+  
   - Template literals can also handle complex string concatenations and enable the creation of tagged templates, which can be used for advanced string processing.
 
   ```javascript
@@ -166,6 +179,16 @@ TypeScript is a superset of JavaScript that introduces static typing. It allows 
     isAdmin: true,
   };
   ```
+
+  - Types vs Interfaces:
+
+    | Feature                     | **Type**                                  | **Interface**                               |
+    |-----------------------------|-------------------------------------------|---------------------------------------------|
+    | **Definition**              | Defines custom types using `type` keyword | Defines shapes for objects using `interface` keyword |
+    | **Extensibility**           | Can use `&` to combine types (intersection types) | Can be extended by other interfaces using `extends` |
+    | **Object Types & Primitives** | Supports objects, unions, intersections, and primitives | Primarily used for defining object shapes |
+    | **Merging**                 | Cannot be merged; re-declaring creates a new type | Supports declaration merging, allowing for extended definitions |
+    | **Compatibility**           | More flexible; can be used in complex type combinations | Best suited for defining the structure of objects and classes |
 
 - **Generics**: Generics allow for creating reusable and flexible components that can work with any data type while ensuring type safety.
 
@@ -259,6 +282,7 @@ Algorithm complexity (Big O notation) helps evaluate the efficiency of code, esp
 - **O(1)**: Constant time complexity. The operation's time does not depend on the input size, such as accessing an element in an array by index.
 
 - **O(N)**: Linear time complexity. The time grows proportionally with the input size, such as iterating over an array.
+
 - **O(N^2)**: Quadratic time complexity, typically occurring with nested loops where each loop iterates over the entire input.
 
 ##### Real-World Example
@@ -270,6 +294,7 @@ If you have a list of users and you need to find duplicates using a nested loop,
 A strong grasp of data structures helps in optimizing problem-solving. Understanding when and how to use different structures improves performance and maintainability.
 
 - **Array**: A collection of elements stored in contiguous memory locations, offering O(1) access time.
+
 - **Stack**: A last-in, first-out (LIFO) data structure, often used in recursive algorithms.
 
   ```javascript
@@ -318,13 +343,6 @@ OOP is a paradigm based on the concept of "objects," which are instances of clas
 
 - **Dependency Injection**: Dependency injection is a design pattern used in OOP to reduce tight coupling between classes by injecting dependencies rather than creating them internally. This pattern makes code more modular, testable, and easier to maintain.
 
-- **SOLID Principles**:
-  - **Single Responsibility Principle**: Each class should have only one responsibility or reason to change.
-  - **Open/Closed Principle**: Software entities (classes, modules, functions) should be open for extension but closed for modification.
-  - **Liskov Substitution Principle**: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
-  - **Interface Segregation Principle**: Clients should not be forced to depend on interfaces they do not use.
-  - **Dependency Inversion Principle**: High-level modules should not depend on low-level modules; both should depend on abstractions.
-
 ##### Real-World Example of OOP
 
 Imagine you are designing a car rental system. You might create a base class `Vehicle` with properties like `speed` and `capacity`, and methods like `start` and `stop`. Subclasses such as `Car`, `Truck`, and `Motorcycle` can inherit from `Vehicle` and implement additional functionalities specific to each vehicle type.
@@ -347,6 +365,10 @@ Functional programming is a paradigm that emphasizes the use of pure functions a
   const arr = [1, 2, 3];
   const newArr = [...arr, 4];  // Original array is unchanged
   ```
+
+- **Iterator Function**: Functions in JavaScript provide a way to loop over a collection of data, such as an array, string, or map, using the for...of loop. An iterator function must define a next() method that returns an object with two properties, value and done, indicating the current value and the end of the collection.
+
+- **Generator Function(func\*)**: Type of iterator that allows for more complex iteration logic and the ability to pause and resume the iteration at any point using the yield keyword. A generator function returns an iterator object, which can be used to iterate over the values generated by the function.
 
 - **First-Class Functions**: In FP, functions are first-class entities, meaning they can be assigned to variables, passed as arguments, and returned from other functions.
 
@@ -372,22 +394,20 @@ Functional programming is a paradigm that emphasizes the use of pure functions a
   console.log(addTwo(3));  // Output: 5
   ```
 
-##### **Memoization**
+- **Memoization**: Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again. This is commonly used in recursive algorithms to reduce redundant computations.
 
-Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again. This is commonly used in recursive algorithms to reduce redundant computations.
-
-```javascript
-const memoize = (fn) => {
-  const cache = {};
-  return (...args) => {
-    const key = JSON.stringify(args);
-    if (!cache[key]) {
-      cache[key] = fn(...args);
-    }
-    return cache[key];
+  ```javascript
+  const memoize = (fn) => {
+    const cache = {};
+    return (...args) => {
+      const key = JSON.stringify(args);
+      if (!cache[key]) {
+        cache[key] = fn(...args);
+      }
+      return cache[key];
+    };
   };
-};
-```
+  ```
 
 ##### Real-World Example of FP
 
@@ -428,6 +448,7 @@ Effective communication between clients and servers is essential for modern web 
 ##### Key Differences
 
 - **Security**: HTTPS encrypts communication, ensuring that sensitive data cannot be easily intercepted or altered in transit, while HTTP transmits data in plaintext, making it vulnerable to attacks.
+
 - **Performance**: HTTPS adds a slight overhead due to the SSL handshake. However, modern protocols like HTTP/2 and HTTP/3, which are built on HTTPS, introduce optimizations that mitigate this performance hit.
 
 ##### Real-World Example
@@ -447,7 +468,9 @@ In a web application dealing with user authentication or financial transactions,
 ##### Key Differences
 
 - **HTTP/1.1**: Sends one request per connection, leading to potential bottlenecks.
+
 - **HTTP/2**: Supports multiplexing, reducing latency and improving performance.
+
 - **HTTP/3**: Uses QUIC and UDP, offering faster, more reliable communication, especially on poor networks.
 
 ##### Real-World Example
@@ -465,6 +488,7 @@ For a large-scale web application that needs to load many resources efficiently,
 ##### Key Differences
 
 - **Polling**: Suitable for simple applications but inefficient in real-time scenarios due to repeated requests.
+
 - **WebSocket**: Ideal for real-time applications like chat systems, gaming, or live data feeds because it maintains an open connection, allowing instant communication between the client and server.
 
 ##### Real-World Example
@@ -484,7 +508,9 @@ In a live chat application, using **WebSocket** is more efficient than **Polling
 ##### Key Differences
 
 - **REST**: Best for standard CRUD operations and stateless communication.
+
 - **RPC**: Suitable for tightly coupled systems that need method invocation, often used for microservices.
+
 - **GraphQL**: Ideal for applications with complex data requirements, offering flexibility by allowing the client to request only the necessary data in one call.
 
 ##### Real-World Example
@@ -508,7 +534,9 @@ Injection flaws occur when untrusted data is sent to an interpreter as part of a
 **Prevention**:
 
 - Use parameterized queries and prepared statements to prevent SQL injection.
+
 - Never trust user input—always validate and sanitize data before using it in a query.
+
 - Implement proper input validation to block malicious inputs.
 
 ---
@@ -520,7 +548,9 @@ Inadequate authentication mechanisms can allow attackers to impersonate users or
 **Prevention**:
 
 - Implement strong password policies (e.g., enforce complexity and expiration rules).
+
 - Use multi-factor authentication (MFA) for additional security.
+
 - Securely manage user sessions by using secure cookies, setting session timeouts, and invalidating sessions on logout.
 
 ---
@@ -532,7 +562,9 @@ Sensitive data (e.g., personal information, credit card numbers, or passwords) c
 **Prevention**:
 
 - Always encrypt sensitive data both in transit and at rest using modern encryption algorithms like **AES** and **RSA**.
+
 - Use HTTPS to ensure secure communication between clients and servers.
+
 - Implement strong access controls to limit who can view sensitive data.
 
 ---
@@ -544,7 +576,9 @@ XSS attacks happen when an attacker injects malicious scripts into a web page vi
 **Prevention**:
 
 - Use output encoding to escape untrusted data when rendering HTML.
+
 - Implement a **Content Security Policy (CSP)** to prevent unauthorized scripts from running.
+
 - Validate and sanitize user inputs to block script injections.
 
 ---
@@ -556,7 +590,9 @@ Security misconfiguration occurs when security settings are left at their defaul
 **Prevention**:
 
 - Regularly audit and update your security configurations.
+
 - Disable unused services, features, and accounts.
+
 - Enforce the principle of **least privilege** by restricting access to only what is necessary for users and applications.
 
 ---
@@ -568,7 +604,9 @@ Insecure deserialization occurs when attackers exploit deserialized data to exec
 **Prevention**:
 
 - Avoid deserialization of untrusted data.
+
 - Use integrity checks such as digital signatures to verify the authenticity of serialized objects.
+
 - Implement strict input validation and error handling.
 
 ---
@@ -580,7 +618,9 @@ Failure to log security-critical events or inadequate monitoring of application 
 **Prevention**:
 
 - Ensure that critical activities (e.g., logins, data access, changes) are logged.
+
 - Regularly monitor and review logs for suspicious activity.
+
 - Implement alerts for unusual behaviors, and use automated tools to detect potential threats.
 
 ---
@@ -592,7 +632,9 @@ CSRF occurs when an attacker tricks a user into performing actions they did not 
 **Prevention**:
 
 - Use anti-CSRF tokens to validate that requests are coming from legitimate users.
+
 - Implement SameSite cookie attributes to protect against cross-origin requests.
+
 - Enforce strong user authentication mechanisms, especially for sensitive actions.
 
 ---
@@ -604,7 +646,9 @@ Using outdated or insecure third-party components, libraries, or frameworks can 
 **Prevention**:
 
 - Regularly update your third-party libraries and frameworks to the latest secure versions.
+
 - Use tools like **OWASP Dependency-Check** to identify and manage vulnerable components.
+
 - Only use components from trusted sources and repositories.
 
 ---
@@ -616,7 +660,9 @@ Broken access control occurs when restrictions on what authenticated users can a
 **Prevention**:
 
 - Enforce strong access controls based on user roles and permissions.
+
 - Use role-based access control (RBAC) to manage user privileges.
+
 - Regularly audit and test access control policies to ensure they are correctly implemented.
 
 ---
@@ -628,13 +674,17 @@ Cross-Site Scripting (XSS) is one of the most common web vulnerabilities. XSS al
 There are three types of XSS attacks:
 
 - **Stored XSS**: Malicious script is stored on the server and served to users.
+
 - **Reflected XSS**: The malicious script is embedded in the URL and executed when the link is clicked.
+
 - **DOM-based XSS**: Occurs when the script is executed directly in the browser’s Document Object Model (DOM) without interacting with the server.
 
 ##### Prevention
 
 - Always sanitize and validate user input.
+
 - Use output encoding to escape special characters in the HTML context.
+
 - Implement a **Content Security Policy (CSP)** to restrict sources of executable scripts.
 
 ---
@@ -646,7 +696,9 @@ CSRF attacks occur when a malicious website tricks users into performing actions
 ##### Prevention
 
 - Use anti-CSRF tokens (e.g., synchronizer tokens) that are required to validate the authenticity of requests.
+
 - Implement SameSite cookies, which prevent the browser from sending cookies along with cross-site requests.
+
 - Validate the origin and referrer headers in incoming requests.
 
 ---
@@ -658,11 +710,13 @@ CORS is a security feature implemented by browsers to restrict web applications 
 ##### Key Concepts
 
 - **Preflight Requests**: Browsers send a preflight request using the HTTP OPTIONS method to check if the server allows cross-origin requests.
+
 - **Allowed Headers and Methods**: The server can specify which headers and methods are allowed for cross-origin requests using the `Access-Control-Allow-Headers` and `Access-Control-Allow-Methods` headers.
 
 ##### Best Practices
 
 - Configure CORS policies to only allow trusted domains to make requests.
+
 - Avoid using wildcard (`*`) in the `Access-Control-Allow-Origin` header.
 
 ---
@@ -694,7 +748,9 @@ A secure authentication mechanism is crucial for ensuring that users are who the
 ##### Best Practices
 
 - Always encrypt JWTs in transit and store them securely (e.g., in `HttpOnly` cookies to prevent XSS attacks).
+
 - Use strong hashing algorithms (e.g., `HS256` or `RS256`) for signing JWTs.
+
 - Implement proper session management, including timeouts and revocation mechanisms.
 
 ---
@@ -740,8 +796,11 @@ In addition to CSP, modern web applications should implement various browser sec
 Apart from the above, developers should be aware of other common security attacks:
 
 - **SQL Injection**: Prevent this by using parameterized queries and avoiding dynamic query construction.
+
 - **Man-in-the-Middle Attacks**: Always use HTTPS to encrypt communications and consider using TLS/SSL for added protection.
+
 - **DoS/DDoS Attacks**: Use rate-limiting, CAPTCHAs, and services like Cloudflare to mitigate denial-of-service attacks.
+
 - **Phishing Attacks**: Educate users about phishing attempts and implement email filtering tools to prevent such attacks.
 
 ---
@@ -801,21 +860,6 @@ Network optimization techniques help improve the speed at which resources are lo
 ##### Key Techniques
 
 - **Code Splitting**: Break down large JavaScript files into smaller chunks that can be loaded on demand. This is particularly useful in single-page applications (SPA) where not all parts of the application are needed on the initial load.
-  
-  **Example**: In a React application, code-splitting can be achieved using dynamic imports.
-
-  ```javascript
-  import React, { Suspense } from 'react';
-  const LazyComponent = React.lazy(() => import('./LazyComponent'));
-
-  function App() {
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyComponent />
-      </Suspense>
-    );
-  }
-  ```
 
 - **Lazy Loading**: Delay loading non-critical resources until they are needed. This can apply to images, videos, and scripts. Lazy loading improves initial load times and minimizes bandwidth usage.
   
@@ -825,7 +869,7 @@ Network optimization techniques help improve the speed at which resources are lo
   <img src="large-image.jpg" loading="lazy" alt="Large image">
   ```
 
-- **CDN (Content Delivery Network)**: Distribute static assets like images, scripts, and stylesheets across geographically distributed servers, allowing users to download these resources from a location closer to them, thus reducing latency.
+- **CDN (Content Delivery Network)**: Network of geographically distributed servers that deliver web content to users based on their location. CDNs store cached copies of static assets like images, scripts, and stylesheets on servers closer to users, reducing load times, improving website performance, and handling traffic spikes efficiently. This minimizes latency by serving content from a nearby server, enhancing user experience and reducing strain on the origin server.
 
 ---
 
@@ -837,47 +881,9 @@ Optimizing JavaScript execution is key to improving the user experience in moder
 
   - **Debouncing** delays the execution of a function until a specified period has passed since the last call. This is useful for functions that are triggered by events that happen in rapid succession (e.g., keypresses).
 
-    ```javascript
-    function debounce(fn, delay) {
-      let timer;
-      return function(...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => fn.apply(this, args), delay);
-      };
-    }
-    ```
-
   - **Throttling** ensures that a function is executed at most once in a specified time period, even if it is triggered multiple times.
 
-    ```javascript
-    function throttle(fn, limit) {
-      let lastCall = 0;
-      return function(...args) {
-        const now = Date.now();
-        if (now - lastCall >= limit) {
-          lastCall = now;
-          fn.apply(this, args);
-        }
-      };
-    }
-    ```
-
 - **Memory Management**: Efficient memory management is essential to avoid memory leaks. Always ensure that event listeners are removed when no longer needed, and avoid holding references to objects that should be garbage collected.
-
-  **Real-World Example**: In a React application, ensure that event listeners are cleaned up in `useEffect` hooks.
-
-  ```javascript
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log('User is scrolling');
-    };
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);  // Cleanup
-    };
-  }, []);
-  ```
 
 ---
 
@@ -894,12 +900,15 @@ Memory leaks occur when a program fails to release memory that is no longer need
 ##### Tools for Detection
 
 - **Chrome DevTools**: Chrome’s "Memory" tab allows you to track memory usage over time and identify objects that are not being properly garbage-collected.
+
 - **Heap Snapshots**: Heap snapshots help visualize memory usage, allowing you to pinpoint leaks by comparing memory allocation at different stages.
 
 ##### Prevention
 
 - Ensure that event listeners, intervals, and timers are cleared when no longer needed.
+
 - Avoid creating unnecessary global variables.
+
 - Use `WeakMap` and `WeakSet` for storing objects that do not need to be strongly referenced, allowing them to be garbage-collected when no longer in use.
 
 ---
@@ -956,20 +965,151 @@ export class AppComponent { }
 
 ---
 
-#### **Critical Rendering Path Optimization**
+#### **Critical Rendering Path in Web Performance**
 
-The critical rendering path refers to the sequence of steps the browser takes to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing the critical rendering path improves page load times.
+The **Critical Rendering Path** (CRP) is the sequence of steps the browser takes to process and render a webpage. Understanding CRP helps developers optimize performance by minimizing loading times and prioritizing critical resources. This path involves parsing, building data structures, and constructing visual elements, which can be optimized for faster initial rendering.
 
-##### Key Techniques
+##### **The Rendering Process**
 
-- **Minimize Critical Resources**: Reduce the number of resources the browser must load before rendering the page (e.g., by removing unnecessary CSS or JavaScript).
-- **Defer Non-Critical JS**: Use the `async` or `defer` attribute on script tags to prevent JavaScript from blocking the rendering process.
+The rendering process begins when the browser requests and receives the initial HTML file from the server. Here’s a breakdown of each phase:
+
+1. **HTML Parsing and DOM Creation**:
+
+   - The browser downloads the HTML and parses it to create the **DOM (Document Object Model)**.
+
+   - Parsing involves converting bytes from the stream to characters, tokens, nodes, and finally an object model:
+     - **Bytes → Characters → Tokens → Nodes → DOM Tree**
+
+2. **CSS Parsing and CSSOM Creation**:
+
+   - As the browser encounters CSS files, it requests and parses them to build the **CSSOM (CSS Object Model)**.
+
+   - This process follows a similar pattern:
+
+     - **Bytes → Characters → Tokens → Nodes → CSSOM Tree**
+
+3. **JavaScript Compilation**:
+
+   - JavaScript files are downloaded, parsed, and executed. They can be blocking or non-blocking, affecting the rendering sequence.
+
+4. **Building the Accessibility Tree**:
+
+   - The browser creates an accessibility tree for assistive technologies.
+
+5. **Combining DOM and CSSOM into the Render Tree**:
+
+   - The **Render Tree** is created by combining the DOM and CSSOM, representing visible elements only.
+
+6. **Layout (Reflow)**:
+
+   - The browser calculates the position and size of each element on the page based on the Render Tree.
+
+7. **Painting and Compositing**:
+
+   - **Paint**: The browser converts elements into pixels for display.
+
+   - **Compositing**: Layers are combined, and GPU layers overlap to render the final visual output.
+
+   **Process Summary**:
+
+   ```
+   DOM → CSSOM (parallel) → JavaScript → Render Tree → Layout → Paint → Composition
+   ```
+
+---
+
+##### **Critical Resources and Blocking Elements**
+
+Critical resources are those necessary for rendering and can delay the initial page load if not handled efficiently:
+
+- **HTML, CSS, JavaScript, and sometimes fonts** are critical resources.
+
+- **Critical Resources Number**: The count of resources that block rendering.
+
+- **Critical Bytes Number**: The size of blocking resources in bytes.
+
+- **Critical Path Length**: The number of roundtrips needed to retrieve these resources.
+
+---
+
+##### **Optimizing the Critical Rendering Path**
+
+There are several ways to improve initial rendering performance by optimizing the critical rendering path:
+
+1. **Minimizing Critical Resources**:
+
+   - Inline critical CSS and JavaScript where feasible.
+
+   - Reduce the number of critical resources by combining or deferring non-essential ones.
+
+2. **Reducing Critical Bytes**:
+
+   - Split and defer non-critical resources.
+
+   - Use compression (e.g., Gzip) and minification to reduce file size.
+
+   - Remove unused or unnecessary code.
+
+3. **Shortening the Critical Path Length**:
+
+   - Minimize external resources and avoid third-party domains.
+
+   - Use **HTTP/2** to multiplex multiple requests over a single connection.
+
+---
+
+##### **Resource-Specific Optimization Techniques**
+
+**HTML**:
+
+- Minify and compress HTML files to reduce size.
+
+**CSS**:
+
+- Minify, compress, and split CSS files based on media queries.
+
+- Place critical CSS as high in the HTML document as possible, and defer non-critical CSS.
+
+**JavaScript**:
+
+- Minify and compress JavaScript files.
+
+- Use `async` or `defer` attributes to control the execution of non-critical scripts.
+  - **async**: Loads the script asynchronously, executing it as soon as it’s ready.
   
-  ```html
-  <script src="non-critical.js" defer></script>
-  ```
+  - **defer**: Executes the script after the HTML is fully parsed.
 
-- **Reduce CSS Blocking**: Place critical CSS inline in the HTML to ensure that the browser can render the page as quickly as possible.
+**Fonts**:
+
+- Use `@font-face { display: fallback; }` to control loading behavior.
+
+- Include only necessary fonts and minimize extra symbols (e.g., special characters).
+
+- Serve fonts from the same domain for faster loading.
+
+---
+
+##### **Preloading and Preconnecting Resources**
+
+Preloading and preconnecting resources can improve rendering performance by reducing the time required to fetch and connect critical resources.
+
+- **Preload**: Immediately loads resources required for initial rendering (e.g., `link rel="preload"`).
+
+- **Prefetch**: Loads resources that may be needed later.
+
+- **Preconnect**: Establishes early connections to required domains to reduce roundtrip time.
+
+- **dns-prefetch**: Pre-resolves DNS for a domain.
+
+- **Prerender**: Loads and renders a page in advance for immediate display upon navigation.
+
+**Example Methods**:
+
+- Using `<link rel="preload" href="style.css" as="style">` in HTML.
+
+- HTTP header: `Link: </css/style.css>; rel="preload"; as="style"`
+
+- Webpack: `import(/* webpackPreload: true */ 'CriticalChunk')`
 
 ---
 
@@ -978,8 +1118,11 @@ The critical rendering path refers to the sequence of steps the browser takes to
 The **RAIL** model is a user-centric performance model developed by Google. It breaks down performance into four key areas, each with specific goals for optimizing the user experience:
 
 - **Response**: When a user interacts with your app (clicks, taps, etc.), it should respond within **100 milliseconds** to feel instantaneous.
+
 - **Animation**: Ensure animations run smoothly at **60 frames per second (FPS)**, meaning each frame should take no more than **16 milliseconds** to render.
+
 - **Idle**: Maximize idle time to free up the main thread for critical tasks. Perform non-urgent work during idle time, with tasks taking no longer than **50 milliseconds**.
+
 - **Load**: The content should be interactive within **1 second** for mobile users on a 3G network.
 
 Optimizing based on the **RAIL** model ensures that your application remains responsive and performs well under various conditions.
@@ -1014,6 +1157,7 @@ Both **SVG** (Scalable Vector Graphics) and **Canvas** are used for drawing grap
 ##### Key Differences
 
 - **SVG** is great for static images, scalability, and interactivity.
+
 - **Canvas** is optimized for real-time, dynamic rendering but does not maintain a DOM structure.
 
 ---
@@ -1126,6 +1270,7 @@ fetchData();
 ##### Features
 
 - **Streaming**: You can stream large files, allowing you to process data incrementally without loading the entire file into memory at once.
+
 - **CORS**: Fetch supports Cross-Origin Resource Sharing (CORS), allowing you to access resources from other domains under certain conditions.
 
 ---
@@ -1157,6 +1302,7 @@ The **Storage API** provides mechanisms to store data on the client side, either
 ##### Use Cases
 
 - **Local Storage**: Useful for persisting user preferences, authentication tokens, or application settings.
+
 - **Session Storage**: Commonly used for temporary data storage, such as form inputs that need to be preserved only for the duration of a session.
 
 ---
@@ -1196,13 +1342,16 @@ In SPAs like React or Angular applications, the History API is used to update th
 - **BOM (Browser Object Model)**: The BOM provides methods and properties for interacting with the browser window itself. It includes objects like `window`, `navigator`, `screen`, `location`, and `history`.
 
   **Examples:**
+
   - `window.alert('Hello!')`: Displays a simple alert dialog.
+
   - `navigator.userAgent`: Retrieves information about the browser and operating system.
 
 - **DOM (Document Object Model)**: The DOM represents the structure of the web page as a tree of nodes. The DOM API provides methods for querying, manipulating, and interacting with HTML elements dynamically.
 
   **Examples**:
   - `document.getElementById('myElement')`: Finds an element by its ID.
+
   - `document.createElement('div')`: Creates a new `div` element.
 
 - **CSSOM (CSS Object Model)**: The CSSOM is a representation of the styles applied to a document, similar to the DOM but specific to CSS. It allows developers to dynamically read and modify CSS styles of elements.
@@ -1226,7 +1375,9 @@ Web Components are a suite of technologies that allow you to create reusable cus
 ##### Key Features
 
 - **Custom Elements**: Define new HTML tags and their behavior.
+
 - **Shadow DOM**: Encapsulates the component’s internal DOM, preventing styles from leaking out or being affected by external CSS.
+
 - **HTML Templates**: Define chunks of markup that are not rendered until explicitly instantiated.
 
 **Example**:
@@ -1258,7 +1409,9 @@ Build tools are essential for optimizing and bundling code, making web applicati
 
   **Key Features**:
   - **Code Splitting**: Automatically split code into smaller chunks that can be loaded on demand.
+
   - **Loaders**: Process files before they are added to the bundle (e.g., transpile ES6 to ES5).
+
   - **Plugins**: Add additional features like hot module replacement, optimization, and minification.
 
   **Example of a Webpack Configuration**:
@@ -1286,7 +1439,9 @@ Build tools are essential for optimizing and bundling code, making web applicati
 - **Rollup**: A module bundler optimized for bundling JavaScript libraries. It focuses on ES modules and provides tree-shaking, which removes unused code, resulting in smaller bundle sizes.
 
   **Key Features**:
+
   - **Tree-shaking**: Automatically removes unused exports from a module.
+
   - **ES Modules Support**: Native support for ES6 modules, making Rollup ideal for modern JavaScript applications.
 
 - **Gulp**: A task runner that automates repetitive tasks such as minification, compilation, and running tests. Gulp works by defining tasks in JavaScript and allows you to run these tasks automatically or on demand.
@@ -1315,15 +1470,21 @@ Package managers allow you to install, update, and manage dependencies in your p
 - **NPM (Node Package Manager)**: NPM is the default package manager for Node.js. It allows developers to download and manage libraries, frameworks, and tools via a registry of packages.
 
   **Key Commands**:
+
   - `npm install <package>`: Install a package and add it to your project.
+
   - `npm install`: Installs all dependencies listed in `package.json`.
+
   - `npm run <script>`: Run a script defined in the `scripts` section of your `package.json` file.
 
 - **Yarn**: An alternative to NPM, Yarn focuses on speed, security, and consistency. It provides features like offline caching and deterministic builds, ensuring that the same package versions are installed across all environments.
 
   **Key Commands**:
+
   - `yarn add <package>`: Installs a package and adds it to your `package.json`.
+
   - `yarn install`: Installs all dependencies listed in `package.json`.
+
   - `yarn run <script>`: Run a script defined in the `scripts` section of `package.json`.
 
 ##### Real-World Use Case
@@ -1340,23 +1501,23 @@ Chrome DevTools is one of the most powerful tools available for front-end develo
 
 - **Elements Panel**: Inspect and modify HTML and CSS on the fly, directly in the browser. You can also view computed styles, modify the DOM structure, and experiment with different CSS properties.
   
-  **Use Case**: Quickly debug layout issues by inspecting CSS properties in the "Elements" panel and trying out new values without modifying the source code.
+  - **Use Case**: Quickly debug layout issues by inspecting CSS properties in the "Elements" panel and trying out new values without modifying the source code.
 
 - **Sources Panel**: Debug JavaScript code by setting breakpoints, stepping through code, and viewing call stacks. You can also view source maps, making it easier to debug minified code.
   
-  **Use Case**: Add breakpoints in your JavaScript code to pause execution at a specific line and inspect variables, watch expressions, or call stack frames.
+  - **Use Case**: Add breakpoints in your JavaScript code to pause execution at a specific line and inspect variables, watch expressions, or call stack frames.
 
 - **Network Panel**: View all network requests made by the page, including their status, timing, and payload. This panel is crucial for understanding the loading behavior of your application and diagnosing performance bottlenecks like slow requests or excessive payload sizes.
   
-  **Use Case**: Monitor your application’s performance by inspecting request-response times for API calls and static assets. Use the "Waterfall" view to visualize which resources are delaying page load.
+  - **Use Case**: Monitor your application’s performance by inspecting request-response times for API calls and static assets. Use the "Waterfall" view to visualize which resources are delaying page load.
 
 - **Performance Panel**: Record performance profiles to analyze page load times, script execution times, and rendering performance. The performance panel helps you identify long tasks and JavaScript execution issues that might cause jank or delays in rendering.
   
-  **Use Case**: Use the performance profile to analyze frame rates and CPU usage during animations or user interactions. Identify slow-running code and optimize it to improve user experience.
+  - **Use Case**: Use the performance profile to analyze frame rates and CPU usage during animations or user interactions. Identify slow-running code and optimize it to improve user experience.
 
 ---
 
-#### **Nice to Have: Automated Tools**
+#### **Automated Tools**
 
 - **Lighthouse**: An open-source, automated tool for improving the quality of web pages. It audits performance, accessibility, best practices, SEO, and Progressive Web App (PWA) features. Lighthouse can be run from Chrome DevTools or as a standalone tool.
   
@@ -1391,9 +1552,13 @@ A Senior/Lead Developer must have a solid understanding of CSS fundamentals, inc
 - **Box Model**: The CSS box model describes the structure of an element, including its content, padding, border, and margin. Understanding how the box model works is fundamental for building layouts and positioning elements on the page.
 
   **Box Model Breakdown**:
+
   - **Content**: The actual content of the element (text, images, etc.).
+
   - **Padding**: The space between the content and the border.
+
   - **Border**: The line surrounding the padding.
+
   - **Margin**: The space outside the border that separates the element from adjacent elements.
 
   **Example**:
@@ -1455,6 +1620,24 @@ Positioning and layout techniques are critical for creating responsive, flexible
 
 ---
 
+#### **CSS `position` Property**
+
+The **`position`** property in CSS determines how an element is positioned in the document flow and relative to other elements. It provides control over an element’s layout, allowing developers to define specific placements on the page.
+
+#### **Available Position Values**
+
+- **`static`** (Default): The default positioning where elements are positioned according to the normal document flow. `top`, `right`, `bottom`, and `left` properties have no effect.
+
+- **`relative`**: Positions an element relative to its original place in the document flow. Using `top`, `right`, `bottom`, or `left` values moves the element from its normal position while still taking up space in the layout.
+
+- **`absolute`**: Removes the element from the document flow and positions it relative to the nearest positioned ancestor (an element with `relative`, `absolute`, or `fixed` positioning). If no such ancestor exists, it is positioned relative to the `<html>` element.
+
+- **`fixed`**: Positions an element relative to the viewport, making it stay in the same place even when scrolling. The element is removed from the document flow and remains fixed in position based on `top`, `right`, `bottom`, or `left` values.
+
+- **`sticky`**: Combines `relative` and `fixed` positioning. An element is initially positioned according to the normal flow, but it "sticks" to a specified position when scrolling within its containing element. Useful for headers or sidebars that stay visible while scrolling.
+
+---
+
 #### **CSS Preprocessors (SASS, LESS, Stylus)**
 
 Preprocessors like SASS and LESS add programming-like capabilities to CSS, such as variables, functions, and nesting, making CSS more maintainable and scalable.
@@ -1508,7 +1691,9 @@ CSS methodologies help structure and organize your stylesheets for maintainabili
   ```
 
   - **Block**: Represents a standalone component (e.g., `button`).
+
   - **Element**: A part of the block that has no standalone meaning (e.g., `button__text`).
+
   - **Modifier**: A flag that changes the appearance or behavior of the block (e.g., `button--primary`).
 
 - **OOCSS (Object-Oriented CSS)**: OOCSS focuses on treating elements as reusable objects by separating structure and skin (i.e., style). It emphasizes reusable classes that can be applied to various elements.
@@ -1524,6 +1709,7 @@ Responsive design ensures that your web application adapts to different screen s
 ##### Key Concepts
 
 - **Mobile-First Design**: Start by designing for smaller screens and gradually enhance the design for larger screens.
+
 - **Responsive Layouts**: Use flexible grids (e.g., Flexbox, Grid) that adjust to different screen sizes.
 
 ##### Example of a Media Query
@@ -1541,6 +1727,7 @@ Responsive design ensures that your web application adapts to different screen s
 ##### Techniques
 
 - **CSS Grid and Flexbox**: Use these layout systems to create flexible layouts that adapt to different screen sizes.
+
 - **Fluid Typography and Images**: Use relative units like `em`, `rem`, or percentages to ensure that typography and images scale appropriately.
 
 ---
@@ -1612,21 +1799,28 @@ Understanding the differences between Single-Page Applications (SPA) and Multi-P
 - **Single-Page Applications (SPA)**: In a SPA, the application loads a single HTML page, and the content is dynamically updated as the user interacts with the app. Popular frameworks like React, Angular, and Vue.js are commonly used for SPAs. SPAs provide a smoother user experience because they don’t require full-page reloads.
 
   **Advantages**:
+
   - Faster user experience as content is dynamically updated without reloading the entire page.
+
   - Easier to implement complex UI interactions and real-time updates.
 
   **Disadvantages**:
+
   - SEO challenges because traditional search engines rely on crawling fully rendered HTML pages.
+
   - Initial load time can be longer due to loading the entire JavaScript bundle at once.
 
 - **Multi-Page Applications (MPA)**: In an MPA, each interaction or request results in loading a new HTML page. This is the traditional way of building web applications, with separate pages for different content.
 
   **Advantages**:
+
   - Better for SEO out-of-the-box since each page is served as a separate HTML document.
+
   - Simpler initial setup compared to SPAs.
 
   **Disadvantages**:
   - Full-page reloads after every user action can lead to a slower user experience.
+
   - More difficult to implement complex user interfaces and real-time interactions.
 
 ##### Real-World Example
@@ -1640,21 +1834,29 @@ If you are building an e-commerce platform that needs fast navigation between pr
 - **Server-Side Rendering (SSR)**: SSR is a technique where the content of the page is rendered on the server before it is sent to the client. This improves initial load times and SEO for SPAs. Frameworks like **Next.js** for React and **Angular Universal** provide SSR capabilities.
 
   **Advantages**:
+
   - Faster initial page load, especially for users on slower connections.
+
   - Better SEO since search engines can crawl the fully rendered HTML.
   
   **Disadvantages**:
+
   - Increased server load as pages need to be rendered on every request.
+
   - More complex infrastructure compared to client-side rendering.
 
 - **Static Site Generation (SSG)**: SSG generates static HTML files at build time rather than on each request. These files can be served to users without the need for a server, which improves performance and scalability. Tools like **Next.js** (for React) and **Gatsby** are commonly used for static site generation.
 
   **Advantages**:
+
   - Extremely fast load times since the content is pre-generated and served as static files.
+
   - Better scalability because the content can be served via CDN without server overhead.
 
   **Disadvantages**:
+
   - Static content may not be suitable for highly dynamic or real-time applications.
+
   - Requires re-deployment to update content.
 
 ##### Real-World Example
@@ -1701,6 +1903,54 @@ Web accessibility ensures that all users, including those with disabilities, can
 ##### Real-World Example
 
 Ensuring that forms, navigation menus, and other interactive elements are fully accessible via the keyboard and screen readers will help create a more inclusive web experience. Tools like **Axe** and **Lighthouse** can help audit accessibility and provide recommendations for improvement.
+
+---
+
+#### **CSS Priority in Selecting**
+
+CSS applies styles based on **specificity**, a scoring system that determines which styles take precedence when multiple rules target the same element. Specificity is calculated based on the types of selectors used, with each selector contributing a score. The higher the specificity score, the higher the priority of that style.
+
+##### **Specificity Hierarchy** (from highest to lowest):
+
+- **Inline Styles**: Styles applied directly to an HTML element (e.g., `<div style="color: blue;">`) have the highest specificity.
+
+- **ID Selectors** (`#id`) have high specificity and override class, attribute, and element selectors.
+
+- **Class, Attribute, and Pseudo-class Selectors** (`.class`, `[type="text"]`, `:hover`) have moderate specificity.
+
+- **Element and Pseudo-element Selectors** (`p`, `h1`, `::before`) have the lowest specificity.
+
+##### **Specificity Calculation**
+
+Specificity is calculated as a 4-part value: **inline styles**, **IDs**, **classes/attributes/pseudo-classes**, and **elements/pseudo-elements**. It is written as a score (e.g., `0,1,0,0`). Here’s how each selector contributes to specificity:
+
+- **Inline Styles**: `1,0,0,0` (highest priority)
+
+- **ID Selector** (`#header`): `0,1,0,0`
+
+- **Class/Attribute/Pseudo-class Selector** (`.nav`, `[type="text"]`, `:hover`): `0,0,1,0`
+
+- **Element/Pseudo-element Selector** (`h1`, `::before`): `0,0,0,1`
+
+##### **Example Calculation**
+
+For a rule like `#header .nav p:hover`, the specificity score is calculated as:
+
+- `#header` = `0,1,0,0`
+
+- `.nav` = `0,0,1,0`
+
+- `p` = `0,0,0,1`
+
+- `:hover` = `0,0,1,0`
+
+**Total Specificity**: `0,1,2,1`
+
+This rule has higher specificity than a rule with only `.nav p` (`0,0,1,1`), so it will override it.
+
+##### **Using `!important`**
+
+The `!important` declaration overrides all specificity calculations, giving the rule the highest priority, but it should be used sparingly as it makes debugging more difficult.
 
 ---
 
@@ -1796,13 +2046,19 @@ export class HelloComponent {
 #### **Differences Between Components and Directives**
 
 - **Components**:
+
   - Always have a template (HTML) associated with them.
+
   - Control a portion of the UI.
+
   - Primarily used to build the user interface.
 
 - **Directives**:
+
   - Do not have their own templates.
+
   - Modify the behavior or appearance of elements in the DOM.
+
   - Can be used for both structural manipulation (like adding/removing elements) or attribute-level modifications.
 
 ---
@@ -1814,7 +2070,9 @@ The **Angular CLI** is a command-line interface that simplifies the development 
 **Example Commands**:
 
 - `ng new my-app`: Creates a new Angular application.
+
 - `ng serve`: Builds the application and starts a development server.
+
 - `ng generate component my-component`: Generates a new component.
 
 ---
@@ -1824,10 +2082,15 @@ The **Angular CLI** is a command-line interface that simplifies the development 
 Angular components go through several stages during their lifecycle. Angular provides lifecycle hooks that allow developers to tap into these stages and run custom logic:
 
 - **ngOnInit**: Called once after the component is initialized.
+
 - **ngOnChanges**: Called when input properties change.
+
 - **ngDoCheck**: Called during every change detection cycle.
+
 - **ngAfterContentInit**: Called after content is projected into the component.
+
 - **ngAfterViewInit**: Called after the component's view and child views are initialized.
+
 - **ngOnDestroy**: Called just before the component is destroyed. Used for cleanup tasks such as unsubscribing from Observables.
 
 ---
@@ -1898,41 +2161,101 @@ this.http.get('https://api.example.com/data')
 #### **How Do Observables Differ from Promises?**
 
 - **Observables** can emit multiple values over time, whereas **Promises** resolve once with a single value.
+
 - Observables are **lazy**, meaning they only start executing when subscribed to, while Promises are **eager** and start executing immediately.
+
 - Observables support operators like `map`, `filter`, and `mergeMap` to manipulate data streams, while Promises do not.
 
 ---
 
-#### **What is RxJS?**
+#### **State Management in Angular**
 
-**RxJS (Reactive Extensions for JavaScript)** is a library that brings reactive programming to Angular applications. RxJS allows you to compose asynchronous data streams using Observables and powerful operators like `map`, `mergeMap`, `switchMap`, and `catchError`.
+State management is crucial for building robust, scalable Angular applications, particularly as they grow in complexity. Managing state efficiently allows data consistency across components and ensures smooth user interactions. Angular applications typically handle state using **RxJS** for reactive programming and **NgRx** for centralized, predictable state management.
 
----
-
-#### **Difference Between map, mergeMap, switchMap, and concatMap**
-
-- **map**: Transforms each value emitted by the source Observable.
-- **mergeMap**: Maps each value to an Observable and merges the resulting Observables into a single stream.
-- **switchMap**: Similar to `mergeMap`, but cancels the previous inner Observable when a new value is emitted.
-- **concatMap**: Maps each value to an Observable and concatenates the resulting Observables sequentially.
+In Angular, **state** refers to the data or status of various parts of the application, such as user information, app settings, and UI states. As applications become larger, managing this state effectively across multiple components and services becomes challenging. Without state management, data inconsistencies and hard-to-maintain code can lead to issues with performance and reliability.
 
 ---
 
-#### **State Management in Angular (Subjects, NgRx)**
+##### **Reactive State Management with RxJS**
 
-Managing application state is critical in large-scale Angular apps. Angular provides several tools for state management:
+**RxJS** (Reactive Extensions for JavaScript) is a library for reactive programming in Angular, using **Observables** to manage asynchronous events and data streams. RxJS enables Angular developers to work with asynchronous data sources in a clear, declarative way.
 
-- **Subjects (RxJS)**: Subjects are a type of Observable that can multicast to multiple subscribers. They can emit values directly and are commonly used for state sharing.
+**Key Concepts of RxJS in Angular**:
 
-- **NgRx**: A Redux-inspired state management library for Angular that provides a predictable state management pattern through actions, reducers, and effects.
+- **Observables**: Observables represent data streams that components can subscribe to and react to changes over time.
 
-   **Example of NgRx:**
+- **Operators**: Operators like `map`, `mergeMap`, `switchMap`, and `concatMap` transform and control data flows.
+  
+  - **map**: Transforms each value emitted by the source Observable.
+  
+  - **mergeMap**: Maps each value to an Observable and merges the resulting Observables into a single stream.
+  
+  - **switchMap**: Similar to `mergeMap`, but cancels the previous inner Observable when a new value is emitted.
+  
+  - **concatMap**: Maps each value to an Observable and concatenates the resulting Observables sequentially.
 
-   ```typescript
-   const increment = createAction('[Counter] Increment');
+- **Subjects and BehaviorSubjects**: Subjects are a type of Observable that allow multicasting to multiple Observers, while `BehaviorSubject` holds the latest value, making it useful for sharing state across components.
 
-   const counterReducer = createReducer(0, on(increment, state => state + 1));
-   ```
+**Benefits of RxJS in State Management**:
+
+- **Asynchronous Data Handling**: Observables make it easy to handle asynchronous data from APIs, user events, or WebSockets.
+
+- **Declarative Style**: RxJS operators allow developers to write declarative and concise code for data transformations.
+
+- **Component Communication**: Subjects can be used to broadcast state changes across multiple components.
+
+**Example of Using RxJS for State**:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StateService {
+  private userState = new BehaviorSubject<string>('Guest');
+  currentUser = this.userState.asObservable();
+
+  updateUser(name: string) {
+    this.userState.next(name);
+  }
+}
+```
+
+In this example, `BehaviorSubject` is used to maintain the current user's state, making it accessible and updateable across different parts of the application.
+
+---
+
+##### **Centralized State Management with NgRx**
+
+**NgRx** is a reactive state management library based on Redux principles. It provides a structured way to manage state by storing it in a single, centralized store, making it predictable and testable. NgRx is particularly useful for larger applications where managing state across numerous components becomes complex.
+
+**Core Concepts in NgRx**:
+
+- **Store**: The single source of truth that holds the entire application state.
+
+- **Actions**: Plain objects that represent events and changes in the application state. They are dispatched to initiate state changes.
+
+- **Reducers**: Pure functions that take the current state and an action as inputs and return a new state.
+
+- **Selectors**: Functions that query and return specific slices of the state, allowing components to subscribe to relevant data.
+
+- **Effects**: Services that handle side effects (e.g., API calls) triggered by actions, using RxJS operators to manage asynchronous operations.
+
+**Benefits of NgRx**:
+
+- **Predictable State Changes**: Reducers ensure state changes are predictable and follow strict guidelines, making debugging easier.
+
+- **Centralized State**: The Store acts as the single source of truth, ensuring consistency across the application.
+
+- **Time-Travel Debugging**: Since state changes are predictable, NgRx can support time-travel debugging, allowing developers to rewind and replay state changes.
+
+##### **Choosing Between RxJS and NgRx**
+
+- **RxJS** is well-suited for smaller applications or specific component-level state management. It provides flexible, reactive programming tools for handling asynchronous data but lacks the centralized control of a Redux-like pattern.
+  
+- **NgRx** is ideal for larger, more complex applications where maintaining a centralized, predictable state is essential. It provides a structured way to manage application-wide state and enables debugging and testing through predictable state transitions.
 
 ---
 
@@ -1968,8 +2291,11 @@ Unsubscribing from Observables when no longer needed is crucial to avoid memory 
 #### **Advantages of AOT**
 
 - **Faster Rendering and Load Times**: Since the code is pre-compiled during the build, the browser doesn't need to compile it at runtime, resulting in faster page load times.
+
 - **Smaller Bundle Size**: AOT eliminates unnecessary code and reduces the size of the bundle served to the browser.
+
 - **Early Error Detection**: Errors are caught during the build process, allowing for more robust code and fewer runtime errors.
+
 - **Improved Security**: AOT compiles templates into JavaScript, which reduces the risk of injection attacks by limiting the ability to modify templates at runtime.
 
 AOT is particularly beneficial for production environments where performance and security are critical.
@@ -1983,7 +2309,9 @@ AOT is particularly beneficial for production environments where performance and
 #### **Advantages of JIT**
 
 - **Faster Development Cycle**: JIT allows developers to make changes without rebuilding the entire application, making it ideal for development environments.
+
 - **Dynamic Compilation**: Since the application is compiled in the browser, JIT enables dynamic content generation and template compilation.
+
 - **Simpler Build Process**: There’s no need for additional build steps or configuration to compile the application ahead of time.
 
 However, JIT is typically slower than AOT in production environments, where AOT’s pre-compilation can offer better performance and smaller bundles.
@@ -1995,8 +2323,11 @@ However, JIT is typically slower than AOT in production environments, where AOT�
 **Angular Ivy** is the new rendering engine in Angular, introduced in version 9. It provides:
 
 - **Faster compilation and rendering**.
+
 - **Improved tree-shaking**, leading to smaller bundle sizes.
+
 - **Better debugging** capabilities.
+
 - Enhanced support for lazy loading and efficient rendering of components.
 
 ---
@@ -2012,13 +2343,12 @@ However, JIT is typically slower than AOT in production environments, where AOT�
 Optimizing performance is essential for Angular applications. Below are strategies to achieve optimal performance:
 
 - **AOT Compilation**: Use AOT to reduce bundle size and speed up initial loading times.
-- **Lazy Loading**: Load feature modules only when needed, reducing the initial bundle size.
-- **OnPush Change Detection**: Reduce unnecessary change detection cycles by using `ChangeDetectionStrategy.OnPush`.
-- **TrackBy in ngFor**: Use `trackBy` in loops to optimize rendering.
 
-   ```html
-   <div *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</div>
-   ```
+- **Lazy Loading**: Feature modules are loaded only when needed, reducing initial load time. It uses the Angular Router with loadChildren to load modules on-demand, optimizing resources and enhancing user experience by loading sections only when accessed.
+
+- **OnPush Change Detection**: Reduce unnecessary change detection cycles by using `ChangeDetectionStrategy.OnPush`.
+
+- **TrackBy in ngFor**: Use `trackBy` in loops to optimize rendering.
 
 - **Web Workers**: Offload heavy computations to Web Workers to avoid blocking the main UI thread.
 
@@ -2029,7 +2359,40 @@ Optimizing performance is essential for Angular applications. Below are strategi
 Angular’s **Change Detection** mechanism ensures that the view is updated when the model changes. It works by checking each component for changes and updating the DOM accordingly.
 
 - **Default Strategy**: Angular checks every component in the tree for changes.
+
 - **OnPush Strategy**: Angular only checks components marked with `OnPush` when their input properties change.
+
+#### **Angular Zone**
+
+**Angular Zone**, managed by **Zone.js**, is central to Angular’s change detection, tracking asynchronous tasks like HTTP requests, timers, and user interactions. By monitoring these events, Angular ensures the view stays in sync with the application state, automatically triggering change detection when tasks complete.
+
+##### **How It Works**
+
+Angular creates an execution context, or **zone**, that wraps asynchronous tasks and triggers a **change detection cycle** upon their completion. This cycle updates the view based on any changes in state.
+
+##### **Key Features of Angular Zone**
+
+- **NgZone**: Angular’s default zone, which handles change detection automatically for all asynchronous events.
+
+- **run()**: Executes code within the Angular Zone, ensuring any asynchronous operations inside it trigger change detection.
+
+   ```typescript
+   this.ngZone.run(() => { /* Async operations here */ });
+   ```
+
+- **runOutsideAngular()**: Executes code outside Angular Zone, preventing automatic change detection—ideal for high-frequency tasks like animations or scrolling where frequent updates are unnecessary.
+
+   ```typescript
+   this.ngZone.runOutsideAngular(() => { /* Performance-sensitive operations */ });
+   ```
+
+##### **Benefits**
+
+- **Automatic Change Detection**: Keeps views updated by tracking asynchronous events.
+
+- **Performance Control**: `runOutsideAngular()` allows developers to manage when change detection occurs, useful in performance-sensitive cases.
+
+- **Simplified Async Management**: Angular Zone handles asynchronous changes seamlessly, reducing the need for manual updates.
 
 ---
 
@@ -2038,7 +2401,9 @@ Angular’s **Change Detection** mechanism ensures that the view is updated when
 Angular offers three types of **View Encapsulation**:
 
 - **Emulated**: Default behavior where styles are scoped to components using a unique attribute.
+
 - **None**: No encapsulation, styles are applied globally.
+
 - **Shadow DOM**: Uses the browser’s native Shadow DOM for full encapsulation of styles.
 
 ---
@@ -2052,7 +2417,9 @@ Angular’s **Hot Module Replacement (HMR)** allows for live reloading during de
 #### **How to Handle Memory Leaks in Angular?**
 
 - **Unsubscribe from Observables**: Always unsubscribe from Observables to prevent memory leaks.
+
 - **Clean Up Event Listeners**: Remove event listeners in the `ngOnDestroy()` hook.
+
 - **Use Chrome DevTools**: Use memory profiling tools to take heap snapshots and identify memory leaks.
 
 ---
@@ -2062,7 +2429,9 @@ Angular’s **Hot Module Replacement (HMR)** allows for live reloading during de
 Angular 16 introduces several key features:
 
 - **Standalone Components**: Components no longer need to be declared in NgModules, simplifying component development.
+
 - **Signals**: Reactive primitives introduced to improve reactivity and simplify state management.
+
 - **Improved Server-Side Rendering (SSR)**: Enhanced support for hydration and SSR for faster rendering.
 
 ---
@@ -2078,7 +2447,9 @@ While **Signals** offer a new way to manage state reactively in Angular 16+, the
 **Standalone Components** in Angular eliminate the need to declare components in NgModules, resulting in:
 
 - **Less Boilerplate**: Reduces the complexity of module declarations.
+
 - **Faster Development**: Standalone components are quicker to build and integrate.
+
 - **Improved Reusability**: Standalone components can be more easily reused across different modules or applications.
 
 ---
@@ -2092,7 +2463,9 @@ React is a declarative, component-based library developed by Facebook for buildi
 Key Features of React:
 
 - **Declarative**: React makes it easy to design simple views for each state in your application, updating and rendering efficiently when the data changes.
+
 - **Component-Based**: React applications are composed of encapsulated components that manage their own state, which can be composed to build complex UIs.
+
 - **Learn Once, Write Anywhere**: You can develop new features in React without rewriting existing code, as React can also be used for mobile development (with React Native).
 
 ---
@@ -2208,7 +2581,9 @@ class Welcome extends React.Component {
    ```
 
 - **Controlled vs Uncontrolled Components**:
+
   - **Controlled components** are those where form data is handled by a React component’s state.
+  
   - **Uncontrolled components** use the DOM to manage form data.
 
    Example of a controlled component:
@@ -2295,8 +2670,11 @@ The **Context API** provides a way to pass data through the component tree witho
 Managing state in large React applications can become complex. While React’s local state is sufficient for smaller applications, libraries like **Redux**, **MobX**, and the **Context API** are used for managing global state.
 
 - **Redux**: Redux is a predictable state container that allows centralized state management in large applications.
+
   - **Actions**: Objects that describe what happened.
+
   - **Reducers**: Functions that specify how the application's state changes in response to an action.
+  
   - **Store**: Holds the application state and allows dispatching actions.
 
 Example Redux flow:
@@ -2325,7 +2703,9 @@ function counterReducer(state = initialState, action) {
 React’s **Virtual DOM** ensures fast updates, but performance can still be improved by following best practices.
 
 - **Memoization**:
+
   - Use `React.memo()` to prevent re-rendering of functional components unless their props change.
+
   - `useMemo()` and `useCallback()` can be used to memoize values and functions.
 
 - **shouldComponentUpdate()**: For class components, override `shouldComponentUpdate()` to prevent unnecessary re-renders.
@@ -2339,23 +2719,24 @@ React’s **Virtual DOM** ensures fast updates, but performance can still be imp
    ```
 
 - **Lazy Loading**:
-   - Use `React.lazy()` and `Suspense` to load components dynamically, improving initial load time for large applications.
 
-   ```jsx
-   const LazyComponent = React.lazy(() => import('./LazyComponent'));
+  - Use `React.lazy()` and `Suspense` to load components dynamically, improving initial load time for large applications.
 
-   function App() {
-     return (
-       <Suspense fallback={<div>Loading...</div>}>
-         <LazyComponent />
-       </Suspense>
-     );
-   }
-   ```
+    ```jsx
+    const LazyComponent = React.lazy(() => import('./LazyComponent'));
 
-1. **Use Production Build**: Always use the production build of React (`react-dom.production.min.js`) for optimized performance.
+    function App() {
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyComponent />
+        </Suspense>
+      );
+    }
+    ```
 
-2. **React Profiler**: Use the **React Profiler** to measure performance and identify components causing unnecessary renders.
+  - **Use Production Build**: Always use the production build of React (`react-dom.production.min.js`) for optimized performance.
+
+  - **React Profiler**: Use the **React Profiler** to measure performance and identify components causing unnecessary renders.
 
 ---
 
@@ -2368,7 +2749,9 @@ Server-side rendering (SSR) in React is used to pre-render the initial HTML of t
 Advantages of SSR:
 
 - Faster initial page load.
+
 - Better SEO due to pre-rendered HTML content.
+
 - Improved perceived performance.
 
 Example of Next.js setup:
@@ -2407,6 +2790,7 @@ export default HomePage;
 Key Concepts:
 
 - **Time-Slicing**: React can split rendering work into chunks and work on different tasks in parallel.
+
 - **Suspense for Data Fetching**: Suspense pauses rendering until a resource is available.
 
 ---
@@ -2439,9 +2823,13 @@ As a Senior/Lead Developer, it’s essential to not only be proficient in techni
 ##### Key Concepts in Design Thinking
 
 - **Empathy**: Understanding the users’ needs, preferences, and pain points.
+
 - **Define**: Clearly define the problem that needs to be solved.
+
 - **Ideate**: Brainstorm possible solutions, involving the team to generate creative ideas.
+
 - **Prototype**: Create a working model or proof-of-concept for the best ideas.
+
 - **Test**: Validate the proposed solution by testing the prototype with real users or stakeholders.
 
 As a Senior/Lead Developer, you may not always be directly involved in every step, but having a strong grasp of these concepts is crucial when contributing to project decisions.
@@ -2449,7 +2837,9 @@ As a Senior/Lead Developer, you may not always be directly involved in every ste
 ##### Application of Design Thinking in Software Development
 
 - **Feature Prioritization**: Using empathy to understand which features will bring the most value to users.
+
 - **Iterative Development**: Developing in cycles of prototyping, testing, and refining based on user feedback.
+
 - **Problem-Solving Approach**: Apply design thinking techniques to solve technical challenges, ensuring that the end solution aligns with both the business needs and user expectations.
 
 ---
@@ -2461,22 +2851,31 @@ As a Senior/Lead Developer, you will often be responsible for making and documen
 ##### Types of Decisions
 
 - **Choosing Technology Stack**: Deciding which technologies, frameworks, libraries, and tools will be used on the project.
+
 - **Design Patterns and Best Practices**: Identifying and implementing appropriate design patterns (e.g., MVC, Observer, Singleton, etc.) and best practices like SOLID, DRY, and KISS principles.
+
 - **Non-Functional Requirements (NFRs)**: Evaluating performance, security, scalability, and other non-functional requirements to guide the architecture.
 
 ##### Examples of Architectural Decisions
 
 - **Technology Choice**: Choosing Angular over React for a project based on the team’s familiarity with Angular and the project’s need for strong built-in tools like routing and forms.
+
 - **Microservices Architecture**: Adopting a microservices architecture to allow different parts of the application to scale independently, improving maintainability and resilience.
+
 - **Modular Approach**: Dividing the application into reusable modules to improve maintainability and allow teams to work independently on different parts of the application.
 
 ##### Documentation of Architectural Decisions
 
 - **ADR (Architectural Decision Records)**: A structured approach to documenting the rationale behind key decisions. ADRs typically include the decision itself, the context, alternatives considered, and the outcome.
+
 - **Example ADR Structure**:
+
   - **Title**: Short, descriptive summary of the decision.
+
   - **Context**: Explanation of the problem or opportunity that prompted the decision.
+
   - **Decision**: The final choice made, along with any supporting reasons.
+
   - **Consequences**: Potential impacts (positive and negative) of the decision.
 
 ---
@@ -2488,14 +2887,19 @@ A significant part of a Senior/Lead Developer’s role is working with both func
 ##### Key Aspects
 
 - **Decomposition of Requirements**: Breaking down complex project requirements into manageable tasks or user stories.
+
 - **Collaboration with Stakeholders**: Working closely with project managers, product owners, and business analysts to ensure the requirements are well understood.
+
 - **Non-Functional Requirements**: Ensuring the project meets critical NFRs such as performance, scalability, security, and usability.
   
 ##### Example of Requirement Decomposition
 
 - Implementing the login system.
+
 - Storing user data securely.
+
 - Applying session management.
+
 - Managing user roles and permissions.
 
 ---
@@ -2507,12 +2911,15 @@ Clear and concise documentation is a hallmark of effective technical leadership.
 ##### Key Responsibilities
 
 - **Coding Style Guidelines**: Establishing rules for how code should be written, formatted, and documented. For instance, enforcing consistent naming conventions, indentation, and the use of comments.
+
 - **Technical Documentation**: Writing comprehensive documentation for complex systems, including API documentation, architectural overviews, and setup instructions.
+
 - **Style Guides**: Creating or enforcing design systems and UI guidelines to ensure a consistent look and feel across the project.
 
 ##### Example Documentation Responsibilities
 
 - **Code Documentation**: Documenting important sections of the codebase to help team members understand complex algorithms, business logic, or integration points.
+
 - **Architecture Diagrams**: Visualizing the application architecture using diagrams that show data flow, component interaction, and deployment environments.
 
 ---
@@ -2524,10 +2931,15 @@ Following industry best practices and established design patterns ensures that t
 ##### Key Patterns and Best Practices
 
 - **SOLID Principles**: A set of design principles intended to make software designs more understandable, flexible, and maintainable.
+
   - **Single Responsibility Principle (SRP)**: A class should have one, and only one, reason to change.
+
   - **Open/Closed Principle (OCP)**: Software entities should be open for extension but closed for modification.
+  
   - **Liskov Substitution Principle (LSP)**: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+  
   - **Interface Segregation Principle (ISP)**: No client should be forced to depend on methods it does not use.
+  
   - **Dependency Inversion Principle (DIP)**: High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
 - **DRY (Don’t Repeat Yourself)**: Reducing duplication by extracting common logic into reusable components, services, or functions.
@@ -2671,19 +3083,27 @@ As a Senior/Lead Developer, maintaining and improving code quality is one of the
 ##### Key Responsibilities
 
 - **Guaranteeing Quality**: Ensure that the code meets all quality gates before it’s merged into the main branch or deployed to production. This includes verifying that:
+
   - Code passes automated tests (unit, integration, E2E).
+  
   - Code adheres to style guidelines and best practices (e.g., linters and formatters).
+  
   - Code coverage meets the agreed thresholds.
 
 - **Refactoring**: Refactoring is the process of improving the internal structure of code without changing its external behavior. A good Senior/Lead Developer knows how to plan, isolate, and control refactoring efforts while ensuring that code remains functional.
+
   - **When to Refactor**: Refactoring should be done regularly, especially when you encounter technical debt or suboptimal design patterns that hinder maintainability.
+  
   - **Strategies**: Use incremental refactoring to reduce risk, and focus on improving code readability, reducing complexity, and optimizing performance.
 
 ##### Example Refactoring Process
 
 - **Identify the target area** (e.g., a function that’s too complex or a repeated pattern).
+
 - **Write tests** to ensure the existing functionality is covered.
+
 - **Refactor the code** by simplifying logic, splitting large functions, or improving naming conventions.
+
 - **Run the tests** to confirm that no behavior has changed.
 
 ---
@@ -2695,13 +3115,17 @@ As a Senior/Lead Developer, maintaining and improving code quality is one of the
 As a Senior/Lead Developer, you should:
 
 - **Identify areas of technical debt**: This could be code duplication, outdated dependencies, or unoptimized algorithms.
+
 - **Prioritize debt resolution**: Work with stakeholders to decide when and how to address technical debt. This might involve fixing the debt during sprint cycles, or as part of larger refactoring efforts.
+
 - **Introduce strategies to the team**: Communicate the importance of resolving debt early and encourage team members to clean up code incrementally.
 
 ##### Common Technical Debt Resolution Strategies
 
 - **Refactor codebase incrementally** rather than in large overhauls to reduce risk.
+
 - **Plan technical debt paydown** as part of each sprint or at specific intervals in the project lifecycle.
+
 - **Track technical debt** using tools like SonarQube, which can identify code smells, duplicate code, and other issues.
 
 ---
@@ -2713,17 +3137,23 @@ At EPAM, the **ENGX** initiative outlines best practices for code quality and en
 ##### Key ENGX Practices
 
 - **Git Hooks and Automation**:
+
   - Implement **Git Hooks** to automate processes such as linting, running unit tests, and verifying code before it’s pushed to the repository.
+  
   - Use tools like **Husky** to enforce Git Hooks across the development team.
 
 - **Linters and Formatters**:
+
   - Tools like **ESLint** and **Prettier** should be used to ensure the code follows the established style guidelines.
+  
   - Linters help catch errors early by enforcing rules like no-unused-vars, no-implicit-any, and consistent return types in TypeScript.
 
 - **SonarQube**:
+
   - Use **SonarQube** to continuously analyze code quality and security vulnerabilities. SonarQube checks for code smells, duplicated code, and potential bugs.
 
 - **Security Scanning Tools**:
+  
   - Integrate tools that scan dependencies and the codebase for security vulnerabilities. Tools like **npm audit** and **OWASP Dependency-Check** help ensure that the project stays free from known security risks.
 
 ---
@@ -2735,8 +3165,11 @@ A strong code review process is key to improving code quality and sharing knowle
 ##### Code Review Best Practices
 
 - **Establish Code Review Standards**: Define what needs to be reviewed (e.g., logic, security, performance) and what the team should focus on during code reviews.
+
 - **Encourage Constructive Feedback**: Reviews should not just focus on identifying mistakes but also on suggesting improvements and sharing knowledge.
+
 - **Peer Reviews**: Everyone on the team should participate in reviews, but the Senior/Lead Developer may step in for critical features or architecture changes.
+
 - **Automated Tools**: Use tools like **GitHub Actions** or **CI/CD pipelines** to automate the running of tests and quality checks as part of the review process.
 
 ---
@@ -2754,7 +3187,9 @@ Testing is essential for maintaining a high-quality codebase. As a Senior/Lead D
 The **Test Pyramid** helps ensure that your testing strategy is efficient by structuring different layers of tests:
 
 - **Unit Tests**: The base of the pyramid, which tests individual pieces of functionality in isolation.
+
 - **Integration Tests**: Tests interactions between different modules or services to ensure they work together.
+
 - **End-to-End (E2E) Tests**: The top of the pyramid, testing the full functionality of the application from the user's perspective.
 
 ##### Example of Unit Testing
@@ -2770,6 +3205,7 @@ describe('Addition Function', () => {
 ##### Writing Good Unit Tests
 
 - Follow the **FIRST** principles: **Fast**, **Isolated**, **Repeatable**, **Self-validating**, and **Timely**.
+
 - Tests should be written to cover both expected functionality and edge cases.
 
 ---
@@ -2793,8 +3229,11 @@ describe('Addition Function', () => {
 Implementing CI/CD successfully involves following best practices to streamline workflows and ensure high-quality software delivery.
 
 - **Automate Testing and Build Processes**: Automating the testing and build process ensures early detection of issues and faster delivery of features.
+
 - **Use Feature Flags**: Feature flags allow you to release features incrementally and toggle them on or off as needed without deploying new code.
+
 - **Monitor and Roll Back**: Always monitor deployments in production and have a rollback plan in case of failures.
+
 - **Ensure a Staging Environment**: Testing in a staging environment before production deployment helps ensure stability and bug-free releases.
   
 ---
@@ -2806,27 +3245,70 @@ A **Version Control System (VCS)** tracks changes in source code and facilitates
 ##### **Branching Strategies**
 
 - **GitHub Flow**: A lightweight, branch-based workflow that uses feature branches and pull requests to handle changes.
+
   - [GitHub Flow Overview](https://docs.github.com/en/get-started/quickstart/github-flow#following-github-flow)
 
 - **Gitflow Workflow**: A more structured workflow, which divides work into separate branches for features, releases, and hotfixes. This is useful for larger projects.
+
   - [Gitflow Workflow Guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 - **OneFlow**: A simplified Git workflow model that aims to avoid the complexity of Gitflow by maintaining fewer long-lived branches.
+
   - [OneFlow Workflow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
 
 - **Feature Branching**: Developers work on features in isolated branches, which are only merged into the main branch once they pass all the required tests.
 
 ---
 
-#### **Deployment Strategies**
+#### **Zero-downtime deployment(Deployment Strategies)**
 
-Choosing the right deployment strategy is crucial for minimizing downtime and reducing the risk of introducing bugs to production.
+**Zero-downtime deployment** ensures that users experience no service interruption while new code or updates are deployed. This approach is essential for high-availability applications, as it maintains a seamless user experience even during frequent updates. Below are some popular zero-downtime deployment techniques:
 
-- **Blue-Green Deployment**: Two identical environments (blue and green) are maintained. The current production environment (blue) continues running while the new version is deployed to the green environment. Once tested, traffic is switched to the green environment.
+##### Blue-Green Deployment (Most Popular)**
 
-- **Canary Deployment**: A new version is gradually released to a subset of users before being rolled out to the entire user base. This minimizes the risk of bugs affecting all users.
+In **Blue-Green Deployment**, two identical environments, known as "blue" (current production) and "green" (new version), are maintained. The new version of the application is deployed to the green environment, where it undergoes final testing. Once verified, traffic is redirected from the blue environment to the green environment, making the new version live with zero downtime.
 
-- **Rolling Deployment**: Updates are gradually rolled out across different servers or regions to avoid downtime and ensure smooth transitions.
+**Benefits**:
+
+- **Instant Rollback**: If issues are detected, switching back to the blue environment is quick and seamless.
+
+- **Reduced Risk**: New versions can be tested in the green environment without affecting current users.
+
+---
+
+##### **Canary Deployment**
+
+In **Canary Deployment**, the new version of the application is gradually rolled out to a small subset of users. If the deployment is stable, more users are directed to the new version in stages until all users are using the latest release. This technique allows for monitoring and catching potential issues early without affecting the entire user base.
+
+**Benefits**:
+
+- **Controlled Rollout**: By gradually exposing the new version, developers can test stability and performance in real-world conditions.
+
+- **Reduced Impact**: Potential issues affect only a small portion of users at a time.
+
+---
+
+##### **Rolling Deployment**
+
+**Rolling Deployment** updates the application one server or instance at a time. Each server is taken offline, updated, and brought back online before the next one is updated. This technique is particularly suitable for distributed environments, as it minimizes disruption to users and avoids complete downtime.
+
+**Benefits**:
+
+- **No Separate Environments Required**: Works directly on production instances, avoiding the need for duplicated infrastructure.
+
+- **Minimal User Impact**: Rolling updates reduce the number of affected users per instance update.
+
+---
+
+##### **Feature Toggles (Feature Flags)**
+
+**Feature Toggles** enable developers to deploy code with features hidden behind flags. This allows new features to be gradually enabled without additional deployments. Feature toggles are particularly useful for testing in production environments and allowing incremental feature rollouts.
+
+**Benefits**:
+
+- **Controlled Release**: Developers can selectively enable features for specific users or groups.
+
+- **Instant Reversion**: Disabling a flag turns off a feature without redeployment.
 
 ---
 
@@ -2885,20 +3367,29 @@ Agile is a set of principles aimed at improving software development through ite
 - **Roles**:
 
   - **Product Owner**: Responsible for defining the product backlog and prioritizing work.
+  
   - **Scrum Master**: Facilitates the Scrum process, ensuring that the team follows Scrum practices.
+  
   - **Development Team**: A cross-functional team responsible for delivering the product increments.
 
 - **Ceremonies**:
+
   - **Sprint Planning**: A meeting to decide what work will be done in the upcoming sprint.
+  
   - **Daily Stand-up**: A short meeting (15 minutes) where the team discusses progress, roadblocks, and plans for the day.
+  
   - **Sprint Review**: A demonstration of the completed work to stakeholders at the end of each sprint.
+  
   - **Retrospective**: A session to reflect on what went well, what didn’t, and how to improve in the next sprint.
 
 ##### **Kanban**
 
 - **Key Concepts**:
+
   - **Visualize Work**: Use a Kanban board to show tasks in different stages (e.g., To Do, In Progress, Done).
+  
   - **Limit Work in Progress (WIP)**: Set limits on how many tasks can be in progress at the same time to improve focus and flow.
+  
   - **Manage Flow**: Focus on moving tasks through the process efficiently without overloading the team.
 
 ---
@@ -2910,13 +3401,17 @@ As a Senior/Lead Developer, it’s your responsibility to ensure that your team 
 ##### **Extreme Programming (XP)**
 
 - **Pair Programming**: Two developers work together at one workstation. One writes code, while the other reviews each line as it’s written. This promotes knowledge sharing and reduces errors.
+
 - **Continuous Refactoring**: Constantly improving the codebase to remove technical debt and improve maintainability.
+
 - **Simple Design**: Design only for the current requirements without overcomplicating the code. Focus on simplicity to make the code easier to change in the future.
 
 ##### **Code Quality and Engineering Best Practices**
 
 - **Coding Standards**: Ensure that the team follows consistent coding standards, such as consistent naming conventions, file structure, and formatting rules.
+
 - **Automated Testing**: Encourage writing unit tests, integration tests, and end-to-end tests as part of the development cycle. Use tools such as **Jest**, **Karma**, or **Cypress** to automate testing.
+
 - **Continuous Integration (CI)**: Set up a CI pipeline that automatically runs tests and checks code quality whenever changes are pushed to the repository.
 
 ---
@@ -2937,9 +3432,13 @@ As a Senior/Lead Developer, part of your role will involve estimating tasks and 
 - **T-Shirt Sizing**: Another relative estimation method where tasks are categorized into sizes (XS, S, M, L, XL) based on their complexity.
 
 - **Three-Point Estimation**: An estimation method that uses three values to calculate the expected duration of a task:
+
   - **Optimistic**: The best-case scenario.
+
   - **Pessimistic**: The worst-case scenario.
+
   - **Most Likely**: The most likely outcome.
+
   - The final estimate is calculated as:
   
     ``
@@ -2961,12 +3460,15 @@ Risk management is crucial for successful project delivery. As a Senior/Lead Dev
 ##### Key Concepts
 
 - **Probability and Impact**: Assess the likelihood of risks occurring and their potential impact on the project.
+
 - **Risk Mitigation Strategies**: Create a plan for how to minimize or eliminate risks before they occur. This might involve creating contingency plans, adding buffer time, or investing in additional resources.
 
 ##### Example Risks
 
 - **Technical Debt**: If technical debt is not addressed, it can slow down future development and increase the cost of adding new features.
+
 - **Scope Creep**: If additional features are requested during development, it can lead to project delays unless managed carefully.
+
 - **Team Capacity**: If key team members are unavailable, this can reduce the team’s ability to deliver on time.
 
 ---
@@ -2982,17 +3484,23 @@ At the Senior/Lead Developer level, you are expected to take on a variety of res
 ##### Key Responsibilities
 
 - **Supervising Development**:
+
   - As a Senior/Lead Developer, you may lead a development group responsible for delivering a significant part of the application.
+  
   - You’ll oversee the entire project layer and ensure that it meets the agreed scope, timelines, and quality standards.
 
 - **Project Delivery**:
+
   - Responsible for ensuring that project goals are met within the agreed time, scope, and budget.
+  
   - In some cases, you may be responsible for the delivery of entire modules, features, or even complete solutions.
 
 - **Team Coordination**:
+
   - You’ll often act as the bridge between on-site architects, project stakeholders, and the development team. This involves not only technical discussions but also managing expectations, priorities, and timelines.
 
 - **Interviews and Onboarding**:
+
   - As a Senior/Lead, you’ll often be involved in conducting technical interviews to assess the skill level of potential new hires. You’ll also be responsible for onboarding newcomers and integrating them into the team.
 
 ##### Example Role in a Project
@@ -3008,14 +3516,19 @@ In a Senior/Lead Developer role, you are often responsible for managing a team o
 ##### Key Leadership Skills
 
 - **Planning and Organizing**:
+
   - As a Senior/Lead, you are expected to plan and organize the team’s work efficiently. This includes defining timelines, ensuring task prioritization, and facilitating discussions to address roadblocks.
 
 - **Meeting Management**:
+
   - Organizing and running meetings is a key responsibility. You’ll be responsible for setting agendas, maintaining focus during discussions, and ensuring that all action items are followed up after the meeting.
+  
   - Types of meetings might include daily standups, sprint planning, retrospectives, and architecture reviews.
 
 - **Team Management**:
+
   - As the leader of the team, you need to ensure that each team member has clear tasks, meets performance standards, and has a positive work environment.
+  
   - This also involves providing regular feedback, offering mentorship, and addressing any conflicts or challenges within the team.
 
 ##### Example Leadership Situation
@@ -3031,6 +3544,7 @@ Being a Senior/Lead Developer involves balancing several important management ta
 ##### Planning and Delegation
 
 - **Planning**: You must be able to create detailed project plans, define milestones, and allocate resources effectively to ensure that the team meets its objectives.
+
 - **Delegation**: Proper delegation involves assigning tasks to team members based on their strengths and workload capacity. It also means trusting team members to execute their tasks independently while holding them accountable for results.
 
 ##### Motivation
@@ -3054,12 +3568,15 @@ As a Senior/Lead Developer, you often serve as the **face of the technical team*
 ##### Key Responsibilities in Client Relations
 
 - **Explaining Technical Solutions**:
+
   - You’ll be responsible for explaining complex technical decisions in simple, business-oriented terms to clients or non-technical stakeholders. This helps bridge the gap between the technical team and the client’s expectations.
 
 - **Convincing Stakeholders**:
+
   - Sometimes clients may have specific feature requests or timelines that are unrealistic. You’ll need to manage their expectations and provide alternatives that satisfy both the technical team’s capacity and the client’s goals.
 
 - **Problem-Solving**:
+
   - In the event of project delays, unexpected bugs, or feature scope changes, you will need to work with the client to come up with a plan for resolving issues while maintaining project momentum.
 
 ##### Example of Customer Interaction
@@ -3075,8 +3592,11 @@ Effective negotiation skills are critical for managing both technical and organi
 ##### Negotiation Strategies
 
 - **Focus on Win-Win**: Aim to find solutions that benefit all parties involved.
+
 - **Use Data**: Present data and facts to support your argument when negotiating timelines or technical decisions.
+
 - **Active Listening**: Understand the other party’s needs and constraints before proposing a solution.
+
 - **Be Flexible**: Be open to alternative solutions, but know your limits. If something is non-negotiable (like a security risk), communicate why.
 
 ---
@@ -3088,7 +3608,9 @@ As a Senior/Lead Developer, you’ll often be required to present solutions to b
 ##### Tips for Effective Presentations
 
 - **Tailor to the Audience**: Adjust your technical depth based on whether you are presenting to a technical team or business stakeholders.
+
 - **Use Visual Aids**: Diagrams, charts, and demos can help make complex concepts more understandable.
+
 - **Structured Communication**: Start with the problem or objective, then present possible solutions, and conclude with recommendations and next steps.
 
 ---
@@ -3100,12 +3622,15 @@ Not all problems can be resolved internally. As a Senior/Lead Developer, you sho
 ##### When to Escalate
 
 - **Client Escalations**: If a client is dissatisfied with the project’s progress or deliverables, escalate the issue to ensure that senior management can help resolve it.
+
 - **Team Conflicts**: If a conflict between team members becomes unmanageable and affects productivity, involve management or HR for mediation.
 
 ##### Escalation Techniques
 
 - Present the issue clearly, focusing on facts rather than emotions.
+
 - Offer potential solutions or ask for guidance from higher management.
+
 - Document all escalations and the steps taken to resolve the issue.
 
 ---
@@ -3116,11 +3641,17 @@ As a Senior/Lead Developer, self-management is crucial for maintaining productiv
 
 ##### Time Management Tips
 
-- **Prioritize Tasks**: Focus on high-impact tasks and avoid distractions.- **Set Time Blocks**: Allocate specific blocks of time to work on tasks without interruptions.- **Delegate Where Possible**: Delegate tasks that don’t require your direct involvement to your team members.- **Track Your Progress**: Use task management tools like Jira or Trello to track your work and ensure you’re meeting deadlines.
+- **Prioritize Tasks**: Focus on high-impact tasks and avoid distractions.
+
+- **Set Time Blocks**: Allocate specific blocks of time to work on tasks without interruptions.
+
+- **Delegate Where Possible**: Delegate tasks that don’t require your direct involvement to your team members.
+
+- **Track Your Progress**: Use task management tools like Jira or Trello to track your work and ensure you’re meeting deadlines.
 
 ##### Example of Self-Management
 
-- As a Senior/Lead Developer, you might need to balance writing code, managing the team, and attending client meetings. By setting aside dedicated time for each responsibility, you ensure that nothing falls behind.
+As a Senior/Lead Developer, you might need to balance writing code, managing the team, and attending client meetings. By setting aside dedicated time for each responsibility, you ensure that nothing falls behind.
 
 ---
 
@@ -3137,11 +3668,15 @@ Resource management involves taking care of your team members’ professional de
 - **Team Well-being**: As a resource manager, you must ensure that your team is motivated, supported, and satisfied with their work environment. Regular check-ins with team members allow you to address concerns before they become significant issues.
 
 - **Career Development**:
+
   - Help team members set professional goals and provide opportunities for skill development through training, workshops, and challenging projects.
+  
   - Provide regular feedback and performance evaluations to help team members improve.
 
 - **Solving Non-project Needs**:
+
   - Address any concerns team members have regarding organizational processes, access to resources, or other non-project-specific tasks.
+  
   - Facilitate communication between employees and the broader organization to resolve non-technical issues.
 
 ##### Example of Resource Management
@@ -3157,8 +3692,11 @@ As a Senior/Lead Developer, you play a crucial role in promoting and upholding t
 ##### Core EPAM Values
 
 - **Excellence**: Encourage continuous improvement and high-quality work. As a leader, you should model a commitment to learning and professional growth.
+
 - **Innovation**: Encourage the team to think creatively, explore new technologies, and seek innovative solutions to problems.
+
 - **Collaboration**: Foster a collaborative environment where team members feel comfortable sharing ideas and working together.
+
 - **Accountability**: Senior/Lead by example in taking responsibility for the success or failure of deliverables, and encourage the same sense of accountability within the team.
 
 ---
@@ -3170,7 +3708,9 @@ Recognizing and celebrating team achievements is essential for maintaining high 
 ##### How to Recognize Achievements
 
 - **Public Recognition**: Call attention to team accomplishments in meetings, newsletters, or internal forums.
+
 - **Private Recognition**: Offer private feedback and thank team members for their efforts. A personal note or conversation can go a long way.
+
 - **Team Celebrations**: Celebrate major project milestones or individual accomplishments with team events, lunches, or virtual celebrations for remote teams.
 
 ##### Example of Recognition
@@ -3206,8 +3746,11 @@ Mentoring is a key part of organizational influence. Whether you’re mentoring 
 ##### Effective Mentoring
 
 - **Build Trust**: Establish open communication and make yourself available for advice and guidance. A successful mentor-mentee relationship is based on mutual trust.
+
 - **Set Clear Goals**: Help mentees set specific, measurable goals for their development.
+
 - **Provide Constructive Feedback**: Offer feedback that is both positive and constructive, focusing on how the mentee can improve.
+
 - **Encourage Self-Sufficiency**: While mentoring is about offering guidance, it’s also important to encourage mentees to solve problems independently, fostering their growth.
 
 ---
@@ -3219,7 +3762,9 @@ Involvement in **Competency Centers** allows you to contribute to the organizati
 ##### Ways to Contribute
 
 - **Pre-sales and RFP Participation**: Provide technical expertise during the pre-sales process to help win new business or respond to requests for proposals (RFPs).
+
 - **Technology Consultations**: Offer your expertise in consultations with other teams or projects that require guidance in areas like system architecture or specific technologies (e.g., Angular, AWS, etc.).
+
 - **Educational Programs**: Help develop and deliver educational programs that enhance the skills of EPAM employees, from training materials to hands-on workshops.
 
 ##### Example of Contribution
@@ -3271,6 +3816,7 @@ As part of the **ASMT** (Assessment) process at EPAM, you may be involved as an 
 ##### Responsibilities
 
 - **Technical Expert**: Participate as an expert in assessing the technical capabilities of candidates during the ASMT process.
+
 - **Contributing to ASMT Guidelines**: Help define or refine the assessment criteria to ensure that they align with the organization’s technical expectations and industry standards.
 
 ---
@@ -3284,24 +3830,33 @@ As a Senior/Lead Developer at EPAM Systems, English proficiency is crucial for c
 A B2 level in English indicates that you can:
 
 - Communicate clearly and effectively in both spoken and written forms.
+
 - Understand technical documentation, specifications, and client requirements in English.
+
 - Participate in discussions with clients and stakeholders, offering insights and solutions to problems.
+
 - Give technical presentations or explain complex concepts to both technical and non-technical audiences.
 
 ##### Key Skills at B2 Level
 
 - **Speaking**:
+
   - You are able to express ideas clearly and can participate in conversations on a variety of topics, including technical discussions.
+  
   - You can interact with clients confidently and explain your ideas in meetings or presentations.
 
 - **Listening**:
+
   - You can understand the main ideas in complex technical discussions or meetings, even when the language is not completely familiar.
+  
   - You can follow conversations between native speakers and grasp important details in client calls or team discussions.
 
 - **Reading**:
+
   - You can read technical documents, emails, and requirements without difficulty. You are able to interpret specifications, code documentation, and project guidelines effectively.
 
 - **Writing**:
+
   - You are capable of writing clear, structured emails, reports, and documentation in English. Your writing is free from major errors and can be understood by native and non-native speakers alike.
 
 ---
@@ -3309,12 +3864,15 @@ A B2 level in English indicates that you can:
 #### **Examples of Professional Scenarios Requiring B2 English**
 
 - **Client Communication**:
+
   - During a client call, you explain the technical approach your team will take to implement a new feature. You answer follow-up questions and provide further details on the technology stack.
 
 - **Presentations**:
+
   - You give a presentation on Angular performance optimization strategies to both internal team members and external stakeholders. You explain technical concepts in a clear and concise manner, ensuring that non-technical participants understand the implications.
 
 - **Documentation**:
+
   - You write clear technical documentation that details the system architecture of the project. The document is intended for both the development team and the client, ensuring all parties understand the technical direction.
 
 ---
@@ -3326,8 +3884,11 @@ As a Senior/Lead Developer, continuous improvement is key, and language skills a
 ##### Tips for Improving English
 
 - **Join English Workshops**: Many organizations offer language learning workshops focused on business and technical English. Participating in these sessions can improve your vocabulary and fluency.
+
 - **Practice Regularly**: Make an effort to speak in English during meetings, even with non-native speakers. The more you practice, the more comfortable you’ll become.
+
 - **Use Technical Resources**: Read technical blogs, articles, and documentation in English to improve your understanding of technical vocabulary and writing styles.
+
 - **Language Partner**: Consider pairing with a colleague to practice spoken English, focusing on technical terminology and conversational fluency.
 
 ---
@@ -3422,8 +3983,8 @@ This section provides a curated list of resources for further learning across va
 - [Micro-Frontends](https://martinfowler.com/articles/micro-frontends.html)
 - [PWA (Progressive Web Apps)](https://kb.epam.com/display/EPMCJSCC/PWA)
 - [Monorepos Explained](https://kb.epam.com/display/EPMCJSCC/Monorepos)
-- [SPA vs MPA: Pros and Cons](https://kb.epam.com/pages/viewpage.action?pageId=1593824553)
-- [SSR vs CSR: Pros and Cons](https://kb.epam.com/pages/viewpage.action?pageId=1593824782)
+- [SPA vs MPA](https://kb.epam.com/display/EPMCJSCC/MPA+vs+SPA)
+- [SSR vs CSR](https://kb.epam.com/display/EPMCJSCC/SSR+vs+CSR)
 - [Technology Comparison: Angular vs React vs Vue](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/)
 - [Upgrading from AngularJS to Angular](https://www.digitalocean.com/community/tutorials/how-to-upgrade-from-angularjs-to-angular-with-ngupgrade)
 
@@ -3456,6 +4017,7 @@ This section provides a curated list of resources for further learning across va
 
 #### **Patterns**
 
+- [Design Patterns(recomended)](https://refactoring.guru/design-patterns)
 - [JavaScript Design Patterns Collection](https://github.com/fbeline/design-patterns-JS/tree/master/src)
 - [Learning JavaScript Design Patterns](https://www.patterns.dev/#patterns)
 - [JavaScript Patterns](https://github.com/shichuan/javascript-patterns)
@@ -3491,7 +4053,6 @@ This section provides a curated list of resources for further learning across va
 
 #### **SDLC Methodologies**
 
-- [Understanding Software Development Methodologies](https://www.dcsl.com/what-you-need-to-know-about-software-development-methodologies/)
 - [System Development Life Cycle (SDLC) Guide](https://www.clouddefense.ai/blog/system-development-life-cycle)
 - [Scrum Framework](https://scrumguides.org/)
 - [SDLC Phases and Models](https://www.softwaretestinghelp.com/software-development-life-cycle-sdlc/)
