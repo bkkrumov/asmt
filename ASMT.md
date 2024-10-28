@@ -4,9 +4,9 @@
 
 1. [Introduction](#1-introduction)  
 2. [Technical Expertise](#2-technical-expertise)  
-   2.1. [JavaScript & TypeScript](#javascript--typescript)  
-   2.2. [Computer Science Fundamentals](#computer-science-fundamentals)  
-   2.3. [Programming Paradigms](#programming-paradigms)  
+   1. [JavaScript & TypeScript](#javascript--typescript)  
+   2. [Computer Science Fundamentals](#computer-science-fundamentals)  
+   3. [Programming Paradigms](#programming-paradigms)  
 3. [Communication Protocols](#3-communication-protocols)  
 4. [Security Fundamentals](#4-security-fundamentals)  
 5. [Performance Optimization](#5-performance-optimization)  
@@ -17,6 +17,21 @@
    9.1. [Angular](#91-angular)  
    9.2. [React](#92-react)  
 10. [Design Thinking & Documentation Skills](#10-design-thinking-and-documentation-skills)  
+    1. [Creational Patterns](#creational-patterns)  
+       1. [Abstract Factory Pattern](#abstract-factory-pattern)
+       2. [Builder  Pattern](#builder-pattern)
+       3. [Factory Method Pattern](#factory-method-pattern)
+       4. [Singleton Pattern](#singleton-pattern)
+    2. [Structural Patterns](#structural-patterns)  
+       1. [Adaptor Pattern](#adapter-pattern)
+       2. [Facade Pattern](#facade-pattern)
+       3. [Decorator Pattern](#decorator-pattern)
+       4. [Composite Pattern](#composite-pattern)
+    3. [Behavioral Patterns](#behavioral-patterns)  
+       1. [Observer Pattern](#observer-pattern)
+       2. [Strategy Pattern](#strategy-pattern)
+       3. [Command Pattern](#command-pattern)
+       4. [Iterator Pattern](#iterator-pattern)
 11. [Quality, ENGX](#11-quality-engx)  
 12. [CI/CD and Version Control Systems (VCS)](#12-cicd-and-version-control-systems-vcs)
 13. [Software Development Process Knowledge](#13-software-development-process-knowledge)
@@ -2521,308 +2536,101 @@ Following industry best practices and established design patterns ensures that t
 
 - **Design Patterns**: Design patterns are typical solutions to commonly occurring problems in software design. They represent best practices refined over time, and knowing how to apply them can improve code quality and maintainability.
 
-##### **Creational Patterns**
+#### **Creational Patterns**
 
 Creational patterns deal with object creation mechanisms, trying to create objects in a way that is suitable to the situation. These patterns abstract the instantiation process, making it easier to handle and extend object creation.
 
-- **Factory Pattern**:
-  - **Purpose**: The Factory Pattern provides an interface for creating objects but allows subclasses to alter the type of objects that will be created.
-  - **Example Use Case**: Use a factory when the exact type of object to be created isn’t known until runtime.
+#### **Abstract Factory Pattern**
 
-   **Example**:
+- **Purpose**: Solves the problem of creating entire product families without specifying their concrete classes. Abstract Factory defines an interface for creating all distinct products but leaves the actual product creation to concrete factory classes. Each factory type corresponds to a certain product variety.
 
-   ```typescript
-   class ButtonFactory {
-     createButton(type: string): Button {
-       if (type === 'ok') return new OkButton();
-       if (type === 'cancel') return new CancelButton();
-       throw new Error('Unknown button type');
-     }
-   }
-   ```
+  The client code calls the creation methods of a factory object instead of creating products directly with a constructor call (new operator). Since a factory corresponds to a single product variant, all its products will be compatible.
 
-- **Singleton Pattern**:
-  - **Purpose**: Ensures that a class has only one instance and provides a global point of access to it.
-  - **Example Use Case**: Useful in situations where only one instance of a class should exist, such as a logging service or a database connection manager.
+  Client code works with factories and products only through their abstract interfaces. This lets the client code work with any product variants, created by the factory object. You just create a new concrete factory class and pass it to the client code.
+- **Usage examples**: The Abstract Factory pattern is pretty common in TypeScript code. Many frameworks and libraries use it to provide a way to extend and customize their standard components.
+- **Identification**: The pattern is easy to recognize by methods, which return a factory object. Then, the factory is used for creating specific sub-components.
 
-   **Example**:
+#### **Builder Pattern**
 
-   ```typescript
-   class Singleton {
-     private static instance: Singleton;
-     private constructor() {}
-   
-     static getInstance(): Singleton {
-       if (!Singleton.instance) {
-         Singleton.instance = new Singleton();
-       }
-       return Singleton.instance;
-     }
-   }
-   ```
+- **Purpose**: Allows constructing complex objects step by step. Unlike other creational patterns, Builder doesn’t require products to have a common interface. That makes it possible to produce different products using the same construction process.
+- **Usage examples**: The Builder pattern is a well-known pattern in TypeScript world. It’s especially useful when you need to create an object with lots of possible configuration options.
+- **Identification**: The Builder pattern can be recognized in a class, which has a single creation method and several methods to configure the resulting object. Builder methods often support chaining (for example, someBuilder.setValueA(1).setValueB(2).create()).
 
-- **Builder Pattern**:
-  - **Purpose**: Separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
-  - **Example Use Case**: Use when creating complex objects step by step.
+#### **Factory Method Pattern**
 
-   **Example**:
+- **Purpose**: Solves the problem of creating product objects without specifying their concrete classes. The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (new operator). Subclasses can override this method to change the class of objects that will be created.
+- **Usage examples**: The Factory Method pattern is widely used in TypeScript code. It’s very useful when you need to provide a high level of flexibility for your code.
+- **Identification**: Factory methods can be recognized by creation methods that construct objects from concrete classes. While concrete classes are used during the object creation, the return type of the factory methods is usually declared as either an abstract class or an interface.
 
-   ```typescript
-   class CarBuilder {
-     private car: Car = new Car();
-     
-     addEngine(engine: string): this {
-       this.car.engine = engine;
-       return this;
-     }
-     
-     addWheels(wheels: string): this {
-       this.car.wheels = wheels;
-       return this;
-     }
+#### **Singleton Pattern**
 
-     build(): Car {
-       return this.car;
-     }
-   }
-   ```
+- **Purpose**: Ensures that only one object of its kind exists and provides a single point of access to it for any other code. Singleton has almost the same pros and cons as global variables. Although they’re super-handy, they break the modularity of your code.
 
-##### **Structural Patterns**
+  You can’t just use a class that depends on a Singleton in some other context, without carrying over the Singleton to the other context. Most of the time, this limitation comes up during the creation of unit tests.
+- **Usage examples**: A lot of developers consider the Singleton pattern an anti-pattern. That’s why its usage is on the decline in TypeScript code.
+- **Identification**: Singleton can be recognized by a static creation method, which returns the same cached object.
+
+#### **Structural Patterns**
 
 Structural patterns deal with object composition, focusing on how objects are composed to form larger structures.
 
-- **Adapter Pattern**:
-  - **Purpose**: The Adapter Pattern allows incompatible interfaces to work together. It acts as a bridge between two incompatible classes.
-  - **Example Use Case**: Useful when you need to integrate a new class with an existing system that uses a different interface.
+#### **Adapter Pattern**
 
-   **Example**:
+- **Usage examples**: Allows incompatible objects to collaborate.
+- **Purpose**: The Adapter acts as a wrapper between two objects. It catches calls for one object and transforms them to format and interface recognizable by the second object. The Adapter pattern is pretty common in TypeScript code. It’s very often used in systems based on some legacy code. In such cases, Adapters make legacy code work with modern classes.
+- **Identification**: Adapter is recognizable by a constructor which takes an instance of a different abstract/interface type. When the adapter receives a call to any of its methods, it translates parameters to the appropriate format and then directs the call to one or several methods of the wrapped object.
 
-   ```typescript
-   interface OldInterface {
-     oldRequest(): string;
-   }
-   
-   class NewInterface {
-     newRequest(): string {
-       return "New request";
-     }
-   }
-   
-   class Adapter implements OldInterface {
-     private adaptee: NewInterface;
-   
-     constructor(adaptee: NewInterface) {
-       this.adaptee = adaptee;
-     }
-   
-     oldRequest(): string {
-       return this.adaptee.newRequest();
-     }
-   }
-   ```
+#### **Facade Pattern**
 
-- **Facade Pattern**:
-  - **Purpose**: The Facade Pattern provides a simplified interface to a complex subsystem, hiding the complexities and providing a more readable and straightforward interface.
-  - **Example Use Case**: Use when working with a complex library or framework, to make the interaction easier and more user-friendly.
+- **Purpose**: Provides a simplified (but limited) interface to a complex system of classes, library or framework. While Facade decreases the overall complexity of the application, it also helps to move unwanted dependencies to one place.
+- **Usage examples**: The Facade pattern is commonly used in apps written in TypeScript. It’s especially handy when working with complex libraries and APIs.
+- **Identification**: Facade can be recognized in a class that has a simple interface, but delegates most of the work to other classes. Usually, facades manage the full life cycle of objects they use.
 
-   **Example**:
+#### **Decorator Pattern**
 
-   ```typescript
-   class PaymentGateway {
-     processPayment(amount: number) {
-       console.log(`Processing payment of ${amount}`);
-     }
-   }
-   
-   class ShippingService {
-     shipProduct(product: string) {
-       console.log(`Shipping product: ${product}`);
-     }
-   }
-   
-   class OrderFacade {
-     private paymentGateway: PaymentGateway;
-     private shippingService: ShippingService;
-   
-     constructor() {
-       this.paymentGateway = new PaymentGateway();
-       this.shippingService = new ShippingService();
-     }
-   
-     completeOrder(product: string, amount: number) {
-       this.paymentGateway.processPayment(amount);
-       this.shippingService.shipProduct(product);
-     }
-   }
-   ```
+- **Purpose**: Allows adding new behaviors to objects dynamically by placing them inside special wrapper objects, called decorators. The Decorator Pattern allows behavior to be added to individual objects, without affecting the behavior of other objects from the same class.
+- **Usage examples**: The Decorator is pretty standard in TypeScript code, especially in code related to streams.
+- **Identification**: Decorator can be recognized by creation methods or constructors that accept objects of the same class or interface as a current class.
 
-- **Decorator Pattern**:
-  - **Purpose**: The Decorator Pattern allows behavior to be added to individual objects, without affecting the behavior of other objects from the same class.
-  - **Example Use Case**: When you want to dynamically add responsibilities to objects without altering their class.
+#### **Composite Pattern**
 
-   **Example**:
+- **Purpose**: Lets you compose objects into tree structures and then work with these structures as if they were individual objects. Composite became a pretty popular solution for the most problems that require building a tree structure. Composite’s great feature is the ability to run methods recursively over the whole tree structure and sum up the results.
+- **Usage examples**: The Composite pattern is pretty common in TypeScript code. It’s often used to represent hierarchies of user interface components or the code that works with graphs.
+- **Identification**: If you have an object tree, and each object of a tree is a part of the same class hierarchy, this is most likely a composite. If methods of these classes delegate the work to child objects of the tree and do it via the base class/interface of the hierarchy, this is definitely a composite.
 
-   ```typescript
-   class Coffee {
-     cost(): number {
-       return 5;
-     }
-   }
-   
-   class MilkDecorator {
-     private coffee: Coffee;
-   
-     constructor(coffee: Coffee) {
-       this.coffee = coffee;
-     }
-   
-     cost(): number {
-       return this.coffee.cost() + 2;
-     }
-   }
-   
-   const myCoffee = new MilkDecorator(new Coffee());
-   console.log(myCoffee.cost()); // Output: 7
-   ```
-
-##### **Behavioral Patterns**
+#### **Behavioral Patterns**
 
 Behavioral patterns focus on communication between objects, making the interactions more flexible and manageable.
 
-1. **Observer Pattern**:
-   - **Purpose**: The Observer Pattern defines a one-to-many relationship between objects where a change in one object results in the automatic notification of all dependent objects.
-   - **Example Use Case**: Use when an object’s state changes need to be reflected in multiple dependent objects, such as UI updates based on model changes.
+#### **Observer Pattern**
 
-   **Example**:
+- **Purpose**: Allows some objects to notify other objects about changes in their state. The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.
+- **Usage examples**: The Observer pattern is pretty common in TypeScript code, especially in the GUI components. It provides a way to react to events happening in other objects without coupling to their classes.
+- **Identification**: The pattern can be recognized by subscription methods, that store objects in a list and by calls to the update method issued to objects in that list.
 
-   ```typescript
-   interface Observer {
-     update(data: any): void;
-   }
-   
-   class Subject {
-     private observers: Observer[] = [];
-   
-     addObserver(observer: Observer) {
-       this.observers.push(observer);
-     }
-   
-     notify(data: any) {
-       this.observers.forEach(observer => observer.update(data));
-     }
-   }
-   
-   class ConcreteObserver implements Observer {
-     update(data: any) {
-       console.log('Observer notified with data:', data);
-     }
-   }
-   
-   const subject = new Subject();
-   const observer = new ConcreteObserver();
-   subject.addObserver(observer);
-   subject.notify('New Data');
-   ```
+#### **Strategy Pattern**
 
-- **Strategy Pattern**:
-  - **Purpose**: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This allows the algorithm to be changed independently from the clients that use it.
-  - **Example Use Case**: Use when you need different algorithms or methods for a certain task, depending on the context.
+- **Purpose**: Turns a set of behaviors into objects and makes them interchangeable inside original context object. The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
+- **Usage examples**: The Strategy pattern is very common in TypeScript code. It’s often used in various frameworks to provide users a way to change the behavior of a class without extending it.
+- **Identification**: Strategy pattern can be recognized by a method that lets a nested object do the actual work, as well as a setter that allows replacing that object with a different one.
 
-   **Example**:
+#### **Command Pattern**
 
-   ```typescript
-   interface SortingStrategy {
-     sort(data: number[]): number[];
-   }
-   
-   class BubbleSortStrategy implements SortingStrategy {
-     sort(data: number[]): number[] {
-       console.log("Sorting using bubble sort");
-       return data; // Bubble sort logic here
-     }
-   }
-   
-   class QuickSortStrategy implements SortingStrategy {
-     sort(data: number[]): number[] {
-       console.log("Sorting using quick sort");
-       return data; // Quick sort logic here
-     }
-   }
-   
-   class SortingContext {
-     private strategy: SortingStrategy;
-   
-     constructor(strategy: SortingStrategy) {
-       this.strategy = strategy;
-     }
-   
-     setStrategy(strategy: SortingStrategy) {
-       this.strategy = strategy;
-     }
-   
-     sortData(data: number[]): number[] {
-       return this.strategy.sort(data);
-     }
-   }
-   ```
+- **Purpose**: Converts requests or simple operations into objects. The conversion allows deferred or remote execution of commands, storing command history, etc.
+- **Usage examples**: The Command pattern is pretty common in TypeScript code. Most often it’s used as an alternative for callbacks to parameterizing UI elements with actions. It’s also used for queueing tasks, tracking operations history, etc.
+- **Identification**: The Command pattern is recognizable by behavioral methods in an abstract/interface type (sender) which invokes a method in an implementation of a different abstract/interface type (receiver) which has been encapsulated by the command implementation during its creation. Command classes are usually limited to specific actions.
 
-- **Command Pattern**:
-  - **Purpose**: The Command Pattern turns a request into a stand-alone object that contains all the information about the request. This pattern allows for parameterization of clients with different requests, delayed execution, and undo functionality.
-  - **Example Use Case**: Use when you need to queue operations, track history, or implement undo/redo functionality.
+#### **Iterator Pattern**
 
-   **Example**:
+- **Purpose**: Allows sequential traversal through a complex data structure without exposing its internal details. Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.
+- **Usage examples**: The pattern is very common in TypeScript code. Many frameworks and libraries use it to provide a standard way for traversing their collections.
+- **Identification**: Iterator is easy to recognize by the navigation methods (such as next, previous and others). Client code that uses iterators might not have direct access to the collection being traversed.
 
-   ```typescript
-   interface Command {
-     execute(): void;
-   }
-   
-   class Light {
-     on() {
-       console.log("The light is on");
-     }
-   
-     off() {
-       console.log("The light is off");
-     }
-   }
-   
-   class LightOnCommand implements Command {
-     private light: Light;
-   
-     constructor(light: Light) {
-       this.light = light;
-     }
-   
-     execute() {
-       this.light.on();
-     }
-   }
-   
-   class LightOffCommand implements Command {
-     private light: Light;
-   
-     constructor(light: Light) {
-       this.light = light;
-     }
-   
-     execute() {
-       this.light.off();
-     }
-   }
-   
-   class RemoteControl {
-     private command: Command;
-   
-     setCommand(command: Command) {
-       this.command = command;
-     }
-   
-     pressButton() {
-       this.command.execute();
-     }
-   }
-   ```
+#### **Chain of Responsibility Pattern**
+
+- **Purpose**: Allows passing request along the chain of potential handlers until one of them handles request. The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.
+- **Usage examples**: The Chain of Responsibility is pretty common in TypeScript. It’s mostly relevant when your code operates with chains of objects, such as filters, event chains, etc.
+- **Identification**: The pattern is recognizable by behavioral methods of one group of objects that indirectly call the same methods in other objects, while all the objects follow the common interface.
 
 ---
 

@@ -381,10 +381,13 @@ Go to <b>Table of Contents</b>
 <h3 id="table-of-contents"><strong>Table of Contents</strong></h3>
 <ol>
 <li><a href="#1-introduction">Introduction</a></li>
-<li><a href="#2-technical-expertise">Technical Expertise</a><br>
-2.1. <a href="#javascript--typescript">JavaScript &amp; TypeScript</a><br>
-2.2. <a href="#computer-science-fundamentals">Computer Science Fundamentals</a><br>
-2.3. <a href="#programming-paradigms">Programming Paradigms</a></li>
+<li><a href="#2-technical-expertise">Technical Expertise</a>
+<ol>
+<li><a href="#javascript--typescript">JavaScript &amp; TypeScript</a></li>
+<li><a href="#computer-science-fundamentals">Computer Science Fundamentals</a></li>
+<li><a href="#programming-paradigms">Programming Paradigms</a></li>
+</ol>
+</li>
 <li><a href="#3-communication-protocols">Communication Protocols</a></li>
 <li><a href="#4-security-fundamentals">Security Fundamentals</a></li>
 <li><a href="#5-performance-optimization">Performance Optimization</a></li>
@@ -394,7 +397,34 @@ Go to <b>Table of Contents</b>
 <li><a href="#9-frameworks-and-tools">Frameworks and Tools</a><br>
 9.1. <a href="#91-angular">Angular</a><br>
 9.2. <a href="#92-react">React</a></li>
-<li><a href="#10-design-thinking-and-documentation-skills">Design Thinking &amp; Documentation Skills</a></li>
+<li><a href="#10-design-thinking-and-documentation-skills">Design Thinking &amp; Documentation Skills</a>
+<ol>
+<li><a href="#creational-patterns">Creational Patterns</a>
+<ol>
+<li><a href="#abstract-factory-pattern">Abstract Factory Pattern</a></li>
+<li><a href="#builder-pattern">Builder  Pattern</a></li>
+<li><a href="#factory-method-pattern">Factory Method Pattern</a></li>
+<li><a href="#singleton-pattern">Singleton Pattern</a></li>
+</ol>
+</li>
+<li><a href="#structural-patterns">Structural Patterns</a>
+<ol>
+<li><a href="#adapter-pattern">Adaptor Pattern</a></li>
+<li><a href="#facade-pattern">Facade Pattern</a></li>
+<li><a href="#decorator-pattern">Decorator Pattern</a></li>
+<li><a href="#composite-pattern">Composite Pattern</a></li>
+</ol>
+</li>
+<li><a href="#behavioral-patterns">Behavioral Patterns</a>
+<ol>
+<li><a href="#observer-pattern">Observer Pattern</a></li>
+<li><a href="#strategy-pattern">Strategy Pattern</a></li>
+<li><a href="#command-pattern">Command Pattern</a></li>
+<li><a href="#iterator-pattern">Iterator Pattern</a></li>
+</ol>
+</li>
+</ol>
+</li>
 <li><a href="#11-quality-engx">Quality, ENGX</a></li>
 <li><a href="#12-cicd-and-version-control-systems-vcs">CI/CD and Version Control Systems (VCS)</a></li>
 <li><a href="#13-software-development-process-knowledge">Software Development Process Knowledge</a></li>
@@ -2587,310 +2617,104 @@ ngOnDestroy() {
 <p><strong>Design Patterns</strong>: Design patterns are typical solutions to commonly occurring problems in software design. They represent best practices refined over time, and knowing how to apply them can improve code quality and maintainability.</p>
 </li>
 </ul>
-<h5 id="creational-patterns"><strong>Creational Patterns</strong></h5>
+<h4 id="creational-patterns"><strong>Creational Patterns</strong></h4>
 <p>Creational patterns deal with object creation mechanisms, trying to create objects in a way that is suitable to the situation. These patterns abstract the instantiation process, making it easier to handle and extend object creation.</p>
+<h4 id="abstract-factory-pattern"><strong>Abstract Factory Pattern</strong></h4>
 <ul>
 <li>
-<p><strong>Factory Pattern</strong>:</p>
-<ul>
-<li><strong>Purpose</strong>: The Factory Pattern provides an interface for creating objects but allows subclasses to alter the type of objects that will be created.</li>
-<li><strong>Example Use Case</strong>: Use a factory when the exact type of object to be created isn’t known until runtime.</li>
-</ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">class</span> ButtonFactory {
-  createButton(<span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>): Button {
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">type</span> === <span class="hljs-string">'ok'</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> OkButton();
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">type</span> === <span class="hljs-string">'cancel'</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CancelButton();
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Unknown button type'</span>);
-  }
-}
-</div></code></pre>
+<p><strong>Purpose</strong>: Solves the problem of creating entire product families without specifying their concrete classes. Abstract Factory defines an interface for creating all distinct products but leaves the actual product creation to concrete factory classes. Each factory type corresponds to a certain product variety.</p>
+<p>The client code calls the creation methods of a factory object instead of creating products directly with a constructor call (new operator). Since a factory corresponds to a single product variant, all its products will be compatible.</p>
+<p>Client code works with factories and products only through their abstract interfaces. This lets the client code work with any product variants, created by the factory object. You just create a new concrete factory class and pass it to the client code.</p>
 </li>
 <li>
-<p><strong>Singleton Pattern</strong>:</p>
-<ul>
-<li><strong>Purpose</strong>: Ensures that a class has only one instance and provides a global point of access to it.</li>
-<li><strong>Example Use Case</strong>: Useful in situations where only one instance of a class should exist, such as a logging service or a database connection manager.</li>
-</ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">class</span> Singleton {
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> instance: Singleton;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {}
-
-  <span class="hljs-keyword">static</span> getInstance(): Singleton {
-    <span class="hljs-keyword">if</span> (!Singleton.instance) {
-      Singleton.instance = <span class="hljs-keyword">new</span> Singleton();
-    }
-    <span class="hljs-keyword">return</span> Singleton.instance;
-  }
-}
-</div></code></pre>
+<p><strong>Usage examples</strong>: The Abstract Factory pattern is pretty common in TypeScript code. Many frameworks and libraries use it to provide a way to extend and customize their standard components.</p>
 </li>
 <li>
-<p><strong>Builder Pattern</strong>:</p>
-<ul>
-<li><strong>Purpose</strong>: Separates the construction of a complex object from its representation, allowing the same construction process to create different representations.</li>
-<li><strong>Example Use Case</strong>: Use when creating complex objects step by step.</li>
-</ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">class</span> CarBuilder {
-  <span class="hljs-keyword">private</span> car: Car = <span class="hljs-keyword">new</span> Car();
-  
-  addEngine(engine: <span class="hljs-built_in">string</span>): <span class="hljs-keyword">this</span> {
-    <span class="hljs-keyword">this</span>.car.engine = engine;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-  }
-  
-  addWheels(wheels: <span class="hljs-built_in">string</span>): <span class="hljs-keyword">this</span> {
-    <span class="hljs-keyword">this</span>.car.wheels = wheels;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-  }
-
-  build(): Car {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.car;
-  }
-}
-</div></code></pre>
+<p><strong>Identification</strong>: The pattern is easy to recognize by methods, which return a factory object. Then, the factory is used for creating specific sub-components.</p>
 </li>
 </ul>
-<h5 id="structural-patterns"><strong>Structural Patterns</strong></h5>
+<h4 id="builder-pattern"><strong>Builder Pattern</strong></h4>
+<ul>
+<li><strong>Purpose</strong>: Allows constructing complex objects step by step. Unlike other creational patterns, Builder doesn’t require products to have a common interface. That makes it possible to produce different products using the same construction process.</li>
+<li><strong>Usage examples</strong>: The Builder pattern is a well-known pattern in TypeScript world. It’s especially useful when you need to create an object with lots of possible configuration options.</li>
+<li><strong>Identification</strong>: The Builder pattern can be recognized in a class, which has a single creation method and several methods to configure the resulting object. Builder methods often support chaining (for example, someBuilder.setValueA(1).setValueB(2).create()).</li>
+</ul>
+<h4 id="factory-method-pattern"><strong>Factory Method Pattern</strong></h4>
+<ul>
+<li><strong>Purpose</strong>: Solves the problem of creating product objects without specifying their concrete classes. The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (new operator). Subclasses can override this method to change the class of objects that will be created.</li>
+<li><strong>Usage examples</strong>: The Factory Method pattern is widely used in TypeScript code. It’s very useful when you need to provide a high level of flexibility for your code.</li>
+<li><strong>Identification</strong>: Factory methods can be recognized by creation methods that construct objects from concrete classes. While concrete classes are used during the object creation, the return type of the factory methods is usually declared as either an abstract class or an interface.</li>
+</ul>
+<h4 id="singleton-pattern"><strong>Singleton Pattern</strong></h4>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Ensures that only one object of its kind exists and provides a single point of access to it for any other code. Singleton has almost the same pros and cons as global variables. Although they’re super-handy, they break the modularity of your code.</p>
+<p>You can’t just use a class that depends on a Singleton in some other context, without carrying over the Singleton to the other context. Most of the time, this limitation comes up during the creation of unit tests.</p>
+</li>
+<li>
+<p><strong>Usage examples</strong>: A lot of developers consider the Singleton pattern an anti-pattern. That’s why its usage is on the decline in TypeScript code.</p>
+</li>
+<li>
+<p><strong>Identification</strong>: Singleton can be recognized by a static creation method, which returns the same cached object.</p>
+</li>
+</ul>
+<h4 id="structural-patterns"><strong>Structural Patterns</strong></h4>
 <p>Structural patterns deal with object composition, focusing on how objects are composed to form larger structures.</p>
+<h4 id="adapter-pattern"><strong>Adapter Pattern</strong></h4>
 <ul>
-<li>
-<p><strong>Adapter Pattern</strong>:</p>
+<li><strong>Usage examples</strong>: Allows incompatible objects to collaborate.</li>
+<li><strong>Purpose</strong>: The Adapter acts as a wrapper between two objects. It catches calls for one object and transforms them to format and interface recognizable by the second object. The Adapter pattern is pretty common in TypeScript code. It’s very often used in systems based on some legacy code. In such cases, Adapters make legacy code work with modern classes.</li>
+<li><strong>Identification</strong>: Adapter is recognizable by a constructor which takes an instance of a different abstract/interface type. When the adapter receives a call to any of its methods, it translates parameters to the appropriate format and then directs the call to one or several methods of the wrapped object.</li>
+</ul>
+<h4 id="facade-pattern"><strong>Facade Pattern</strong></h4>
 <ul>
-<li><strong>Purpose</strong>: The Adapter Pattern allows incompatible interfaces to work together. It acts as a bridge between two incompatible classes.</li>
-<li><strong>Example Use Case</strong>: Useful when you need to integrate a new class with an existing system that uses a different interface.</li>
+<li><strong>Purpose</strong>: Provides a simplified (but limited) interface to a complex system of classes, library or framework. While Facade decreases the overall complexity of the application, it also helps to move unwanted dependencies to one place.</li>
+<li><strong>Usage examples</strong>: The Facade pattern is commonly used in apps written in TypeScript. It’s especially handy when working with complex libraries and APIs.</li>
+<li><strong>Identification</strong>: Facade can be recognized in a class that has a simple interface, but delegates most of the work to other classes. Usually, facades manage the full life cycle of objects they use.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">interface</span> OldInterface {
-  oldRequest(): <span class="hljs-built_in">string</span>;
-}
-
-<span class="hljs-keyword">class</span> NewInterface {
-  newRequest(): <span class="hljs-built_in">string</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">"New request"</span>;
-  }
-}
-
-<span class="hljs-keyword">class</span> Adapter <span class="hljs-keyword">implements</span> OldInterface {
-  <span class="hljs-keyword">private</span> adaptee: NewInterface;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">adaptee: NewInterface</span>) {
-    <span class="hljs-keyword">this</span>.adaptee = adaptee;
-  }
-
-  oldRequest(): <span class="hljs-built_in">string</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.adaptee.newRequest();
-  }
-}
-</div></code></pre>
-</li>
-<li>
-<p><strong>Facade Pattern</strong>:</p>
+<h4 id="decorator-pattern"><strong>Decorator Pattern</strong></h4>
 <ul>
-<li><strong>Purpose</strong>: The Facade Pattern provides a simplified interface to a complex subsystem, hiding the complexities and providing a more readable and straightforward interface.</li>
-<li><strong>Example Use Case</strong>: Use when working with a complex library or framework, to make the interaction easier and more user-friendly.</li>
+<li><strong>Purpose</strong>: Allows adding new behaviors to objects dynamically by placing them inside special wrapper objects, called decorators. The Decorator Pattern allows behavior to be added to individual objects, without affecting the behavior of other objects from the same class.</li>
+<li><strong>Usage examples</strong>: The Decorator is pretty standard in TypeScript code, especially in code related to streams.</li>
+<li><strong>Identification</strong>: Decorator can be recognized by creation methods or constructors that accept objects of the same class or interface as a current class.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">class</span> PaymentGateway {
-  processPayment(amount: <span class="hljs-built_in">number</span>) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Processing payment of <span class="hljs-subst">${amount}</span>`</span>);
-  }
-}
-
-<span class="hljs-keyword">class</span> ShippingService {
-  shipProduct(product: <span class="hljs-built_in">string</span>) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Shipping product: <span class="hljs-subst">${product}</span>`</span>);
-  }
-}
-
-<span class="hljs-keyword">class</span> OrderFacade {
-  <span class="hljs-keyword">private</span> paymentGateway: PaymentGateway;
-  <span class="hljs-keyword">private</span> shippingService: ShippingService;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-keyword">this</span>.paymentGateway = <span class="hljs-keyword">new</span> PaymentGateway();
-    <span class="hljs-keyword">this</span>.shippingService = <span class="hljs-keyword">new</span> ShippingService();
-  }
-
-  completeOrder(product: <span class="hljs-built_in">string</span>, amount: <span class="hljs-built_in">number</span>) {
-    <span class="hljs-keyword">this</span>.paymentGateway.processPayment(amount);
-    <span class="hljs-keyword">this</span>.shippingService.shipProduct(product);
-  }
-}
-</div></code></pre>
-</li>
-<li>
-<p><strong>Decorator Pattern</strong>:</p>
+<h4 id="composite-pattern"><strong>Composite Pattern</strong></h4>
 <ul>
-<li><strong>Purpose</strong>: The Decorator Pattern allows behavior to be added to individual objects, without affecting the behavior of other objects from the same class.</li>
-<li><strong>Example Use Case</strong>: When you want to dynamically add responsibilities to objects without altering their class.</li>
+<li><strong>Purpose</strong>: Lets you compose objects into tree structures and then work with these structures as if they were individual objects. Composite became a pretty popular solution for the most problems that require building a tree structure. Composite’s great feature is the ability to run methods recursively over the whole tree structure and sum up the results.</li>
+<li><strong>Usage examples</strong>: The Composite pattern is pretty common in TypeScript code. It’s often used to represent hierarchies of user interface components or the code that works with graphs.</li>
+<li><strong>Identification</strong>: If you have an object tree, and each object of a tree is a part of the same class hierarchy, this is most likely a composite. If methods of these classes delegate the work to child objects of the tree and do it via the base class/interface of the hierarchy, this is definitely a composite.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">class</span> Coffee {
-  cost(): <span class="hljs-built_in">number</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">5</span>;
-  }
-}
-
-<span class="hljs-keyword">class</span> MilkDecorator {
-  <span class="hljs-keyword">private</span> coffee: Coffee;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">coffee: Coffee</span>) {
-    <span class="hljs-keyword">this</span>.coffee = coffee;
-  }
-
-  cost(): <span class="hljs-built_in">number</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.coffee.cost() + <span class="hljs-number">2</span>;
-  }
-}
-
-<span class="hljs-keyword">const</span> myCoffee = <span class="hljs-keyword">new</span> MilkDecorator(<span class="hljs-keyword">new</span> Coffee());
-<span class="hljs-built_in">console</span>.log(myCoffee.cost()); <span class="hljs-comment">// Output: 7</span>
-</div></code></pre>
-</li>
-</ul>
-<h5 id="behavioral-patterns"><strong>Behavioral Patterns</strong></h5>
+<h4 id="behavioral-patterns"><strong>Behavioral Patterns</strong></h4>
 <p>Behavioral patterns focus on communication between objects, making the interactions more flexible and manageable.</p>
-<ol>
-<li>
-<p><strong>Observer Pattern</strong>:</p>
+<h4 id="observer-pattern"><strong>Observer Pattern</strong></h4>
 <ul>
-<li><strong>Purpose</strong>: The Observer Pattern defines a one-to-many relationship between objects where a change in one object results in the automatic notification of all dependent objects.</li>
-<li><strong>Example Use Case</strong>: Use when an object’s state changes need to be reflected in multiple dependent objects, such as UI updates based on model changes.</li>
+<li><strong>Purpose</strong>: Allows some objects to notify other objects about changes in their state. The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.</li>
+<li><strong>Usage examples</strong>: The Observer pattern is pretty common in TypeScript code, especially in the GUI components. It provides a way to react to events happening in other objects without coupling to their classes.</li>
+<li><strong>Identification</strong>: The pattern can be recognized by subscription methods, that store objects in a list and by calls to the update method issued to objects in that list.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">interface</span> Observer {
-  update(data: <span class="hljs-built_in">any</span>): <span class="hljs-built_in">void</span>;
-}
-
-<span class="hljs-keyword">class</span> Subject {
-  <span class="hljs-keyword">private</span> observers: Observer[] = [];
-
-  addObserver(observer: Observer) {
-    <span class="hljs-keyword">this</span>.observers.push(observer);
-  }
-
-  notify(data: <span class="hljs-built_in">any</span>) {
-    <span class="hljs-keyword">this</span>.observers.forEach(<span class="hljs-function"><span class="hljs-params">observer</span> =&gt;</span> observer.update(data));
-  }
-}
-
-<span class="hljs-keyword">class</span> ConcreteObserver <span class="hljs-keyword">implements</span> Observer {
-  update(data: <span class="hljs-built_in">any</span>) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Observer notified with data:'</span>, data);
-  }
-}
-
-<span class="hljs-keyword">const</span> subject = <span class="hljs-keyword">new</span> Subject();
-<span class="hljs-keyword">const</span> observer = <span class="hljs-keyword">new</span> ConcreteObserver();
-subject.addObserver(observer);
-subject.notify(<span class="hljs-string">'New Data'</span>);
-</div></code></pre>
-</li>
-</ol>
+<h4 id="strategy-pattern"><strong>Strategy Pattern</strong></h4>
 <ul>
-<li>
-<p><strong>Strategy Pattern</strong>:</p>
-<ul>
-<li><strong>Purpose</strong>: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This allows the algorithm to be changed independently from the clients that use it.</li>
-<li><strong>Example Use Case</strong>: Use when you need different algorithms or methods for a certain task, depending on the context.</li>
+<li><strong>Purpose</strong>: Turns a set of behaviors into objects and makes them interchangeable inside original context object. The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.</li>
+<li><strong>Usage examples</strong>: The Strategy pattern is very common in TypeScript code. It’s often used in various frameworks to provide users a way to change the behavior of a class without extending it.</li>
+<li><strong>Identification</strong>: Strategy pattern can be recognized by a method that lets a nested object do the actual work, as well as a setter that allows replacing that object with a different one.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">interface</span> SortingStrategy {
-  sort(data: <span class="hljs-built_in">number</span>[]): <span class="hljs-built_in">number</span>[];
-}
-
-<span class="hljs-keyword">class</span> BubbleSortStrategy <span class="hljs-keyword">implements</span> SortingStrategy {
-  sort(data: <span class="hljs-built_in">number</span>[]): <span class="hljs-built_in">number</span>[] {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Sorting using bubble sort"</span>);
-    <span class="hljs-keyword">return</span> data; <span class="hljs-comment">// Bubble sort logic here</span>
-  }
-}
-
-<span class="hljs-keyword">class</span> QuickSortStrategy <span class="hljs-keyword">implements</span> SortingStrategy {
-  sort(data: <span class="hljs-built_in">number</span>[]): <span class="hljs-built_in">number</span>[] {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Sorting using quick sort"</span>);
-    <span class="hljs-keyword">return</span> data; <span class="hljs-comment">// Quick sort logic here</span>
-  }
-}
-
-<span class="hljs-keyword">class</span> SortingContext {
-  <span class="hljs-keyword">private</span> strategy: SortingStrategy;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">strategy: SortingStrategy</span>) {
-    <span class="hljs-keyword">this</span>.strategy = strategy;
-  }
-
-  setStrategy(strategy: SortingStrategy) {
-    <span class="hljs-keyword">this</span>.strategy = strategy;
-  }
-
-  sortData(data: <span class="hljs-built_in">number</span>[]): <span class="hljs-built_in">number</span>[] {
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.strategy.sort(data);
-  }
-}
-</div></code></pre>
-</li>
-<li>
-<p><strong>Command Pattern</strong>:</p>
+<h4 id="command-pattern"><strong>Command Pattern</strong></h4>
 <ul>
-<li><strong>Purpose</strong>: The Command Pattern turns a request into a stand-alone object that contains all the information about the request. This pattern allows for parameterization of clients with different requests, delayed execution, and undo functionality.</li>
-<li><strong>Example Use Case</strong>: Use when you need to queue operations, track history, or implement undo/redo functionality.</li>
+<li><strong>Purpose</strong>: Converts requests or simple operations into objects. The conversion allows deferred or remote execution of commands, storing command history, etc.</li>
+<li><strong>Usage examples</strong>: The Command pattern is pretty common in TypeScript code. Most often it’s used as an alternative for callbacks to parameterizing UI elements with actions. It’s also used for queueing tasks, tracking operations history, etc.</li>
+<li><strong>Identification</strong>: The Command pattern is recognizable by behavioral methods in an abstract/interface type (sender) which invokes a method in an implementation of a different abstract/interface type (receiver) which has been encapsulated by the command implementation during its creation. Command classes are usually limited to specific actions.</li>
 </ul>
-<p><strong>Example</strong>:</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">interface</span> Command {
-  execute(): <span class="hljs-built_in">void</span>;
-}
-
-<span class="hljs-keyword">class</span> Light {
-  on() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"The light is on"</span>);
-  }
-
-  off() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"The light is off"</span>);
-  }
-}
-
-<span class="hljs-keyword">class</span> LightOnCommand <span class="hljs-keyword">implements</span> Command {
-  <span class="hljs-keyword">private</span> light: Light;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">light: Light</span>) {
-    <span class="hljs-keyword">this</span>.light = light;
-  }
-
-  execute() {
-    <span class="hljs-keyword">this</span>.light.on();
-  }
-}
-
-<span class="hljs-keyword">class</span> LightOffCommand <span class="hljs-keyword">implements</span> Command {
-  <span class="hljs-keyword">private</span> light: Light;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">light: Light</span>) {
-    <span class="hljs-keyword">this</span>.light = light;
-  }
-
-  execute() {
-    <span class="hljs-keyword">this</span>.light.off();
-  }
-}
-
-<span class="hljs-keyword">class</span> RemoteControl {
-  <span class="hljs-keyword">private</span> command: Command;
-
-  setCommand(command: Command) {
-    <span class="hljs-keyword">this</span>.command = command;
-  }
-
-  pressButton() {
-    <span class="hljs-keyword">this</span>.command.execute();
-  }
-}
-</div></code></pre>
-</li>
+<h4 id="iterator-pattern"><strong>Iterator Pattern</strong></h4>
+<ul>
+<li><strong>Purpose</strong>: Allows sequential traversal through a complex data structure without exposing its internal details. Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.</li>
+<li><strong>Usage examples</strong>: The pattern is very common in TypeScript code. Many frameworks and libraries use it to provide a standard way for traversing their collections.</li>
+<li><strong>Identification</strong>: Iterator is easy to recognize by the navigation methods (such as next, previous and others). Client code that uses iterators might not have direct access to the collection being traversed.</li>
+</ul>
+<h4 id="chain-of-responsibility-pattern"><strong>Chain of Responsibility Pattern</strong></h4>
+<ul>
+<li><strong>Purpose</strong>: Allows passing request along the chain of potential handlers until one of them handles request. The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.</li>
+<li><strong>Usage examples</strong>: The Chain of Responsibility is pretty common in TypeScript. It’s mostly relevant when your code operates with chains of objects, such as filters, event chains, etc.</li>
+<li><strong>Identification</strong>: The pattern is recognizable by behavioral methods of one group of objects that indirectly call the same methods in other objects, while all the objects follow the common interface.</li>
 </ul>
 <hr>
 <h3 id="11-quality-engx"><strong>11. Quality, ENGX</strong></h3>
