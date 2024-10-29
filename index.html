@@ -393,10 +393,13 @@ Go to <b>Table of Contents</b>
 <li><a href="#5-performance-optimization">Performance Optimization</a></li>
 <li><a href="#6-browser-api">Browser APIs</a></li>
 <li><a href="#7-development-tools">Development Tools</a></li>
-<li><a href="#8-css-fundamentals">CSS Fundamentals</a></li>
-<li><a href="#9-frameworks-and-tools">Frameworks and Tools</a><br>
-9.1. <a href="#91-angular">Angular</a><br>
-9.2. <a href="#92-react">React</a></li>
+<li><a href="#8-html--css-fundamentals">HTML &amp; CSS Fundamentals</a></li>
+<li><a href="#9-frameworks-and-tools">Frameworks and Tools</a>
+<ol>
+<li><a href="#angular">Angular</a></li>
+<li><a href="#react">React</a></li>
+</ol>
+</li>
 <li><a href="#10-design-thinking-and-documentation-skills">Design Thinking &amp; Documentation Skills</a>
 <ol>
 <li><a href="#creational-patterns">Creational Patterns</a>
@@ -435,7 +438,7 @@ Go to <b>Table of Contents</b>
 </ol>
 <hr>
 <h3 id="1-introduction"><strong>1. Introduction</strong></h3>
-<p>This handbook is designed to help candidates prepare for the ASMT Senior(D3) and Senior/Lead(D4) Developer Assessment. The assessment evaluates technical expertise, problem-solving ability, and leadership skills in front of a committee. To succeed, a candidate must demonstrate a deep understanding of JavaScript and related technologies, as well as the ability to lead and communicate effectively.</p>
+<p>This handbook is designed to help candidates prepare for the ASMT Senior(D3) and Lead(D4) Developer Assessment. The assessment evaluates technical expertise, problem-solving ability, and leadership skills in front of a committee. To succeed, a candidate must demonstrate a deep understanding of JavaScript and related technologies, as well as the ability to lead and communicate effectively.</p>
 <h4 id="what-to-expect-in-the-assessment"><strong>What to Expect in the Assessment</strong></h4>
 <p>The ASMT involves standing before a panel of experts who will ask questions that assess your knowledge across a broad range of topics, from core JavaScript concepts to design thinking and project management. The goal is not just to test your technical skills but also to evaluate how well you can explain and justify your decisions.</p>
 <h4 id="how-to-use-this-handbook"><strong>How to Use This Handbook</strong></h4>
@@ -1825,7 +1828,7 @@ sessionStorage.clear();  <span class="hljs-comment">// All session storage is cl
 </li>
 </ul>
 <hr>
-<h4 id="nice-to-have-web-components"><strong>Nice-to-Have: Web Components</strong></h4>
+<h4 id="web-components"><strong>Web Components</strong></h4>
 <p>Web Components are a suite of technologies that allow you to create reusable custom elements with their own encapsulated HTML, CSS, and JavaScript, all while maintaining interoperability with other web frameworks and libraries.</p>
 <h5 id="key-features">Key Features</h5>
 <ul>
@@ -1997,7 +2000,7 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 </li>
 </ul>
 <hr>
-<h3 id="8-css-fundamentals"><strong>8. CSS Fundamentals</strong></h3>
+<h3 id="8-html--css-fundamentals"><strong>8. HTML &amp; CSS Fundamentals</strong></h3>
 <p>A Senior/Lead Developer must have a solid understanding of CSS fundamentals, including layout techniques, responsiveness, and the use of preprocessors and methodologies. CSS plays a crucial role in building visually appealing, responsive, and accessible web applications.</p>
 <h4 id="css-fundamentals-colors-fonts-box-model"><strong>CSS Fundamentals (Colors, Fonts, Box Model)</strong></h4>
 <ul>
@@ -2382,6 +2385,118 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <h5 id="real-world-example">Real-World Example</h5>
 <p>Ensuring that forms, navigation menus, and other interactive elements are fully accessible via the keyboard and screen readers will help create a more inclusive web experience. Tools like <strong>Axe</strong> and <strong>Lighthouse</strong> can help audit accessibility and provide recommendations for improvement.</p>
 <hr>
+<h4 id="internationalization-i18n"><strong>Internationalization (i18n)</strong></h4>
+<p><strong>Internationalization</strong> (often abbreviated as <strong>i18n</strong>) is the process of preparing an application for use in multiple languages and regions. It involves designing and coding software in a way that allows easy localization, enabling applications to adapt seamlessly to different cultural contexts.</p>
+<h5 id="core-concepts-of-internationalization"><strong>Core Concepts of Internationalization</strong></h5>
+<ul>
+<li>
+<p><strong>Localization (l10n)</strong>: The process of adapting an application to a specific locale, including translations, date formats, currency symbols, and cultural conventions.</p>
+</li>
+<li>
+<p><strong>Locale</strong>: A set of parameters that define a region’s language and cultural conventions, typically denoted by a combination of language and country codes (e.g., <code>en-US</code> for American English, <code>fr-FR</code> for French in France).</p>
+</li>
+<li>
+<p><strong>Unicode and Encoding</strong>: Ensuring all text uses a universal encoding standard like <strong>UTF-8</strong> to support characters from various languages.</p>
+</li>
+</ul>
+<h5 id="key-elements-of-internationalization"><strong>Key Elements of Internationalization</strong></h5>
+<ul>
+<li>
+<p><strong>Text Translation</strong>: Extract all hardcoded text and move it into translation files or databases. Use placeholders for dynamic content, making it easier to replace with translations.</p>
+<p>Example JSON for translations:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"welcome_message"</span>: <span class="hljs-string">"Welcome, {name}!"</span>,
+  <span class="hljs-attr">"date_format"</span>: <span class="hljs-string">"MM/DD/YYYY"</span>
+}
+</div></code></pre>
+</li>
+<li>
+<p><strong>Date, Time, and Number Formatting</strong>:</p>
+<ul>
+<li>Use libraries or frameworks to handle locale-based formatting for dates, times, numbers, and currencies. For example, <code>Intl.DateTimeFormat</code> in JavaScript or Moment.js with i18n support.</li>
+<li>Localize date and time formats based on regional preferences (e.g., <code>MM/DD/YYYY</code> in the US vs. <code>DD/MM/YYYY</code> in Europe).</li>
+</ul>
+</li>
+<li>
+<p><strong>Right-to-Left (RTL) Language Support</strong>:</p>
+<ul>
+<li>
+<p>Provide support for RTL languages like Arabic and Hebrew by adjusting the layout, text alignment, and direction.</p>
+</li>
+<li>
+<p>Use CSS attributes like <code>direction: rtl</code> for RTL text and ensure layouts adapt correctly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Currency and Units</strong>:</p>
+<ul>
+<li>
+<p>Use locale-aware currency formats, ensuring appropriate symbols, decimal places, and number grouping.</p>
+</li>
+<li>
+<p>Convert measurements (e.g., miles to kilometers) based on regional standards.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Pluralization and Gender</strong>:</p>
+<ul>
+<li>Account for plural forms and gender-specific terms in translations. Some languages have multiple plural forms, so use localization libraries that support pluralization rules.</li>
+</ul>
+</li>
+<li>
+<p><strong>Language Switching</strong>:</p>
+<ul>
+<li>
+<p>Implement a UI element to let users switch languages dynamically.</p>
+</li>
+<li>
+<p>Store user language preferences in local storage or cookies for a personalized experience.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="internationalization-best-practices"><strong>Internationalization Best Practices</strong></h5>
+<ul>
+<li>
+<p><strong>Use i18n Libraries and Frameworks</strong>: Most frameworks (e.g., Angular i18n, React i18next, Vue i18n) provide internationalization libraries to manage translations, locale-based formatting, and language switching.</p>
+</li>
+<li>
+<p><strong>Separate Content from Code</strong>: Store all translatable content in separate files or databases, making it easier to manage and update translations.</p>
+</li>
+<li>
+<p><strong>Test for Multiple Locales</strong>: Regularly test the application with different locales to ensure layout, text, and functionality adapt correctly.</p>
+</li>
+<li>
+<p><strong>Avoid Hardcoding Text</strong>: Avoid embedding text directly in code; instead, reference translation keys to maintain a clean, translatable structure.</p>
+</li>
+</ul>
+<h5 id="example-using-i18next-for-javascript"><strong>Example Using i18next for JavaScript</strong></h5>
+<p><strong>i18next</strong> is a popular internationalization library for JavaScript and frameworks like React and Vue.</p>
+<ul>
+<li>
+<p><strong>Initialize i18next</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> i18next <span class="hljs-keyword">from</span> <span class="hljs-string">'i18next'</span>;
+
+i18next.init({
+  <span class="hljs-attr">resources</span>: {
+    <span class="hljs-attr">en</span>: { <span class="hljs-attr">translation</span>: { <span class="hljs-attr">welcome</span>: <span class="hljs-string">"Welcome"</span> } },
+    <span class="hljs-attr">fr</span>: { <span class="hljs-attr">translation</span>: { <span class="hljs-attr">welcome</span>: <span class="hljs-string">"Bienvenue"</span> } }
+  },
+  <span class="hljs-attr">lng</span>: <span class="hljs-string">"en"</span>,
+  <span class="hljs-attr">fallbackLng</span>: <span class="hljs-string">"en"</span>,
+});
+</div></code></pre>
+</li>
+<li>
+<p><strong>Using Translations</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(i18next.t(<span class="hljs-string">'welcome'</span>)); <span class="hljs-comment">// Outputs "Welcome" or "Bienvenue" based on the selected language</span>
+</div></code></pre>
+</li>
+</ul>
+<p><strong>Internationalization</strong> prepares applications for a global audience by making them adaptable to various languages and cultural norms. With careful planning and the use of i18n tools and best practices, developers can deliver a localized, accessible experience to users worldwide.</p>
+<hr>
 <h4 id="css-priority-in-selecting"><strong>CSS Priority in Selecting</strong></h4>
 <p>CSS applies styles based on <strong>specificity</strong>, a scoring system that determines which styles take precedence when multiple rules target the same element. Specificity is calculated based on the types of selectors used, with each selector contributing a score. The higher the specificity score, the higher the priority of that style.</p>
 <h5 id="specificity-hierarchy-from-highest-to-lowest"><strong>Specificity Hierarchy</strong> (from highest to lowest):</h5>
@@ -2436,8 +2551,65 @@ gulp.task(<span class="hljs-string">'sass'</span>, <span class="hljs-function"><
 <h5 id="using-important"><strong>Using <code>!important</code></strong></h5>
 <p>The <code>!important</code> declaration overrides all specificity calculations, giving the rule the highest priority, but it should be used sparingly as it makes debugging more difficult.</p>
 <hr>
+<h4 id="semantic-html"><strong>Semantic HTML</strong></h4>
+<p><strong>Semantic HTML</strong> uses HTML elements that clearly describe their meaning in the context of the content, such as <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code>. These elements make the document structure more readable for both developers and search engines.</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>
+<p><strong>Improved Accessibility</strong>: Screen readers and assistive technologies can better interpret page content.</p>
+</li>
+<li>
+<p><strong>SEO Enhancement</strong>: Search engines use semantic tags to understand content structure, improving search rankings.</p>
+</li>
+<li>
+<p><strong>Readability</strong>: Developers and tools can understand the purpose of elements more quickly, making code more maintainable.</p>
+</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Site Title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Article Title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Article content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Footer content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h4 id="shadow-dom"><strong>Shadow DOM</strong></h4>
+<p><strong>Shadow DOM</strong> is a feature of the Web Components standard that allows developers to encapsulate styles and markup within a component. By isolating these components, the Shadow DOM prevents styles and scripts from leaking in or out, which helps avoid conflicts with other parts of the page.</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>
+<p><strong>Style Encapsulation</strong>: Styles defined within a Shadow DOM don’t affect or get affected by the rest of the document.</p>
+</li>
+<li>
+<p><strong>Reusable Components</strong>: Shadow DOM enables creating modular, reusable components (e.g., custom elements) without conflicting with other styles or scripts.</p>
+</li>
+<li>
+<p><strong>Improved Maintainability</strong>: Encapsulation simplifies styling and JavaScript for components by isolating each element’s scope.</p>
+</li>
+</ul>
+<h4 id="example"><strong>Example</strong>:</h4>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">custom-element</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">custom-element</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+      <span class="hljs-keyword">super</span>();
+      <span class="hljs-keyword">const</span> shadow = <span class="hljs-keyword">this</span>.attachShadow({ <span class="hljs-attr">mode</span>: <span class="hljs-string">'open'</span> });
+      shadow.innerHTML = <span class="hljs-string">`&lt;style&gt; p { color: blue; } &lt;/style&gt; &lt;p&gt;Shadow DOM Content&lt;/p&gt;`</span>;
+    }
+  }
+  customElements.define(<span class="hljs-string">'custom-element'</span>, CustomElement);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<hr>
 <h3 id="9-frameworks-and-tools"><strong>9. Frameworks and Tools</strong></h3>
-<h3 id="91-angular"><strong>9.1. Angular</strong></h3>
+<h3 id="angular"><strong>Angular</strong></h3>
 <h4 id="what-is-angular-framework"><strong>What is Angular Framework?</strong></h4>
 <p><strong>Angular</strong> is a TypeScript-based open-source web application framework developed and maintained by Google. It is designed to simplify the development and testing of large-scale SPAs by offering built-in tools for routing, form handling, dependency injection, and more. Angular provides a component-based architecture, making it easy to maintain and scale applications as they grow.</p>
 <hr>
@@ -2940,7 +3112,7 @@ ngOnDestroy() {
 </li>
 </ul>
 <hr>
-<h3 id="92-react"><strong>9.2. React</strong></h3>
+<h3 id="react"><strong>React</strong></h3>
 <h4 id="what-is-react"><strong>What is React?</strong></h4>
 <p>React is a declarative, component-based library developed by Facebook for building user interfaces. It allows developers to build complex UIs from small, reusable pieces of code called <strong>components</strong>. React is built around the <strong>Virtual DOM</strong>, which enables efficient rendering and updates to the actual DOM.</p>
 <p>Key Features of React:</p>

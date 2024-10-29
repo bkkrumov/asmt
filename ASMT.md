@@ -12,10 +12,10 @@
 5. [Performance Optimization](#5-performance-optimization)  
 6. [Browser APIs](#6-browser-api)  
 7. [Development Tools](#7-development-tools)  
-8. [CSS Fundamentals](#8-css-fundamentals)  
-9. [Frameworks and Tools](#9-frameworks-and-tools)  
-   9.1. [Angular](#91-angular)  
-   9.2. [React](#92-react)  
+8. [HTML & CSS Fundamentals](#8-html--css-fundamentals)  
+9. [Frameworks and Tools](#9-frameworks-and-tools)
+   1. [Angular](#angular)
+   2. [React](#react)
 10. [Design Thinking & Documentation Skills](#10-design-thinking-and-documentation-skills)  
     1. [Creational Patterns](#creational-patterns)  
        1. [Abstract Factory Pattern](#abstract-factory-pattern)
@@ -43,8 +43,7 @@
 ---
 
 ### **1. Introduction**
-
-This handbook is designed to help candidates prepare for the ASMT Senior(D3) and Senior/Lead(D4) Developer Assessment. The assessment evaluates technical expertise, problem-solving ability, and leadership skills in front of a committee. To succeed, a candidate must demonstrate a deep understanding of JavaScript and related technologies, as well as the ability to lead and communicate effectively.
+This handbook is designed to help candidates prepare for the ASMT Senior(D3) and Lead(D4) Developer Assessment. The assessment evaluates technical expertise, problem-solving ability, and leadership skills in front of a committee. To succeed, a candidate must demonstrate a deep understanding of JavaScript and related technologies, as well as the ability to lead and communicate effectively.
 
 #### **What to Expect in the Assessment**
 
@@ -1368,7 +1367,7 @@ In SPAs like React or Angular applications, the History API is used to update th
 
 ---
 
-#### **Nice-to-Have: Web Components**
+#### **Web Components**
 
 Web Components are a suite of technologies that allow you to create reusable custom elements with their own encapsulated HTML, CSS, and JavaScript, all while maintaining interoperability with other web frameworks and libraries.
 
@@ -1529,7 +1528,7 @@ Chrome DevTools is one of the most powerful tools available for front-end develo
 
 ---
 
-### **8. CSS Fundamentals**
+### **8. HTML & CSS Fundamentals**
 
 A Senior/Lead Developer must have a solid understanding of CSS fundamentals, including layout techniques, responsiveness, and the use of preprocessors and methodologies. CSS plays a crucial role in building visually appealing, responsive, and accessible web applications.
 
@@ -1906,6 +1905,98 @@ Ensuring that forms, navigation menus, and other interactive elements are fully 
 
 ---
 
+#### **Internationalization (i18n)**
+
+**Internationalization** (often abbreviated as **i18n**) is the process of preparing an application for use in multiple languages and regions. It involves designing and coding software in a way that allows easy localization, enabling applications to adapt seamlessly to different cultural contexts.
+
+##### **Core Concepts of Internationalization**
+
+- **Localization (l10n)**: The process of adapting an application to a specific locale, including translations, date formats, currency symbols, and cultural conventions.
+
+- **Locale**: A set of parameters that define a region’s language and cultural conventions, typically denoted by a combination of language and country codes (e.g., `en-US` for American English, `fr-FR` for French in France).
+
+- **Unicode and Encoding**: Ensuring all text uses a universal encoding standard like **UTF-8** to support characters from various languages.
+
+##### **Key Elements of Internationalization**
+
+- **Text Translation**: Extract all hardcoded text and move it into translation files or databases. Use placeholders for dynamic content, making it easier to replace with translations.
+
+   Example JSON for translations:
+
+   ```json
+   {
+     "welcome_message": "Welcome, {name}!",
+     "date_format": "MM/DD/YYYY"
+   }
+   ```
+
+- **Date, Time, and Number Formatting**:
+
+  - Use libraries or frameworks to handle locale-based formatting for dates, times, numbers, and currencies. For example, `Intl.DateTimeFormat` in JavaScript or Moment.js with i18n support.
+  - Localize date and time formats based on regional preferences (e.g., `MM/DD/YYYY` in the US vs. `DD/MM/YYYY` in Europe).
+
+- **Right-to-Left (RTL) Language Support**:
+
+  - Provide support for RTL languages like Arabic and Hebrew by adjusting the layout, text alignment, and direction.
+
+  - Use CSS attributes like `direction: rtl` for RTL text and ensure layouts adapt correctly.
+
+- **Currency and Units**:
+
+  - Use locale-aware currency formats, ensuring appropriate symbols, decimal places, and number grouping.
+
+  - Convert measurements (e.g., miles to kilometers) based on regional standards.
+
+- **Pluralization and Gender**:
+
+  - Account for plural forms and gender-specific terms in translations. Some languages have multiple plural forms, so use localization libraries that support pluralization rules.
+
+- **Language Switching**:
+
+  - Implement a UI element to let users switch languages dynamically.
+
+  - Store user language preferences in local storage or cookies for a personalized experience.
+
+
+##### **Internationalization Best Practices**
+
+- **Use i18n Libraries and Frameworks**: Most frameworks (e.g., Angular i18n, React i18next, Vue i18n) provide internationalization libraries to manage translations, locale-based formatting, and language switching.
+
+- **Separate Content from Code**: Store all translatable content in separate files or databases, making it easier to manage and update translations.
+
+- **Test for Multiple Locales**: Regularly test the application with different locales to ensure layout, text, and functionality adapt correctly.
+
+- **Avoid Hardcoding Text**: Avoid embedding text directly in code; instead, reference translation keys to maintain a clean, translatable structure.
+
+##### **Example Using i18next for JavaScript**
+
+**i18next** is a popular internationalization library for JavaScript and frameworks like React and Vue.
+
+- **Initialize i18next**:
+
+   ```javascript
+   import i18next from 'i18next';
+
+   i18next.init({
+     resources: {
+       en: { translation: { welcome: "Welcome" } },
+       fr: { translation: { welcome: "Bienvenue" } }
+     },
+     lng: "en",
+     fallbackLng: "en",
+   });
+   ```
+
+- **Using Translations**:
+
+   ```javascript
+   console.log(i18next.t('welcome')); // Outputs "Welcome" or "Bienvenue" based on the selected language
+   ```
+
+**Internationalization** prepares applications for a global audience by making them adaptable to various languages and cultural norms. With careful planning and the use of i18n tools and best practices, developers can deliver a localized, accessible experience to users worldwide.
+
+---
+
 #### **CSS Priority in Selecting**
 
 CSS applies styles based on **specificity**, a scoring system that determines which styles take precedence when multiple rules target the same element. Specificity is calculated based on the types of selectors used, with each selector contributing a score. The higher the specificity score, the higher the priority of that style.
@@ -1954,9 +2045,70 @@ The `!important` declaration overrides all specificity calculations, giving the 
 
 ---
 
+#### **Semantic HTML**
+
+**Semantic HTML** uses HTML elements that clearly describe their meaning in the context of the content, such as `<header>`, `<footer>`, `<article>`, and `<section>`. These elements make the document structure more readable for both developers and search engines.
+
+**Benefits**:
+
+- **Improved Accessibility**: Screen readers and assistive technologies can better interpret page content.
+
+- **SEO Enhancement**: Search engines use semantic tags to understand content structure, improving search rankings.
+
+- **Readability**: Developers and tools can understand the purpose of elements more quickly, making code more maintainable.
+
+**Example**:
+
+```html
+<header>
+  <h1>Site Title</h1>
+</header>
+<main>
+  <article>
+    <h2>Article Title</h2>
+    <p>Article content...</p>
+  </article>
+</main>
+<footer>
+  <p>Footer content...</p>
+</footer>
+```
+
+---
+
+#### **Shadow DOM**
+
+**Shadow DOM** is a feature of the Web Components standard that allows developers to encapsulate styles and markup within a component. By isolating these components, the Shadow DOM prevents styles and scripts from leaking in or out, which helps avoid conflicts with other parts of the page.
+
+**Benefits**:
+
+- **Style Encapsulation**: Styles defined within a Shadow DOM don’t affect or get affected by the rest of the document.
+
+- **Reusable Components**: Shadow DOM enables creating modular, reusable components (e.g., custom elements) without conflicting with other styles or scripts.
+
+- **Improved Maintainability**: Encapsulation simplifies styling and JavaScript for components by isolating each element’s scope.
+
+#### **Example**:
+
+```html
+<custom-element></custom-element>
+<script>
+  class CustomElement extends HTMLElement {
+    constructor() {
+      super();
+      const shadow = this.attachShadow({ mode: 'open' });
+      shadow.innerHTML = `<style> p { color: blue; } </style> <p>Shadow DOM Content</p>`;
+    }
+  }
+  customElements.define('custom-element', CustomElement);
+</script>
+```
+
+---
+
 ### **9. Frameworks and Tools**
 
-### **9.1. Angular**
+### **Angular**
 
 #### **What is Angular Framework?**
 
@@ -2454,7 +2606,7 @@ While **Signals** offer a new way to manage state reactively in Angular 16+, the
 
 ---
 
-### **9.2. React**
+### **React**
 
 #### **What is React?**
 
